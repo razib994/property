@@ -1,0 +1,11 @@
+
+.testimonils .swiper-slide {
+    background: rgba(128, 128, 128, 0.185);
+    border-radius: 0px 0px 100px 0px;
+    padding: 30px;
+}
+@media only screen and (max-width: 600px)  {
+    .testimonils  .swiper-slide {
+width: 100% !important;
+    }
+}
