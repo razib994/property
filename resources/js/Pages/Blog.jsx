@@ -65,5 +65,5 @@ const Blog = ({totalCount}) => {
         </>
     );
 }
-Blog.layout = (page) => <Layout children={page}/>
+Blog.layout = (page) => <Layout title="Blog" children={page}/>
 export default Blog;

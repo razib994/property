@@ -35,7 +35,7 @@ class LoginController extends Controller
             if (auth()->user()->is_admin == 1) {
                 
                 $request->session()->regenerate();
-                return redirect()->route('admin.home');
+                return redirect()->route('user.home');
                 
             }else{
                 $request->session()->regenerate();

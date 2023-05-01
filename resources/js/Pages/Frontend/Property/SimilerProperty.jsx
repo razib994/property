@@ -19,18 +19,18 @@ import {  HashNavigation } from "swiper";
 const SimilerProperty = ({similarProperty}) => {
     return (
         <>
-        <section className="py-4">
+        <section className="py-4 ">
             <p className="text-center pt-2 font-bold text-md">Related properties</p>
             <h3 className="text-center pb-6 font-bold text-4xl">Other apartmentsyou might like</h3>
        
-                    <div className="grid w-[90%] mb-10 mx-auto grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4">
+                    <div className="grid w-[90%] mb-10 mx-auto grid-cols-1 gap-6  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 {similarProperty && similarProperty.map((item, index) => 
   <div className="relative mx-auto w-full">
   <InertiaLink href={route("frontend.propertyDetails", {
                     location:item.location.location_name,
 										itemId: item.id,
-									})}>
-    <div className="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+									})}> 
+    <div className="z-[-1] relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
       <div className="rounded-lg bg-white p-4 shadow">
         <div className="relative  justify-center overflow-hidden rounded-lg">
           <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
@@ -51,13 +51,17 @@ const SimilerProperty = ({similarProperty}) => {
         modules={[Keyboard, Pagination, Navigation]}
         className="mySwiper"
       >
+         {item.image_galleries && item.image_galleries.map((i, l) =>
+                <SwiperSlide><img src={i.images} alt={item.title} /></SwiperSlide>
+
+        )}
+        {/* <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
         <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-       
+        */}
       </Swiper>
           <div className="absolute bottom-0 left-5 mb-3 flex">
             <p className="flex items-center font-medium text-white shadow-sm">
@@ -114,24 +118,28 @@ const SimilerProperty = ({similarProperty}) => {
           </div> */}
 
           <div className="">
-            <button><i className="fab fa-whatsapp mx-1 rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i></button>
-            <button><i className="fa fa-phone rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Call</i> </button>
-            <button><i className="fas fa-envelope rounded-md bg-[#064d83] py-2  mx-1 px-1 text-lg md:text-xl text-white"> Email</i>  </button>
+          <a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furnished.free-blood.com/area/${item.location.location_name}/${item.id}`}><i className="fab fa-whatsapp mx-1 rounded-md bg-green-600 py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i> </a>
+          <InertiaLink href={route("frontend.propertyDetails", {
+                    location:item.location.location_name,
+										itemId: item.id,
+									})}> <button><i className="fas fa-envelope rounded-md bg-[#064d83] py-2  mx-1 px-1 text-lg md:text-xl text-white"> Email</i>  </button> </InertiaLink>
+            {/* <button><i className="fa fa-phone rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Call</i> </button> */}
+           
             
           </div>
-          <div className="">
+          {/* <div className="">
           
-          <h2 className="text-xl py-3">{item.title}</h2>
+           <h2 className="text-xl py-3">{item.title}</h2> 
          
-        </div>
+        </div> */}
         </div>
         
        
       </div>
       
     </div>
-    </InertiaLink>
    
+    </InertiaLink>
   </div>
 )}
           

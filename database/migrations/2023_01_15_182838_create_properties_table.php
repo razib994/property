@@ -24,6 +24,9 @@ return new class () extends Migration {
             $table->string('grage');
             $table->string('sqf');
             $table->string('phone');
+            $table->string('city')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable();
             $table->date('date');
             $table->text('description')->nullable();
             $table->text('address')->nullable();
@@ -31,6 +34,7 @@ return new class () extends Migration {
             $table->string('map_link')->nullable();
             $table->string('whatsapp_number')->nullable();
             $table->integer('created_by')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('rating')->nullable();
             $table->string('share_link')->nullable();
             $table->integer('share_count')->default('0');

@@ -13,6 +13,7 @@ const Layout = (props) => {
     const text4 = document.querySelector('.menu-link4');
     window.onscroll = () => {
         if(window.scrollY > 100) {
+            //alert("dd");
             navbar.classList.add('bg-white');
             search.classList.add('block');
             search.classList.add('md:hidden');
@@ -23,7 +24,8 @@ const Layout = (props) => {
             text3.classList.remove('md:text-white');
             text4.classList.remove('md:text-white');
             
-        } else {
+        }else {
+           // alert("eee");
             navbar.classList.remove('bg-white');
             search.classList.remove('block');
             search.classList.add('hidden');
@@ -43,7 +45,7 @@ const Layout = (props) => {
         <div>
             
             <Navigration data={props.children.props}/>
-            <Head><title>{`${props.title? props.title:'Others'} - my `}</title></Head>
+            <Head><title>{`${props.title? props.title:'Others'} - FurHouz `}</title></Head>
                 {props.children}
         <Footer data ={props.children.props.logo}/>
         </div>

@@ -16,10 +16,20 @@ const Create = ({locations, types, features}) => {
 'bath':"",
 'grage':"",
 'sqf':"",
+'balcony':"",
+'floor':"",
+'unit_no':"",
+'unit_per_floor':"",
+'maid_room':"",
+'service_charge':"",
 'phone':"",
 'date':"",
 'description':"",
 'address':"",
+'zip_code':"",
+'country':"",
+'city':"",
+// 'user_id':"",
 'details':"",
 'map_link':"",
 'whatsapp_number':"",
@@ -81,7 +91,7 @@ e.preventDefault();
 
         <div className='flex items-center px-2 py-3'>
             <form className="w-full " onSubmit={handleSubmit} enctype="multipart/form-data">
-  <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
         Title
@@ -174,8 +184,124 @@ e.preventDefault();
     {errors && errors.bath ? <div className="text-[red] py-2">{errors.bath}</div> : null}
   </div>
 
-  <div className="flex flex-wrap -mx-3 mb-6">
 
+  <div className="flex flex-wrap -mx-3 mb-6">
+  <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">
+        City
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="city" type="text" placeholder="City" name='city'
+       errors={errors.city}
+       // value={data.email}
+       onChange={(e) => setData("city", e.target.value)}
+       />
+    </div>
+    {errors && errors.city ? <div className="text-[red] py-2">{errors.city}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="zip_code">
+        ZIP/POSTAL CODE
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="zip_code" type="text" placeholder="Zip Code" name='zip_code'
+       errors={errors.zip_code}
+       // value={data.email}
+       onChange={(e) => setData("zip_code", e.target.value)}
+       />
+    </div>
+    {errors && errors.zip_code ? <div className="text-[red] py-2">{errors.zip_code}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="country">
+      Country
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='country' id="country" type="text" placeholder="Country"
+       errors={errors.country}
+       // value={data.email}
+       onChange={(e) => setData("country", e.target.value)}
+       />
+    </div>
+    {errors && errors.country ? <div className="text-[red] py-2">{errors.country}</div> : null}
+  </div>
+
+  {/* Data start */}
+  <div className="flex flex-wrap -mx-3 mb-6">
+  <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="balcony">
+      Balcony
+
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="balcony" type="text" placeholder="Balcony" name='balcony'
+       errors={errors.cbalconyity}
+       // value={data.email}
+       onChange={(e) => setData("balcony", e.target.value)}
+       />
+    </div>
+    {errors && errors.balcony ? <div className="text-[red] py-2">{errors.balcony}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="floor">
+      Floor
+
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="floor" type="text" placeholder="Floor" name='floor'
+       errors={errors.floor}
+       // value={data.email}
+       onChange={(e) => setData("floor", e.target.value)}
+       />
+    </div>
+    {errors && errors.floor ? <div className="text-[red] py-2">{errors.floor}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="unit_no">
+      Unit No
+
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='unit_no' id="unit_no" type="text" placeholder="Unit No"
+       errors={errors.unit_no}
+       // value={data.email}
+       onChange={(e) => setData("unit_no", e.target.value)}
+       />
+    </div>
+    {errors && errors.unit_no ? <div className="text-[red] py-2">{errors.unit_no}</div> : null}
+  </div>
+  <div className="flex flex-wrap -mx-3 mb-6">
+  <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="unit_per_floor">
+      Unit Per Floor
+
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="unit_per_floor" type="text" placeholder="Unit Per Floor" name='unit_per_floor'
+       errors={errors.unit_per_floor}
+       // value={data.email}
+       onChange={(e) => setData("unit_per_floor", e.target.value)}
+       />
+    </div>
+    {errors && errors.unit_per_floor ? <div className="text-[red] py-2">{errors.unit_per_floor}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="maid_room">
+      Maid Room
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="maid_room" type="text" placeholder="Maid Room" name='maid_room'
+       errors={errors.maid_room}
+       // value={data.email}
+       onChange={(e) => setData("maid_room", e.target.value)}
+       />
+    </div>
+    {errors && errors.maid_room ? <div className="text-[red] py-2">{errors.maid_room}</div> : null}
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="service_charge">
+      Service Charge
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='service_charge' id="service_charge" type="text" placeholder="Service Charge"
+       errors={errors.service_charge}
+       // value={data.email}
+       onChange={(e) => setData("service_charge", e.target.value)}
+       />
+    </div>
+    {errors && errors.service_charge ? <div className="text-[red] py-2">{errors.service_charge}</div> : null}
+  </div>
+  {/* Data End */}
+
+
+
+
+  <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grage">
       Grage
@@ -327,6 +453,31 @@ e.preventDefault();
     </div>
     {errors && errors.video_link ? <div className="text-[red] py-2">{errors.video_link}</div> : null}
   </div>
+
+  {/* <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user_id">
+       Property Owner Name
+      </label>
+      <div className="relative">
+        <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="user_id" name='user_id' 
+        errors={errors.user_id}
+      // value={data.email}
+      onChange={(e) => setData("user_id", e.target.value)}>
+          <option value=""> Select Your Location </option>
+          {locations && locations.map((location, index) =>
+           <option value={location.id}> {location.location_name} </option>
+          )}
+         
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+      </div>     
+    </div>
+    {errors && errors.user_id ? <div className="text-[red] py-2">{errors.user_id}</div> : null}
+  </div> */}
+
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">

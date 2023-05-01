@@ -3,47 +3,62 @@ import React from 'react';
 const Details = ({property}) => {
     return (
         <>
-        <h2 className="text-2xl font-bold">Details</h2>
-             <div className="shadow-lg my-5 border border-sky-500 p-8 bg-blue-50">
-                
+        <div className="shadow-lg my-5 border border-sky-500 p-8 bg-blue-50">
+             <h2 className="text-2xl font-bold border-b-2 pb-3">Details</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Property ID:</strong></div>
-                    <div> {property.id}</div>
+                    <div> {property.property_id}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Garage:</strong></div>
-                    <div> {property.grage}</div>
+                    <div> <strong>Apartment Size:</strong></div>
+                    <div> {property.sqf}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Price:</strong></div>
-                    <div> {property.price}</div>
+                    <div> <strong>Bedroom:</strong></div>
+                    <div> {property.bed}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Garage Size:</strong></div>
-                    <div> Laundry</div>
+                    <div> <strong>Bathroom:</strong></div>
+                    <div> {property.bath}</div>
                     </div>
 
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Property Size:</strong></div>
-                    <div> {property.sqf}</div>
+                    <div> <strong>Balcony:</strong></div>
+                    <div> {property.balcony}</div>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <div> <strong>Floor:</strong></div>
+                    <div> {property.floor}  </div>
+                    </div>
+
+                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <div> <strong>Unit No:</strong></div>
+                    <div>  {property.unit_no} </div>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <div> <strong>Unit Per Floor:</strong></div>
+                    <div>  {property.unit_per_floor} </div>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <div> <strong>Maid Room:</strong></div>
+                    <div> {property.maid_room}</div>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <div> <strong>Parking:</strong></div>
+                    <div> {property.grage}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Year Built:</strong></div>
                     <div> {property.date}</div>
                     </div>
-
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Bedrooms:</strong></div>
-                    <div> {property.bed}</div>
+                    <div> <strong>Monthly Rent:</strong></div>
+                    <div> {property.price}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Property Type:</strong></div>
-                    <div> {property.type.title}</div>
-                    </div>
-                    <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <div> <strong>Bathrooms:</strong></div>
-                    <div> {property.bath}</div>
+                    <div> <strong>Service Charge:</strong></div>
+                    <div> {property.service_charge}</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Property Status:</strong></div>

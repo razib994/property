@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="{{ asset('build/assets/app.ac31adfe.css') }}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
-
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+    
     </head>
     <body id="root">
     @routes

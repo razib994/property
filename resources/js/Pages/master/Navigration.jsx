@@ -17,15 +17,15 @@ const Navigration = ({data}) => {
             <div className="flex flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
                 <input type="checkbox" name="toggle_nav" id="toggle_nav" className="peer hidden"/>
                 <div className="w-full px-2 flex justify-between lg:w-max md:px-0 z-30">
-                   <div><InertiaLink href="/" aria-label="logo" className="flex space-x-2 items-center">
-                        <img src="/logo/logo.png" className="w-16 md:w-32 mt-2 mr-2" alt="tailus logo" width="144" height="133"/>
-                    </InertiaLink>
+                   <div><a href="/" aria-label="logo" className="flex space-x-2 items-center">
+                        <img src="/logo/logo.png" className="w-16 md:w-40 mt-2 mr-2" alt="tailus logo" width="144" height="133"/>
+                    </a>
                     </div> 
                     <div className='search hidden'>
       <form action="" className=" w-[80%] m-auto  ">
                         <div className="relative flex p-1 rounded-full bg-white dark:bg-gray-800 dark:border-gray-600 border border-yellow-200 shadow-md md:p-2 ">
                             <div id="" className=" pt-2 pl-3 rounded-full bg-transparent w-70 md:w-80 relative md:p-2 md:flex justify-between items-center select-none ">
-                                <input type="text" name="catName" id="catName" value="EXPLORE A PLACE" className="pl-0 md:pl-3 w-full bg-white text-xs font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" readonly/>
+                                <input type="text" name="catName" id="catName" value="EXPLORE A PLACE" className="pl-0 md:pl-3 w-full bg-white text-xs font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" />
                                 <input type="checkbox" name="toggleLstCatSearch" id="toggleLstCatSearch" className="peer hidden outline-none"/>
                                 <label role="button" for="toggleLstCatSearch" className="absolute top-0 left-0 w-full h-full"></label>
                                 <span className="min-w-max hidden md:block">
@@ -36,9 +36,9 @@ const Navigration = ({data}) => {
                                 <div id="categorieLst" className="absolute transition-all duration-500 ease-in-out translate-y-10 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-1 top-full left-0 w-full bg-white border border-yellow-200 shadow-md rounded-lg py-2">
                                     <ul className="flex flex-col w-full">
                                         {data.locations && data.locations.map((item, i) =>
-                                        <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2"><InertiaLink href={route("frontend.area", {
-                                            location: item.slug,
-                                        })}> {item.location_name} </InertiaLink></li>
+                                      <a href={route("frontend.area", {
+                                        location: item.slug,
+                                    })}>  <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2"> {item.location_name} </li></a>
                                         )}
                                         
                                     </ul>
@@ -69,21 +69,21 @@ const Navigration = ({data}) => {
 
                 <label role="button" for="toggle_nav" className="hidden peer-checked:block fixed w-full h-full left-0 top-0 z-10 bg-yellow-200 dark:bg-black dark:bg-opacity-80 bg-opacity-30 backdrop-blur backdrop-filter"></label>
                 
-                <div className="hidden peer-checked:flex w-full flex-col lg:flex lg:flex-row justify-end z-30 items-center gap-y-6 p-6 rounded-xl bg-white dark:bg-gray-900 lg:gap-y-0 lg:p-0 md:flex-nowrap lg:bg-transparent lg:w-7/12">
+                <div className="hidden peer-checked:flex w-full flex-col lg:flex lg:flex-row justify-end z-30 items-center gap-y-6 p-6 rounded-xl bg-white dark:bg-gray-900 lg:gap-y-0 lg:p-0 md:flex-nowrap lg:bg-transparent lg:w-8/12">
                     <div className="text-gray-600 lg:pr-4 w-full">
                         <ul className="tracking-wide font-medium  text-sm 
                         flex flex-col gap-y-6 lg:gap-y-0 lg:flex-row w-full">
                             <li>
-                                <InertiaLink href="/" className={`block  md:px-4  ${url == '/' ? 'md:text-white menu-link':''} transition dark:text-gray-300 dark:hover:text-yellow-300 hover:text-white-700`}>
+                                <a href="/property" className={`block  md:px-4  ${url == '/' ? 'md:text-white menu-link':''} transition dark:text-gray-600 dark:hover:text-yellow-300 hover:text-white-700 text-lg`}>
                                     <span>APARTMENTS</span>
-                                </InertiaLink>
+                                </a>
                             </li>
                             <li>
-                                <InertiaLink href="/property" className={`block  md:px-4 ${url == '/' ? 'md:text-white menu-link1':''} transition dark:text-gray-300 dark:hover:text-yellow-300 hover:text-white-700`}>
+                                <a href="/property-owner" className={`block  md:px-4 ${url == '/' ? 'md:text-white menu-link1':''} transition dark:text-gray-600 dark:hover:text-yellow-300 hover:text-white-700 text-lg`}>
                                     <span>PROPERTY OWNER</span>
-                                </InertiaLink>
+                                </a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a href="/about" className={`block  md:px-4 transition  ${url == '/' ? 'md:text-white menu-link2':''} dark:text-gray-300 dark:hover:text-yellow-300 hover:text-white-700`}>
                                     <span>ABOUT</span>
                                 </a>
@@ -92,27 +92,42 @@ const Navigration = ({data}) => {
                                 <a href="/contact" className={`block md:px-4  ${url == '/' ? 'md:text-white menu-link3':''} transition dark:text-gray-300 dark:hover:text-yellow-300 hover:text-white-700`}>
                                     <span>CONTACT</span>
                                 </a>
+                            </li> */}
+                            <li>
+                                <a href="/faq" className={`block md:px-4  ${url == '/' ? 'md:text-white menu-link2':''} transition dark:text-gray-600 dark:hover:text-yellow-300 hover:text-white-700 text-lg`}>
+                                    <span>SUPPORT</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="/" className={`block md:px-4 transition ${url == '/' ? 'md:text-white menu-link4':''} dark:text-gray-300 dark:hover:text-yellow-300 hover:text-white-700`}>
+                                <a href="/corporates" className={`block md:px-4 transition ${url == '/' ? 'md:text-white menu-link3':''} dark:text-gray-600 dark:hover:text-yellow-300 hover:text-white-700 text-lg`}>
                                     <span>CORPORATE</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <div className="w-full min-w-max space-y-2 
+                    <div className="w-full min-w-max space-y-2  
                    lg:space-y-0 sm:w-max  dark:lg:border-gray-700 mx-2">
                         {/* <button type="button" title="Start buying" className="w-full py-3 px-6 text-center rounded-full transition active:bg-yellow-200 dark:active:bg-gray-700 dark:focus:bg-gray-800 focus:bg-yellow-100 sm:w-max">
                             <span className="block text-yellow-800 dark:text-white font-semibold text-sm">
                                 Sign up
                             </span>
                         </button> */}
-                        <a href='tel:01616171171' type="button" title="Start buying" className="w-full py-3 px-6 text-center rounded-full transition bg-[#064d83]  active:bg-[#064d83] focus:bg-[#064d83] sm:w-max">
-                            <span className="block text-white  font-semibold text-md">
+                        {/* <InertiaLink href='tel:01616171171' type="button" title="Start buying" className="w-full py-3 px-6 text-center rounded-full transition bg-[#064d83]  active:bg-[#064d83] focus:bg-[#064d83] sm:w-max">
+                            <span className=" text-white  font-semibold text-md">
                             <i className="fa fa-phone mr-2"></i> 01616 171 171
                             </span>
+                        </InertiaLink> */}
+                        {/* <a href='/client-registration' type="button" title="Start buying" className="w-full mr-2 py-3 px-6 text-center rounded-full transition bg-[#064d83]  active:bg-[#064d83] focus:bg-[#064d83] sm:w-max">
+                            <span className=" text-white  font-semibold text-lg">
+                             Sign Up
+                            </span>
                         </a>
+                        <a href='/login' type="button" title="Start buying" className="w-full py-3 px-6 text-center rounded-full transition bg-[#064d83]  active:bg-[#064d83] focus:bg-[#064d83] sm:w-max">
+                            <span className=" text-white  font-semibold text-lg">
+                            Sign In
+                            </span>
+                        </a> */}
                     </div>
                 </div>
             </div>

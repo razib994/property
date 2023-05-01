@@ -197,5 +197,5 @@ const NotFound = () => {
         </>
     );
 }
-NotFound.layout = (page) => <Layout children={page}/>
+NotFound.layout = (page) => <Layout title="Error 404" children={page}/>
 export default NotFound;

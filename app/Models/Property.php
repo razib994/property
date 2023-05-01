@@ -9,9 +9,9 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 
+    protected $fillable = [
 
-        'title',             
+        'title',
                 'slug'             ,
                 'location_id'      ,
                 'price'            ,
@@ -19,6 +19,10 @@ class Property extends Model
                 'bed'             ,
                 'bath'             ,
                 'grage'            ,
+                'city',
+                'zip_code',
+                'country',
+                'user_id',
                 'sqf'             ,
                 'phone'             ,
                 'date'            ,
@@ -42,28 +46,34 @@ class Property extends Model
                 'meta_description'  ,
                 'meta_tag'          ,
                 'meta_keyward'    ,
-               
+
     ];
 
 
 
-    public function type() {
+    public function type()
+    {
         return $this->belongsTo(Type::class);
     }
-    
-    public function user() {
-        return $this->belongsTo(User::class,'created_by', 'id');
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
     }
 
-    public function image_galleries() {
+    public function image_galleries()
+    {
         return $this->hasMany(PropertyImageGallery::class);
     }
 
-    public function location() {
+    public function location()
+    {
         return $this->belongsTo(Location::class);
     }
 
-    public function features() {
+    public function features()
+    {
         return $this->hasMany(FeatureProperty::class);
     }
+
 }

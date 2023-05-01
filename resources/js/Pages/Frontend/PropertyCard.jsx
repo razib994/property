@@ -16,14 +16,15 @@ import { Keyboard, Pagination, Navigation } from "swiper";
 // import required modules
 import {  HashNavigation } from "swiper";
 const PropertyCard = ({item}) => {
+  
     return (
         <>
            
   <div className="relative mx-auto w-full">
-  <InertiaLink href={route("frontend.propertyDetails", {
+  <a href={route("frontend.propertyDetails", {
                     location:item.location.location_name,
 										itemId: item.id,
-									})}>
+									})}> 
     <div className="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
       <div className="rounded-lg bg-white p-4 shadow">
         <div className="relative  justify-center overflow-hidden rounded-lg">
@@ -45,12 +46,10 @@ const PropertyCard = ({item}) => {
         modules={[Keyboard, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" /></SwiperSlide>
+        {item.image_galleries && item.image_galleries.map((i, l) =>
+                <SwiperSlide><img src={i.images} alt={item.title} /></SwiperSlide>
+
+        )}
        
       </Swiper>
           <div className="absolute bottom-0 left-5 mb-3 flex">
@@ -65,8 +64,9 @@ const PropertyCard = ({item}) => {
             </p>
           </div>
 
-          <span className="absolute top-0 right-2 z-10 mt-3 ml-3 inline-flex select-none rounded-sm bg-gray-900 px-2 py-1 text-xs font-semibold text-white"> {item.type.title} </span>
-          <span className="absolute top-0 left-0 z-10 mt-3 ml-3 inline-flex select-none rounded-lg bg-transparent px-3 py-2 text-lg font-medium text-white"> <i className="fa fa-star"></i> </span>
+          {/* <span className="absolute top-0 right-2 z-10 mt-3 ml-3 inline-flex select-none rounded-sm bg-gray-900 px-2 py-1 text-xs font-semibold text-white"> {item.type.title} </span> */}
+          <span className="absolute top-0 right-2 z-10 mt-3 ml-3 inline-flex select-none rounded-sm bg-gray-900 px-2 py-1 text-xs font-semibold text-white"> {item.property_id} </span>
+          {/* <span className="absolute top-0 left-0 z-10 mt-3 ml-3 inline-flex select-none rounded-lg bg-transparent px-3 py-2 text-lg font-medium text-white"> <i className="fa fa-star"></i> </span> */}
         </div>
         
         <div className="mt-4">
@@ -77,7 +77,10 @@ const PropertyCard = ({item}) => {
           </p>
         </div>
         <div className="mt-4">
-          <p className="line-clamp-1 mt-2 text-lg text-gray-800">{item.address}</p>
+          <p className=" mt-2 text-xl font-bold">{item.title}</p>
+        </div>
+        <div className="mt-1">
+          <p className="line-clamp-1 mt-1 text-sm text-gray-800">{item.address}</p>
         </div>
         <div className="justify-center">
           <div className="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
@@ -108,23 +111,23 @@ const PropertyCard = ({item}) => {
           </div> */}
 
           <div className="">
-            <button><i className="fab fa-whatsapp mx-1 rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i></button>
-            <button><i className="fa fa-phone rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Call</i> </button>
-            <button><i className="fas fa-envelope rounded-md bg-[#064d83] py-2  mx-1 px-1 text-lg md:text-xl text-white"> Email</i>  </button>
+            <a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furnished.free-blood.com/area/${item.location.location_name}/${item.id}`}><i className="fab fa-whatsapp mx-1 rounded-md bg-green-600 py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i></a>
+            {/* <button><i className="fa fa-phone rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Call</i> </button> */}
+            <a href="/get-request"><i className="fas fa-envelope rounded-md bg-[#064d83] py-2  mx-1 px-1 text-lg md:text-xl text-white"> Email</i>  </a>
             
           </div>
-          <div className="">
+          {/* <div className="">
           
-          <h2 className="text-xl py-3">{item.title}</h2>
+           <h2 className="text-xl py-3">{item.title}</h2> 
          
-        </div>
+        </div> */}
         </div>
         
        
       </div>
       
     </div>
-    </InertiaLink>
+   </a>
    
   </div>
 

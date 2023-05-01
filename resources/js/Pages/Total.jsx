@@ -121,7 +121,7 @@ const Total = () => {
                     <form action="" className=" md:w-[60%] m-auto mt-4 md:mt-12 lg:mt-12 xl-mt-12 ">
                         <div className="relative flex p-1 rounded-full bg-white dark:bg-gray-800 dark:border-gray-600 border border-yellow-200 shadow-md md:p-2 ">
                             <div id="categories" className=" p-1 rounded-full bg-transparent w-70 md:w-80 relative md:p-4 md:flex justify-between items-center select-none">
-                                <input type="text" name="catName" id="catName" value="Choose Your Area" className="pl-3 w-full bg-white text-base font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" readonly/>
+                                <input type="text" name="catName" id="catName" value="Choose Your Area" className="pl-3 w-full bg-white text-base font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" />
                                 <input type="checkbox" name="toggleLstCat" id="toggleLstCat" className="peer hidden outline-none"/>
                                 <label role="button" for="toggleLstCat" className="absolute top-0 left-0 w-full h-full"></label>
                                 <span className="min-w-max">

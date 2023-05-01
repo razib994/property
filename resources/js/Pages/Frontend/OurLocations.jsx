@@ -5,12 +5,15 @@ const OurLocations = ({locations}) => {
         <>
          <section className=" mt-0 pb-16 mb-16">
         <div className="text-center items-center w-[80%] mx-auto my-10">
-                <h2 className="text-4xl mb-3 font-bold space-y-4">Our Locations</h2>
+                <h2 className="text-4xl mb-3 font-bold space-y-4 text-[#064d83]">Our Locations</h2>
             </div>
-			<div class="grid mx-auto grid-cols-2 md:grid-cols-4  justify-center items-center  w-[80%] gap-4 md:gap-6">
+			<div class="grid mx-auto grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4  justify-center items-center  w-[80%] gap-4 md:gap-6">
 				{locations && locations.map((item, key) => 
+				<a href={route("frontend.area", {
+					location: item.slug,
+				})}>
 				<div class="relative flex flex-col justify-between   bg-white shadow-md rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md h-64 " key={key}
-					style={{backgroundImage:`url('https://images.unsplash.com/reserve/8T8J12VQxyqCiQFGa2ct_bahamas-atlantis.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80')`}}>
+					style={{backgroundImage:`url('${item.image}')`}}>
 					<div class="absolute bg-gradient-to-t from-green-400 to-blue-400  opacity-50 inset-0 z-0"></div>
 					<div class="relative flex flex-row items-end  h-72 w-full ">
 						{/* <div class="absolute right-0 top-0 m-2 bg-white p-2 rounded-lg">
@@ -52,6 +55,7 @@ const OurLocations = ({locations}) => {
 						</div>
 					</div>
 				</div>
+				</a>
 				)}
 				{/* <div class="relative flex flex-col justify-between   bg-white shadow-md  rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md h-64 mb-2"
 					style={{backgroundImage:`url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80')`}}>

@@ -9,5 +9,5 @@ const Contact = () => {
         </>
     );
 }
-Contact.layout=(page) => <Layout children={page}/>;
+Contact.layout=(page) => <Layout title="Contact Us" children={page}/>;
 export default Contact;
