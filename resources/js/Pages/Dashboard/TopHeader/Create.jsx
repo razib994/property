@@ -31,12 +31,12 @@ e.preventDefault();
 }
     return (
         <>
-            <div classNameName="pt-6 px-4 ">
+            <div className="pt-6 px-4 ">
             <div className="p-10">
     <div className='flex  w-[65%] bg-white shadow-md rounded-lg overflow-hidden mx-auto p-6'>
 
         <div className='flex items-center px-2 py-3'>
-            <form className="w-full " onSubmit={handleSubmit} enctype="multipart/form-data">
+            <form className="w-full " onSubmit={handleSubmit} >
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">

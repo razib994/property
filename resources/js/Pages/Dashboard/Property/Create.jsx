@@ -85,12 +85,12 @@ e.preventDefault();
 }
     return (
         <>
-            <div classNameName="pt-6 px-4 ">
+            <div className="pt-6 px-4 ">
             <div className="p-10">
     <div className='flex  w-[65%] bg-white shadow-md rounded-lg overflow-hidden mx-auto p-6'>
 
         <div className='flex items-center px-2 py-3'>
-            <form className="w-full " onSubmit={handleSubmit} enctype="multipart/form-data">
+            <form className="w-full " onSubmit={handleSubmit} >
             <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
@@ -127,7 +127,7 @@ e.preventDefault();
       onChange={(e) => setData("location_id", e.target.value)}>
           <option value=""> Select Your Location </option>
           {locations && locations.map((location, index) =>
-           <option value={location.id}> {location.location_name} </option>
+           <option key={index} value={location.id}> {location.location_name} </option>
           )}
          
         </select>
@@ -150,7 +150,7 @@ e.preventDefault();
         onChange={(e) => setData("type_id", e.target.value)}>
           <option value="">Select Type </option>
           {types && types.map((i, index) => 
-          <option value={i.id}>{i.title}</option>
+          <option key={index} value={i.id}>{i.title}</option>
           )}
           
         </select>
@@ -352,8 +352,8 @@ e.preventDefault();
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
-  <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
-    <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description" name='description' errors={errors.description}
+  <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
+    <textarea id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description" name='description' errors={errors.description}
        // value={data.email}
        onChange={(e) => setData("description", e.target.value)}></textarea>
    
@@ -364,8 +364,8 @@ e.preventDefault();
   <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
     
 
-<label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Address</label>
-    <textarea id="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" name='address' errors={errors.address}
+<label for="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Address</label>
+    <textarea id="address" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" name='address' errors={errors.address}
        // value={data.email}
        onChange={(e) => setData("address", e.target.value)}></textarea>
     </div>
@@ -375,8 +375,8 @@ e.preventDefault();
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
       
-       <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Details</label>
-    <textarea id="details" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Details" name='details' errors={errors.details}
+       <label for="details" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Details</label>
+    <textarea id="details" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Details" name='details' errors={errors.details}
        // value={data.email}
        onChange={(e) => setData("details", e.target.value)}></textarea>
     </div>
@@ -425,22 +425,15 @@ e.preventDefault();
   {features && features.map((feature, i) => 
   <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0" key={i}>
 
-  <input type="checkbox" class="form-checkbox h-4 w-5 text-gray-600 mb-4"  name='feature_id' value={feature.id}  errors={errors.feature_id}
+  <input type="checkbox" className="form-checkbox h-4 w-5 text-gray-600 mb-4"  name='feature_id' value={feature.id}  errors={errors.feature_id}
         // value={data.email}
-        onChange={handleCheck} /><span class="ml-2 text-gray-700 text-2xl">{feature.feature_name}</span>
+        onChange={handleCheck} /><span className="ml-2 text-gray-700 text-2xl">{feature.feature_name}</span>
    </div>
   )}
   </div>
   {errors && errors.feature_id ? <div className="text-[red] py-2">{errors.feature_id}</div> : null}
 
-  {/* <div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="feature">
-      Feature 
-      </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500 focus:border-gray-500" id="feature" type="text" placeholder="Feature" name='feature'/>
-    </div>
-  </div> */}
+
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="video_link">
@@ -545,7 +538,7 @@ e.preventDefault();
       </div>
     </div> */}
   </div>
-  <button className="p-3 bg-green-600 text-white px-10 rounded-lg hover:bg-green-500" processing = {processing} type='submit'> Save </button>
+  <button className="p-3 bg-green-600 text-white px-10 rounded-lg hover:bg-green-500"  type='submit'> Save </button>
 </form>
         </div>
     </div>

@@ -31,7 +31,7 @@ e.preventDefault();
 }
     return (
         <>
-            <div classNameName="pt-6 px-4 ">
+            <div className="pt-6 px-4 ">
             <div className="p-10">
     <div className='flex  w-[65%] bg-white shadow-md rounded-lg overflow-hidden mx-auto p-6'>
 

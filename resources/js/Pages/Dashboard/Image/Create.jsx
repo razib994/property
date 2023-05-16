@@ -30,7 +30,7 @@ e.preventDefault();
 }
     return (
         <div>
-            <form onSubmit={handleSubmit} encType="multipart/formData">
+            <form onSubmit={handleSubmit} enctype="multipart/formData">
                 <input type="file" name="image" onChange={(e) =>
                                                 setData("image", e.target.files[0])
                                             }/>
