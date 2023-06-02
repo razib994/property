@@ -124,6 +124,11 @@ class PropertyController extends Controller
         return redirect('/propety-list');
     }
 
+    public function editProperty($id)
+    {
+        dd($id);
+    }
+
     public function propertyListDetails($id)
     {
         $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
