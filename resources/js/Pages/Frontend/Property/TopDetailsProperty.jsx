@@ -66,7 +66,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
                     <Address property = {property}/>
                     <Details property = {property}/>
                     <Feature features = {property.features} />
-                    <MapSection map_link = {property.map_link}/>
+                    {/* <MapSection map_link = {property.map_link}/> */}
                     <ContactInformation property = {property}/>
                    
                    

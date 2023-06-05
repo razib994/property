@@ -113,13 +113,15 @@ const Index = ({properties}) =>{
                                 <div className="relative px-5 pt-2">
                                     
                                 <a href={route('property.edit', item.id)} >
-                                        <div className="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                        <div className="focus:outline-none focus:text-indigo-600 text-xs w-full bg-green-600 text-white hover:bg-green-700 py-2 px-2 cursor-pointer hover:text-white">
                                             Edit
                                         </div>
                                         </a>
-                                        <div className="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                            <p>Delete</p>
+                                        <a href={route('property.delete', item.id)}> 
+                                        <div className="focus:outline-none focus:text-indigo-600 text-xs w-full bg-red-500 hover:bg-red-700 py-2 px-2 text-white mt-2 cursor-pointer hover:text-white">
+                                           Delete 
                                         </div>
+                                        </a>
                                   
                                 </div>
                             </td>

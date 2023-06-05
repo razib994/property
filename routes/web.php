@@ -65,7 +65,9 @@ Route::middleware('user_admin')->group(function () {
     // Property
     Route::get("/propety-create", [PropertyController::class,'propertyCreate'])->name('property.create');
     Route::post("/propety-store", [PropertyController::class,'storeProperty'])->name('property.submit');
+    Route::post("/propety-update", [PropertyController::class,'updateProperty'])->name('property.update');
     Route::get("/propety-edit/{id}", [PropertyController::class,'editProperty'])->name('property.edit');
+    Route::get("/delete/{id}", [PropertyController::class,'destroy'])->name('property.delete');
     Route::get("/propety-list", [PropertyController::class,'propertyList'])->name('property.list');
     Route::get("/propety-list/details/{id}", [PropertyController::class,'propertyListDetails'])->name('property.list.details');
 

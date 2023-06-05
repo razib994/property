@@ -1006,10 +1006,10 @@
   "resolved" "https://registry.npmjs.org/kuler/-/kuler-2.0.0.tgz"
   "version" "2.0.0"
 
-"laravel-vite-plugin@^0.7.6":
-  "integrity" "sha512-WJ1WRqR/ZDbJD+qEEPM+biG0ZPSub0n3DywEi21+YO1jZA8amMoJGu76HiAFM16eWz5cBcCeRM/gseVXfGV4Mw=="
-  "resolved" "https://registry.npmjs.org/laravel-vite-plugin/-/laravel-vite-plugin-0.7.6.tgz"
-  "version" "0.7.6"
+"laravel-vite-plugin@^0.7.8":
+  "integrity" "sha512-HWYqpQYHR3kEQ1LsHX7gHJoNNf0bz5z5mDaHBLzS+PGLCTmYqlU5/SZyeEgObV7z7bC/cnStYcY9H1DI1D5Udg=="
+  "resolved" "https://registry.npmjs.org/laravel-vite-plugin/-/laravel-vite-plugin-0.7.8.tgz"
+  "version" "0.7.8"
   dependencies:
     "picocolors" "^1.0.0"
     "vite-plugin-full-reload" "^1.0.5"
@@ -1544,10 +1544,10 @@
     "picocolors" "^1.0.0"
     "picomatch" "^2.3.1"
 
-"vite@^2 || ^3 || ^4", "vite@^3.0.0 || ^4.0.0", "vite@^4.0.0", "vite@^4.1.0-beta.0", "vite@^4.3.6":
-  "integrity" "sha512-cqIyLSbA6gornMS659AXTVKF7cvSHMdKmJJwQ9DXq3lwsT1uZSdktuBRlpHQ8VnOWx0QHtjDwxPpGtyo9Fh/Qg=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-4.3.6.tgz"
-  "version" "4.3.6"
+"vite@^2 || ^3 || ^4", "vite@^3.0.0 || ^4.0.0", "vite@^4.0.0", "vite@^4.1.0-beta.0", "vite@^4.3.9":
+  "integrity" "sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-4.3.9.tgz"
+  "version" "4.3.9"
   dependencies:
     "esbuild" "^0.17.5"
     "postcss" "^8.4.23"

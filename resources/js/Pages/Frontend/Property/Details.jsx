@@ -29,7 +29,7 @@ const Details = ({property}) => {
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Floor:</strong></div>
-                    <div> {property.floor}  </div>
+                    <div> {property.floor == 1 ? "1st": property.floor == 2 ? "2nd":property.floor == 3 ? "3rd":property.floor+'th' }  </div>
                     </div>
 
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
@@ -42,7 +42,7 @@ const Details = ({property}) => {
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Maid Room:</strong></div>
-                    <div> {property.maid_room}</div>
+                    <div> {property.maid_room == 1 ? "Yes":"No" }</div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <div> <strong>Parking:</strong></div>

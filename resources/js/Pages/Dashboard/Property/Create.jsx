@@ -24,13 +24,13 @@ const Create = ({locations, types, features}) => {
 'service_charge':"",
 'phone':"",
 'date':"",
-'description':"",
+// 'description':"",
 'address':"",
 'zip_code':"",
 'country':"",
 'city':"",
 // 'user_id':"",
-'details':"",
+// 'details':"",
 'map_link':"",
 'whatsapp_number':"",
 'created_by':"",
@@ -100,9 +100,9 @@ e.preventDefault();
                           errors={errors.title}
 												// value={data.email}
 												onChange={(e) => setData("title", e.target.value)}/>
-      {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
+      {errors && errors.title ? <div className="text-[red] py-2">{errors.title}</div> : null}
     </div>
-    {errors && errors.title ? <div className="text-[red] py-2">{errors.title}</div> : null}
+  
     <div className="w-full md:w-1/2 px-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
         Price
@@ -111,8 +111,9 @@ e.preventDefault();
       errors={errors.price}
       // value={data.email}
       onChange={(e) => setData("price", e.target.value)}/>
+       {errors && errors.price ? <div className="text-[red] py-2">{errors.price}</div> : null}
     </div>
-    {errors && errors.price ? <div className="text-[red] py-2">{errors.price}</div> : null}
+   
   </div>
   
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -134,9 +135,10 @@ e.preventDefault();
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
           <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
-      </div>     
+      </div>  
+      {errors && errors.location_id ? <div className="text-[red] py-2">{errors.location_id}</div> : null}   
     </div>
-    {errors && errors.location_id ? <div className="text-[red] py-2">{errors.location_id}</div> : null}
+    
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -164,22 +166,44 @@ e.preventDefault();
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="bed">
         Bed
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="bed" type="text" placeholder="Bed" name='bed'
-       errors={errors.bed}
-       // value={data.email}
-       onChange={(e) => setData("bed", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="bed" name='bed'
+        errors={errors.bed}
+        // value={data.email}
+        onChange={(e) => setData("bed", e.target.value)}>
+          <option value="0">Select Bed </option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+          <option value='9'>9</option>
+        </select>
+     
     </div>
     {errors && errors.bed ? <div className="text-[red] py-2">{errors.bed}</div> : null}
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="bath">
         Bath
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='bath' id="bath" type="text" placeholder="Bath"
-       errors={errors.bath}
-       // value={data.email}
-       onChange={(e) => setData("bath", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="bath" name='bath'
+        errors={errors.bath}
+        // value={data.email}
+        onChange={(e) => setData("bath", e.target.value)}>
+          <option value="0">Select Bath </option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+          <option value='9'>9</option>
+        </select>
+      
     </div>
     {errors && errors.bath ? <div className="text-[red] py-2">{errors.bath}</div> : null}
   </div>
@@ -212,11 +236,15 @@ e.preventDefault();
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="country">
       Country
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='country' id="country" type="text" placeholder="Country"
-       errors={errors.country}
-       // value={data.email}
-       onChange={(e) => setData("country", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="country" name='country'
+        errors={errors.country}
+        // value={data.email}
+        onChange={(e) => setData("country", e.target.value)}>
+          <option value='bangladesh' selected>Bangladesh</option>
+          <option value='others'>Others</option>
+        
+        </select>
+     
     </div>
     {errors && errors.country ? <div className="text-[red] py-2">{errors.country}</div> : null}
   </div>
@@ -228,11 +256,22 @@ e.preventDefault();
       Balcony
 
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="balcony" type="text" placeholder="Balcony" name='balcony'
-       errors={errors.cbalconyity}
-       // value={data.email}
-       onChange={(e) => setData("balcony", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="balcony" name='balcony'
+        errors={errors.balcony}
+        // value={data.email}
+        onChange={(e) => setData("balcony", e.target.value)}>
+          <option value="0">Select Balcony </option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+          <option value='9'>9</option>
+        </select>
+     
     </div>
     {errors && errors.balcony ? <div className="text-[red] py-2">{errors.balcony}</div> : null}
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -240,11 +279,33 @@ e.preventDefault();
       Floor
 
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="floor" type="text" placeholder="Floor" name='floor'
-       errors={errors.floor}
-       // value={data.email}
-       onChange={(e) => setData("floor", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="floor" name='floor'
+        errors={errors.floor}
+        // value={data.email}
+        onChange={(e) => setData("floor", e.target.value)}>
+          <option value="0">Select Floor </option>
+          <option value='1'>1st</option>
+          <option value='2'>2nd</option>
+          <option value='3'>3rd</option>
+          <option value='4'>4th</option>
+          <option value='5'>5th</option>
+          <option value='6'>6th</option>
+          <option value='7'>7th</option>
+          <option value='8'>8th</option>
+          <option value='9'>9th</option>
+          <option value='10'>10th</option>
+          <option value='11'>11th</option>
+          <option value='12'>12th</option>
+          <option value='13'>13th</option>
+          <option value='14'>14th</option>
+          <option value='15'>15th</option>
+          <option value='16'>16th</option>
+          <option value='17'>17th</option>
+          <option value='18'>18th</option>
+          <option value='19'>19th</option>
+          <option value='20'>20th</option>
+        </select>
+     
     </div>
     {errors && errors.floor ? <div className="text-[red] py-2">{errors.floor}</div> : null}
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -252,7 +313,7 @@ e.preventDefault();
       Unit No
 
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='unit_no' id="unit_no" type="text" placeholder="Unit No"
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="unit_no" type="text" placeholder="unit_no" name='unit_no'
        errors={errors.unit_no}
        // value={data.email}
        onChange={(e) => setData("unit_no", e.target.value)}
@@ -266,22 +327,38 @@ e.preventDefault();
       Unit Per Floor
 
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="unit_per_floor" type="text" placeholder="Unit Per Floor" name='unit_per_floor'
-       errors={errors.unit_per_floor}
-       // value={data.email}
-       onChange={(e) => setData("unit_per_floor", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="unit_per_floor" name='unit_per_floor'
+        errors={errors.unit_per_floor}
+        // value={data.email}
+        onChange={(e) => setData("unit_per_floor", e.target.value)}>
+          <option value="0">Select Unit Per Floor </option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+          <option value='9'>9</option>
+        </select>
+     
     </div>
     {errors && errors.unit_per_floor ? <div className="text-[red] py-2">{errors.unit_per_floor}</div> : null}
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="maid_room">
       Maid Room
       </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="maid_room" type="text" placeholder="Maid Room" name='maid_room'
-       errors={errors.maid_room}
-       // value={data.email}
-       onChange={(e) => setData("maid_room", e.target.value)}
-       />
+      <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="maid_room" name='maid_room'
+        errors={errors.maid_room}
+        // value={data.email}
+        onChange={(e) => setData("maid_room", e.target.value)}>
+          <option value="0">Select Maid Room </option>
+          <option value='1'>Yes</option>
+          <option value='0'>No</option>
+      
+        </select>
+     
     </div>
     {errors && errors.maid_room ? <div className="text-[red] py-2">{errors.maid_room}</div> : null}
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -350,16 +427,7 @@ e.preventDefault();
     </div>
     {errors && errors.date ? <div className="text-[red] py-2">{errors.date}</div> : null}
   </div>
-  <div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
-  <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
-    <textarea id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description" name='description' errors={errors.description}
-       // value={data.email}
-       onChange={(e) => setData("description", e.target.value)}></textarea>
-   
-    </div>
-    {errors && errors.description ? <div className="text-[red] py-2">{errors.description}</div> : null}
-  </div>
+
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
     
@@ -372,18 +440,9 @@ e.preventDefault();
     {errors && errors.address ? <div className="text-[red] py-2">{errors.address}</div> : null}
   </div>
 
+
   <div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
-      
-       <label for="details" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Details</label>
-    <textarea id="details" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Details" name='details' errors={errors.details}
-       // value={data.email}
-       onChange={(e) => setData("details", e.target.value)}></textarea>
-    </div>
-    {errors && errors.details ? <div className="text-[red] py-2">{errors.details}</div> : null}
-  </div>
-  <div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+  <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="map_link">
       Map Link
       </label>
@@ -394,7 +453,7 @@ e.preventDefault();
        />
     </div>
     {errors && errors.map_link ? <div className="text-[red] py-2">{errors.map_link}</div> : null}
-    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="whatsapp_number">
       Whatsapp Number
       </label>
@@ -405,17 +464,6 @@ e.preventDefault();
        />
     </div>
     {errors && errors.whatsapp_number ? <div className="text-[red] py-2">{errors.whatsapp_number}</div> : null}
-    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="share_link">
-      Share Link
-      </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="share_link" type="text" placeholder="Share Link" name='share_link'
-       errors={errors.share_link}
-       // value={data.email}
-       onChange={(e) => setData("share_link", e.target.value)}
-       />
-    </div>
-    {errors && errors.share_link ? <div className="text-[red] py-2">{errors.share_link}</div> : null}
   </div>
   <div className="flex flex-wrap  mb-6 text-2xl font-bold">
  Feature
@@ -485,9 +533,9 @@ e.preventDefault();
       <progress value={progress.percentage} max="100">
         {progress.percentage}%
       </progress> )}
-      {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
+      {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
     </div>
-    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
+  
     <div className="w-full md:w-1/2 px-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Multi Image
@@ -497,8 +545,9 @@ e.preventDefault();
        // value={data.email}
        onChange={(e) => setData("image_gallery", [...e.target.files])}
        />
+         {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null}
     </div>
-    {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null}
+  
   </div>
 
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -520,8 +569,9 @@ e.preventDefault();
           <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
       </div>
+      {errors && errors.publisher_status ? <div className="text-[red] py-2">{errors.publisher_status}</div> : null}
     </div>
-    {errors && errors.publisher_status ? <div className="text-[red] py-2">{errors.publisher_status}</div> : null}
+  
     {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
         Status

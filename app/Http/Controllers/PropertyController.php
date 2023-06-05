@@ -9,8 +9,10 @@ use App\Models\Property;
 use App\Models\PropertyImageGallery;
 use App\Models\Type;
 use Database\Seeders\PropertyImageGallerySeeder;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
@@ -43,7 +45,15 @@ class PropertyController extends Controller
 
     public function storeProperty(Request $request)
     {
-        dd($request->all());
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+            'location_id' => 'required',
+            'publisher_status' => 'required',
+            'image_gallery' => 'required',
+
+        ]);
         $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
         if ($photo!="") {
             $ext                    = $photo->getClientOriginalExtension();
@@ -73,14 +83,14 @@ class PropertyController extends Controller
             'service_charge'               =>$request->service_charge,
             'phone'             =>$request->phone,
             'date'              =>$request->date,
-            'description'       =>$request->description,
+            // 'description'       =>$request->description,
             'address'           =>$request->address,
-            'details'           =>$request->details,
+            // 'details'           =>$request->details,
             'map_link'          =>$request->map_link,
             'whatsapp_number'   =>$request->whatsapp_number,
             'created_by'        =>Auth::user()->id,
             'rating'            => 0, //$request->rating,
-            'share_link'        =>$request->share_link,
+            // 'share_link'        =>$request->share_link,
             'share_count'       =>0, //$request->share_count,
             'call_count'        =>0, //$request->call_count,
             'visitor_count'     =>0, //$request->visitor_count,
@@ -124,9 +134,69 @@ class PropertyController extends Controller
         return redirect('/propety-list');
     }
 
-    public function editProperty($id)
+    public function editProperty(Request $request, $id)
     {
-        dd($id);
+        $property = Property::find($id);
+        $locations = Location::where('status', 1)->get();
+        $types = Type::where('status', 1)->get();
+        $features = Feature::where('status', 1)->get();
+        return Inertia::render("Dashboard/Property/Edit", [
+            'properties' =>$property,
+            'locations'=>$locations,
+                'types'=>$types,
+                'features'=>$features,
+        ]);
+
+
+    }
+
+    public function updateProperty(Request $request)
+    {
+        dd($request->all());
+        $property = Property::find($request->id);
+
+        $property->update([
+            'title'             =>$request->title,
+            'slug'              =>Str::slug($request->title) ,
+            'location_id'       =>$request->location_id,
+            'price'             =>$request->price,
+            'type_id'           =>$request->type_id,
+            'bed'               =>$request->bed,
+            'bath'              =>$request->bath,
+            'grage'             =>$request->grage,
+            'city'             =>$request->city,
+            'zip_code'             =>$request->zip_code,
+            'country'             =>$request->country,
+            // 'user_id'             =>$request->user_id,
+            'sqf'               =>$request->sqf,
+            'balcony'               =>$request->balcony,
+            'floor'               =>$request->floor,
+            'unit_no'               =>$request->unit_no,
+            'unit_per_floor'               =>$request->unit_per_floor,
+            'maid_room'               =>$request->maid_room,
+            'service_charge'               =>$request->service_charge,
+            'phone'             =>$request->phone,
+            'date'              =>$request->date,
+            // 'description'       =>$request->description,
+            'address'           =>$request->address,
+            // 'details'           =>$request->details,
+            'map_link'          =>$request->map_link,
+            'whatsapp_number'   =>$request->whatsapp_number,
+            'created_by'        =>Auth::user()->id,
+            'rating'            => 0, //$request->rating,
+            // 'share_link'        =>$request->share_link,
+            'share_count'       =>0, //$request->share_count,
+            'call_count'        =>0, //$request->call_count,
+            'visitor_count'     =>0, //$request->visitor_count,
+            'status'            =>1, //$request->status,
+            'publisher_status'  =>$request->publisher_status,
+            'recived_count'     =>0, //$request->recived_count,
+            'video_link'        =>$request->video_link,
+            'meta_title'        => '', //$request->meta_title,
+            'meta_description'  =>'', //$request->meta_description,
+            'meta_tag'          =>'', //$request->meta_tag,
+            'meta_keyward'      =>'', //$request->meta_keyward
+        ]);
     }
 
     public function propertyListDetails($id)
@@ -135,5 +205,12 @@ class PropertyController extends Controller
         return Inertia::render("Dashboard/Property/PropertyListDetails", [
             'property' =>$property,
         ]);
+    }
+
+    public function destroy($id)
+    {
+        $property = Property::find($id);
+        $property->delete();
+        return redirect('/propety-list');
     }
 }

@@ -48,6 +48,7 @@ const SliderImage = ({image_galleries}) =>{
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
+        
       >
         {image_galleries && image_galleries.map((item, key) => 
         <SwiperSlide key={key}>
