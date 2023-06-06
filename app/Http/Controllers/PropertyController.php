@@ -152,9 +152,15 @@ class PropertyController extends Controller
 
     public function updateProperty(Request $request)
     {
-        dd($request->all());
-        $property = Property::find($request->id);
 
+        $property = Property::find($request->id);
+        // $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
+        // if ($photo!="") {
+        //     $ext                    = $photo->getClientOriginalExtension();
+        //     $photoFullName          = time().$photo->getClientOriginalName();
+        //     $uploadPath             = 'images/';
+        //     $success                = $photo->move($uploadPath, $photoFullName);
+        // }
         $property->update([
             'title'             =>$request->title,
             'slug'              =>Str::slug($request->title) ,
@@ -197,6 +203,7 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
+        return redirect('/propety-list');
     }
 
     public function propertyListDetails($id)

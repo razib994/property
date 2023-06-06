@@ -171,6 +171,18 @@ class FrontendController extends Controller
     }
     public function areaLocation($location)
     {
+        if($location == 'furnished-apartment-for-rent-in-gulshan') {
+            $location = 'gulshan';
+        }
+        if($location == 'furnished-apartment-for-rent-in-banani') {
+            $location = 'banani';
+        }
+        if($location == 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone') {
+            $location = 'baridhara';
+        }
+        if($location == 'furnished-apartment-for-rent-in-bashundhara') {
+            $location = 'bashundhara';
+        }
         $locations = Location::all();
         $locationID = Location::where('slug', $location)->first()->id;
         $location_name = Location::where('slug', $location)->first()->location_name;

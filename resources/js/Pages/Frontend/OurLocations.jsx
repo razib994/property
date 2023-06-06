@@ -3,6 +3,7 @@ import React from 'react';
 const OurLocations = ({locations}) => {
     return (
         <>
+		
          <section className=" mt-0 pb-16 mb-16">
         <div className="text-center items-center w-[80%] mx-auto my-10">
                 <h2 className="text-4xl mb-3 font-bold space-y-4 text-[#064d83]">Our Locations</h2>

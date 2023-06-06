@@ -19,7 +19,7 @@ const Footer =({data})=> {
   
     <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col " style={{borderBottom:"1px solid #064d83"}}>
      
-      <div className="w-[80%] md:w-[35%] lg:w-[25%] xl:w-[25%] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left ">
+      <div className="w-[80%] md:w-[30%] lg:w-[20%] xl:w-[20%] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left ">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={data.logo_image} alt=""/>
         </a>

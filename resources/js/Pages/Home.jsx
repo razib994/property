@@ -19,10 +19,17 @@ import HomeHeroBanner from './Frontend/HomeHeroBanner';
 import LocalExpert from './Frontend/LocalExpert';
 import Testimonils from './Frontend/Testimonils';
 import RentApartments from './Frontend/RentApartments';
+import { Head } from '@inertiajs/inertia-react';
 
 const  Home = ({types, properties, locations, banners, totalCount}) =>{
   return (
     <>
+    <Head>
+  <title>200+ Furnished Apartment for Rent in Dhaka with Fourhouz </title>
+  <meta head-key="description" name="description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Fourhouz is the best Furnished Apartmen Rental Expert in Dhaka" />
+  <meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
+
+</Head>
     {/* <HomeBanner banners={banners}/> */}
     <HomeHeroBanner locations={locations}/>
     <MyApartments/>
@@ -158,20 +165,26 @@ Is there still any doubt left in your mind about why you should rent a furnished
         <div class="grid grid-cols-12  gap-x-8 gap-y-2">
       
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
-        
-        <a href='https://www.furhouz.com/area/gulshan' class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Gulshan </a>
+      {/* item.slug == 'gulshan' ? '' : item.slug == 'banani' ? '':item.slug == 'baridhara'? '':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'' */}
+      <a href={route("frontend.area", {
+					location: 'furnished-apartment-for-rent-in-gulshan',
+				})}  class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Gulshan </a>
         <p class="text-sm text-black text-justify">Gulshan is the most luxurious place to choose when looking for a place to stay in Dhaka. Roads, buildings, and infrastructures are highly developed here. It’s a highly secure place. 29 resident embassies are located in Gulshan. If you are working in an embassy, Gulshan will be the most suitable place for you. Recreation facilities are also available here. Parks and clubs are available to make your leisure moment enjoyable. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a href='https://www.furhouz.com/area/banani' class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Banani </a>
+      <a href={route("frontend.area", {
+					location: 'furnished-apartment-for-rent-in-banani',
+				})}   class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Banani </a>
         <p class="text-sm text-black text-justify">Are you looking for a luxurious apartment rent in Dhaka at a comparably lower price than in Gulshan? Banani will be the ideal option for you. You can get all the facilities of living in an elite area. It’s connected with Gulshan. It’s only a matter of a short time to move from Banani to Gulshan. Proper security, planned roads, and convenient transportation have made Banani a demandable place for the tenant. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a href='https://www.furhouz.com/area/baridhara' class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Baridhara Diplomatic Zone</a>
+      <a href={route("frontend.area", {
+					location: 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone',
+				})}   class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Furnished Apartment for Rent in Baridhara Diplomatic Zone</a>
         <p class="text-sm text-black text-justify">Being a dedicated diplomatic zone, Baridhara is the most secure place to live in Dhaka. If you want to stay in a secure environment, you can choose this place without any hesitation. Moreover, the area is totally free from noise and vehicle horns. The green zone has made it a sustainable area. Parks and clubs are available for recreation. Overall, you can fulfill all of your expectations. It will be best for tourists and foreigners. <br></br><br></br>
 
 

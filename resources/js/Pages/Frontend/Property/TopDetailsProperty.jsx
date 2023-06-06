@@ -55,7 +55,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
                     <p className="my-1"><i className="uil uil-map-marker"></i> {property.location.location_name}</p>
                 </div>
                 <div className="md:px-10 text-left md:text-right my-3">
-                <h2 className="text-2xl font-bold">TK. {property.price} BDT</h2> 
+                <h2 className="text-2xl font-bold"> {property.price} BDT</h2> 
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 w-[90%] mx-auto ">

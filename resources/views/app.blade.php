@@ -7,6 +7,7 @@
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="John Doe">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="LgfuW_3Vbxqfq3ytn3FHLk6-lnU9W4-2CI37Gis0ocQ" />
         @inertiaHead
         @viteReactRefresh
 @vite('resources/js/app.jsx')

@@ -4,57 +4,55 @@ import { toFormData } from "./../../../utils";
 import LayoutDashboard from '../LayoutDashboard';
 
 const Create = ({locations, types, features, properties}) => {
-  console.log(properties)
+  
   const [checked, setChecked] = useState([]);
 
   const { data, setData, post, processing, errors, progress } = useForm({
-    'id':"",
-    'title':"",
-    'slug':"",
-'location_id':"",
-'price':"",
-'type_id':"",
-'bed':"",
-'bath':"",
-'grage':"",
-'sqf':"",
-'balcony':"",
-'floor':"",
-'unit_no':"",
-'unit_per_floor':"",
-'maid_room':"",
-'service_charge':"",
-'phone':"",
-'date':"",
+    id:properties.id || "",
+    title:properties.title || "",
+    slug:properties.slug || "",
+location_id:properties.location_id || "",
+price:properties.price || "",
+type_id:properties.type_id || "",
+bath:properties.bath || "",
+grage:properties.grage || "",
+sqf:properties.sqf || "",
+balcony:properties.balcony || "",
+floor:properties.floor || "",
+unit_no:properties.unit_no || "",
+unit_per_floor:properties.unit_per_floor || "",
+bed:properties.bed || "",
+maid_room:properties.maid_room || "",
+service_charge:properties.service_charge || "",
+phone:properties.phone || "",
+date:properties.date || "",
 // 'description':"",
-'address':"",
-'zip_code':"",
-'country':"",
-'city':"",
+address:properties.address || "",
+zip_code:properties.zip_code || "",
+country:properties.country || "",
+city:properties.city || "",
 // 'user_id':"",
 // 'details':"",
-'map_link':"",
-'whatsapp_number':"",
-'created_by':"",
-'rating':"",
-'share_link':"",
-'share_count':"",
-'call_count':"",
-'feature_id':[],
-'image_gallery':[],
-'visitor_count':"",
-'status':"",
-'publisher_status':"",
-'recived_count':"",
-'image':"",
-'video_link':"",
+map_link:properties.map_link || "",
+whatsapp_number:properties.whatsapp_number || "",
+created_by:properties.created_by || "",
+rating:properties.rating || "",
+share_count:properties.share_count || "",
+call_count:properties.call_count ||"",
+feature_id:[],
+visitor_count:properties.visitor_count ||"",
+status:properties.status ||"",
+publisher_status:properties.publisher_status || "",
+recived_count: properties.recived_count || "",
+image:"",
+video_link:properties.video_link || "",
 'meta_title':"",
 'meta_description':"",
 'meta_tag':"",
 'meta_keyward':"",
 });
 
-const location  = properties.location_id;
+console.log(data);
 // Add/Remove checked item from list
 const handleCheck = (e) => {
     let id = e.target.value;
@@ -103,7 +101,7 @@ e.preventDefault();
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="title" type="text" name="title" placeholder="Property Title" 
                           errors={errors.title}
 												 value={properties.title}
-												onChange={(e) => setData("title", e.target.value)}/>
+												onChange={(e) => setData("price", e.target.value)}/>
     {errors && errors.title ? <div className="text-[red] py-2">{errors.title}</div> : null}
     </div>
   

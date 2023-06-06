@@ -228,6 +228,16 @@
   "resolved" "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.17.11.tgz"
   "version" "0.17.11"
 
+"@inertiajs/core@1.0.7":
+  "integrity" "sha512-hb9XP+TVNdYoI3+3dx2Myp16w/WmqDCvTMl0o8SfFG6xSAJItihytrm0BJUNkV1PnId1qp0RUswOFZ8I8u3hzg=="
+  "resolved" "https://registry.npmjs.org/@inertiajs/core/-/core-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "axios" "^1.2.0"
+    "deepmerge" "^4.0.0"
+    "nprogress" "^0.2.0"
+    "qs" "^6.9.0"
+
 "@inertiajs/inertia-react@^0.8.1":
   "integrity" "sha512-9Uu7t4EA9FrcREwWnOU/qW5i4hYFt+uFn5cqP6RGJo8lJS4u8t6Q9358oHuQUKbFEbaIjUu7aslCL3/Istctlg=="
   "resolved" "https://registry.npmjs.org/@inertiajs/inertia-react/-/inertia-react-0.8.1.tgz"
@@ -250,6 +260,14 @@
   "version" "0.2.7"
   dependencies:
     "nprogress" "^0.2.0"
+
+"@inertiajs/react@^1.0.7":
+  "integrity" "sha512-S5/cLJx1qDg/gTx0o0dcjpEdtO3YZuDGnqBy2eH5fnu8Eul1In067jGlaTBgTLt9DipzNruUaLVv52RoUcCNRA=="
+  "resolved" "https://registry.npmjs.org/@inertiajs/react/-/react-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "@inertiajs/core" "1.0.7"
+    "lodash.isequal" "^4.5.0"
 
 "@jridgewell/gen-mapping@^0.1.0":
   "integrity" "sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w=="
@@ -491,7 +509,7 @@
   dependencies:
     "follow-redirects" "^1.14.0"
 
-"axios@^1.1.2":
+"axios@^1.1.2", "axios@^1.2.0":
   "integrity" "sha512-bz/J4gS2S3I7mpN/YZfGFTqhXTYzRho8Ay38w2otuuDR322KzFIWm/4W2K6gIwvWaws5n+mnb7D1lN9uD+QH6Q=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-1.2.2.tgz"
   "version" "1.2.2"
