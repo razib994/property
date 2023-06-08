@@ -23,7 +23,7 @@ const PropertyCard = ({item}) => {
   <div className="relative mx-auto w-full">
   <a href={route("frontend.propertyDetails", {
                     location:item.location.location_name,
-										itemId: item.id,
+										itemId: item.slug,
 									})}> 
     <div className="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
       <div className="rounded-lg bg-white p-4 shadow">
@@ -72,7 +72,6 @@ const PropertyCard = ({item}) => {
         <div className="mt-4">
 
           <p className="text-primary mt-2 inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-            <span className="text-sm uppercase"> Tk </span>
             <span className="text-2xl">{item.price}</span> BDT
           </p>
         </div>

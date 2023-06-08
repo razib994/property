@@ -96,12 +96,12 @@ class FrontendController extends Controller
     }
 
 
-    public function propertyDetails($location, $itemId)
+    public function propertyDetails($itemId)
     {
-
+        $id = Property::where('slug', $itemId)->first()->id;
         $locations = Location::all();
         $types = Type::all();
-        $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($itemId);
+        $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
         $similarProperty = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->where('location_id', $property->location_id)->get()->take(4);
         $logo = TopHeader::orderBy('id', 'desc')->first();
 

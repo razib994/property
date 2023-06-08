@@ -11,7 +11,7 @@ const OurLocations = ({locations}) => {
 			<div class="grid mx-auto grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4  justify-center items-center  w-[80%] gap-4 md:gap-6">
 				{locations && locations.map((item, key) => 
 				<a href={route("frontend.area", {
-					location: item.slug,
+					location: item.slug =='gulshan' ? 'furnished-apartment-for-rent-in-gulshan':item.slug =='banani' ? 'furnished-apartment-for-rent-in-banani':item.slug =='baridhara' ? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':'furnished-apartment-for-rent-in-bashundhara',
 				})}>
 				<div class="relative flex flex-col justify-between   bg-white shadow-md rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md h-64 " key={key}
 					style={{backgroundImage:`url('${item.image}')`}}>

@@ -31,7 +31,7 @@ Route::get("/contact", [FrontendController::class, 'contact'])->name('frontend.c
 Route::get("/faq", [FrontendController::class, 'faq'])->name('frontend.faq');
 Route::get("/blog", [FrontendController::class, 'blog'])->name('frontend.blog');
 Route::get("/property", [FrontendController::class, 'property'])->name('frontend.property');
-Route::get("/area/{location}/{itemId}", [FrontendController::class, 'propertyDetails'])->name('frontend.propertyDetails');
+Route::get("/property/{itemId}", [FrontendController::class, 'propertyDetails'])->name('frontend.propertyDetails');
 Route::get("/property-details/khala/{id}", [FrontendController::class, 'totalData'])->name('frontend.total');
 Route::get("/terms-conditions", [FrontendController::class, 'termsConditions'])->name('frontend.termsConditions');
 Route::get("/privacy-policy", [FrontendController::class, 'privacyPolicy'])->name('frontend.privacyPolicy');

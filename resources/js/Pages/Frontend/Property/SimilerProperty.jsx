@@ -82,7 +82,6 @@ const SimilerProperty = ({similarProperty}) => {
         <div className="mt-4">
 
           <p className="text-primary mt-2 inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-            <span className="text-sm uppercase"> Tk </span>
             <span className="text-2xl">{item.price}</span> BDT
           </p>
         </div>

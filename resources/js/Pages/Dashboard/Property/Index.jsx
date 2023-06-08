@@ -104,7 +104,7 @@ const Index = ({properties}) =>{
                             </td>
                            
                             <td className="pl-5">
-                                <button className="py-3 px-3 text-sm focus:outline-none leading-none text-red-700 bg-red-100 rounded">TK. {item.price} </button>
+                                <button className="py-3 px-3 text-sm focus:outline-none leading-none text-red-700 bg-red-100 rounded">{item.price} BDT</button>
                             </td>
                             <td className="pl-4">
                                 <a href={route('property.list.details', item.id)} className="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">View</a>
