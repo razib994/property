@@ -37,7 +37,7 @@ const Navigration = ({data}) => {
                                     <ul className="flex flex-col w-full">
                                         {data.locations && data.locations.map((item, i) =>
                                       <a href={route("frontend.area", {
-                                        location: item.slug,
+                                        location: item.slug == 'gulshan' ? 'furnished-apartment-for-rent-in-gulshan' : item.slug == 'banani' ? 'furnished-apartment-for-rent-in-banani':item.slug == 'baridhara'? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'',
                                     })}>  <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2"> {item.location_name} </li></a>
                                         )}
                                         

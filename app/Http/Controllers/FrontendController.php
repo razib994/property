@@ -171,6 +171,19 @@ class FrontendController extends Controller
     }
     public function areaLocation($location)
     {
+        if($location == 'gulshan') {
+            return redirect('/area/furnished-apartment-for-rent-in-gulshan');
+        }
+        if($location == 'banani') {
+            return redirect('/area/furnished-apartment-for-rent-in-banani');
+        }
+        if($location == 'baridhara') {
+            return redirect('/area/furnished-apartment-for-rent-in-baridhara-diplomatic-zone');
+        }
+        if($location == 'bashundhara') {
+            return redirect('/area/furnished-apartment-for-rent-in-bashundhara');
+        }
+
         if($location == 'furnished-apartment-for-rent-in-gulshan') {
             $location = 'gulshan';
         }
