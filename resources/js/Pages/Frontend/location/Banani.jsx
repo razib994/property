@@ -12,7 +12,7 @@ const Banani = () => {
           <p className='text-justify'>Are you still wondering how to find the best furnished apartment rent in Dhaka? <b>“FurHouz”</b> will be your companion throughout the furnished rental accommodation process. We will show you the best furnished apartment rental listings according to your requirements. Moreover, we will do the paperwork on behalf of you. Getting excited to know more about finding furnished apartment rent in Banani? Well, here you go. </p>
 				</div>
         <div class=" cover w-full py-2 px-6 md:px-5 text-center md:text-left lg:text-left xl:text-left">
-					<h1 class="text-xl md:text-2xl font-bold mb-2 text-center text-gray text-[#064d83]">Things You Should Consider While Looking For Furnished Apartment Rent</h1>
+					<h2 class="text-xl md:text-2xl font-bold mb-2 text-center text-gray text-[#064d83]">Things You Should Consider While Looking For Furnished Apartment Rent</h2>
 					
           
 				</div>
@@ -113,12 +113,12 @@ const Banani = () => {
   
 
     <div class=" w-full py-1 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-1">
-					<h1 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Find Luxurious & Fully Furnished Apartment Rent in Banani</h1>
+					<h2 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Find Luxurious & Fully Furnished Apartment Rent in Banani</h2>
 					<p class=" mb-3 text-gray">FurHouz is the easiest way to rent a fully-furnished and semi-furnished apartment in Banani. You just need to visit the FurHouz website and select the type of property that you want to rent. After that, set your preferred location and start your search. You will find the latest available apartments in your expected area. You can see the details of the apartment by clicking on the search result. All the listings shown on the website are from verified owners. There is nothing to worry about. You can contact the owner through phone call or Whatsapp.  </p>
 				</div>
 
                 <div class=" w-full py-1 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-1">
-					<h1 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Key Facilities Of Renting A Furnished Apartment</h1>
+					<h2 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Key Facilities Of Renting A Furnished Apartment</h2>
 					<p class=" mb-3 text-gray ml-10">   
                         • Equipped With Necessary Amenities <br></br>
                         • Upfront Cost Saving<br></br>
@@ -129,7 +129,7 @@ const Banani = () => {
 				</div>
 
                 <div class=" w-full py-1 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-1">
-					<h1 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">What Makes Banani A Better Place To Live In Dhaka? </h1>
+					<h2 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">What Makes Banani A Better Place To Live In Dhaka? </h2>
 					
 				</div>
 
@@ -137,19 +137,19 @@ const Banani = () => {
       
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">High Standard of Living</a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">High Standard of Living</h3>
         <p class="text-sm text-black text-justify">Banani is a luxurious place that offers a high standard of living. You can feel the difference by seeing the quality of housing, food, roads, and other services available in this area. It is home to many luxury hotels and restaurants. There are plenty of upscale shops and boutiques available. The streets are well-maintained. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Vibrant Community </a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Vibrant Community </h3>
         <p class="text-sm text-black text-justify">Banani comes with a vibrant community of locals and foreigners. Many social and cultural events take place in this neighborhood. For example, you can find here art exhibitions, music concerts, and food festivals. You can get to the park and recreation center to enjoy your free time. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Quality Education</a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Quality Education</h3>
         <p class="text-sm text-black text-justify">When it comes to educational institutions, Banani is one of the best places to live in Dhaka. High-quality educational opportunities make Banani a great place to live for families with children. Some highly popular educational institutes like Scholastica and Maple Leaf International School are located here.  <br></br><br></br>
 
 
@@ -159,13 +159,13 @@ const Banani = () => {
 
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Easy Moving </a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Easy Moving </h3>
         <p class="text-sm text-black text-justify">Banani offers easy access to public transportation like buses, taxis, and rickshaws. The airport is located at a nearby distance. The train station isn't too far either. It makes Banani a convenient place to live for people who love to travel. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Green Spaces</a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Green Spaces</h3>
         <p class="text-sm text-black text-justify">Though Banani is located at the center of Dhaka city, still it has several green spaces to enjoy nature. Banani Lake is a prime example of it. Several parks are also located in the area to make your leisure enjoyable. You can go there with family or friends to spend some quality time. <br></br><br></br>
 
 
@@ -176,7 +176,7 @@ const Banani = () => {
     </div>
     
     <div class=" w-full py-6 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-2">
-    <h1 class="text-xl md:text-2xl font-bold mb-1  text-center text-gray text-[#064d83]">Final Words </h1>
+    <h2 class="text-xl md:text-2xl font-bold mb-1  text-center text-gray text-[#064d83]">Final Words </h2>
           <p class="text-sm text-black text-justify">So, finding a furnished apartment in Banani will be much easier with the assistance of FurHouz. You can find any type of apartment according to your choice. If you want to consult with our rental team, feel free to call now. You can also leave a message. We will get back to you as soon as possible. 
            </p>
 				</div>
@@ -195,7 +195,7 @@ const Banani = () => {
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Why is Banani a popular area for furnished apartment rentals?</span>
+					<h3> Why is Banani a popular area for furnished apartment rentals?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>
@@ -209,7 +209,7 @@ const Banani = () => {
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Which type of furnished apartments are available in Banani?</span>
+					<h3> Which type of furnished apartments are available in Banani?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>
@@ -223,7 +223,7 @@ const Banani = () => {
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Are furnished apartments in Banani pet-friendly?</span>
+					<h3> Are furnished apartments in Banani pet-friendly?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>

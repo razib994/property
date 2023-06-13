@@ -6,6 +6,7 @@ import Gulshan from './Frontend/location/Gulshan';
 import Banani from './Frontend/location/Banani';
 import Baridhara from './Frontend/location/Baridhara';
 import { Head } from '@inertiajs/inertia-react';
+import Bashundhara from './Frontend/location/Bashundhara';
 
 const LocationProperty = ({properties, locations, types, location_name=""}) => {
     
@@ -62,7 +63,7 @@ Find the perfect home for you. Search all available properties and find the one 
 
             {location_name == 'Gulshan' ? (
           <Gulshan/> ):location_name == 'Banani' ? (
-          <Banani/>) : location_name == 'Baridhara' ? (<Baridhara/>): null }
+          <Banani/>) : location_name == 'Baridhara' ? (<Baridhara/>):location_name == 'bashundhara' ? (<Bashundhara/>): null }
 </section>
         </>
     );

@@ -25,7 +25,7 @@ const PropertyCard = ({item}) => {
                     location:item.location.location_name,
 										itemId: item.slug,
 									})}> 
-    <div className="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+    <div className="peoperty relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
       <div className="rounded-lg bg-white p-4 shadow">
         <div className="relative  justify-center overflow-hidden rounded-lg">
           <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">

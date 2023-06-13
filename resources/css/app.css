@@ -22,9 +22,10 @@
     align-items: center;
   }
   
-  .swiper-slide img {
+  .peoperty .swiper-slide img {
     display: block;
     width: 100%;
+    height: 350px;
   }
   .property span.swiper-pagination-bullet {
     background: black;
@@ -54,5 +55,16 @@
   0% { transform: translateY(0); }
   100% { transform: translateY(-15px); }
 }
-  
+.myfirst .swiper-slide img {
+  height: 700px;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.myterm .swiper-slide img {
+  height: 200px;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 10px;
+}
   

@@ -12,7 +12,7 @@ const Gulshan = () => {
           <p className='text-justify'><b>“FurHouz”</b> is a dedicated furnished accommodation rental platform that assists tenants to find fully furnished and affordable or luxurious apartments for rent in Dhaka. Let me tell you how we can assist you to rent a fully furnished apartment in Gulshan. </p>
 				</div>
         <div class=" cover w-full py-2 px-6 md:px-5 text-center md:text-left lg:text-left xl:text-left">
-					<h1 class="text-xl md:text-2xl font-bold mb-2 text-center text-gray text-[#064d83]">Facilities of Furnished Apartment Rent in Gulshan</h1>
+					<h2 class="text-xl md:text-2xl font-bold mb-2 text-center text-gray text-[#064d83]">Facilities of Furnished Apartment Rent in Gulshan</h2>
 					<p class=" mb-3 text-gray text-justify">Furnished apartments offer several facilities that make them a popular choice for expats and many tenants. Permit me to inform you of the key facilities for renting a furnished apartment in Gulshan.</p>
           
 				</div>
@@ -112,7 +112,7 @@ const Gulshan = () => {
   
 
     <div class=" w-full py-1 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-1">
-					<h1 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Why Should You Rent A Furnished Apartment in Gulshan?</h1>
+					<h2 class="text-xl md:text-2xl text-center font-bold mb-2 text-gray text-[#064d83]">Why Should You Rent A Furnished Apartment in Gulshan?</h2>
 					<p class=" mb-3 text-gray">When it comes to finding the perfect place to live in Dhaka, Gulshan is always on the top priority list. Let me tell you why Gulshan is one of the most demanded neighborhoods in the city. </p>
 				</div>
 
@@ -120,19 +120,19 @@ const Gulshan = () => {
       
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Luxurious Lifestyle </a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Luxurious Lifestyle </h3>
         <p class="text-sm text-black text-justify">The first thing to consider, Gulshan is a luxurious place to live in. The area is home to some of the most high-end properties in the city. It features modern architecture, education centers, healthcare facilities, and recreation centers. Residents can enjoy a peaceful environment. </p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Strong Security </a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Strong Security </h3>
         <p class="text-sm text-black text-justify">Security is a top priority in Gulshan. The area is properly guarded throughout the neighborhood. This provides residents with a sense of safety and peace of mind. You will feel safe knowing that your homes and families are well-protected.</p>
        
       </div>
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 shadow-lg p-5 rounded-lg">
         
-        <a class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Abundance Of Embassies</a>
+        <h3 class="text-lg font-bold sm:text-md md:text-md text-[#064d83]">Abundance Of Embassies</h3>
         <p class="text-sm text-black text-justify">If you are associated with an embassy, this is going to be pretty useful for you. Lots of embassies are located in this area. Therefore, residents have easy access to various services, such as visa applications and other consultant services. The best thing is you don’t have to travel far for this. It also adds an international flavor to the neighborhood.  <br></br><br></br>
 
 
@@ -143,7 +143,7 @@ const Gulshan = () => {
     </div>
     
     <div class=" w-full py-6 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-2">
-    <h1 class="text-xl md:text-2xl font-bold mb-1  text-center text-gray text-[#064d83]">Recreation Center</h1>
+    <h2 class="text-xl md:text-2xl font-bold mb-1  text-center text-gray text-[#064d83]">Recreation Center</h2>
           <p class="text-sm text-black text-justify">Do you love spending time outdoors? Gulshan has plenty to offer you. You can enjoy your leisure at Gulshan Lake Park. It provides a scenic retreat from the city's hustle and bustle. Additionally, you can enjoy a range of recreational activities at the Gulshan Club. <br></br> 
 
 If you're thinking about renting an apartment, a furnished apartment in Gulshan will be the best option for you. Luxurious properties, the abundance of embassies, secure environment, parks, and clubs makes Gulshan an ideal place to live in. <br></br>
@@ -166,7 +166,7 @@ You are going to enjoy some exclusive facilities those are rare to find in other
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How much should I pay for a furnished apartment in Gulshan?</span>
+					<h3> How much should I pay for a furnished apartment in Gulshan?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>
@@ -180,7 +180,7 @@ You are going to enjoy some exclusive facilities those are rare to find in other
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Which type of furniture is available in a furnished apartment?</span>
+					<h3> Which type of furniture is available in a furnished apartment?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>
@@ -194,7 +194,7 @@ You are going to enjoy some exclusive facilities those are rare to find in other
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Are there any additional fees when renting a furnished apartment?</span>
+					<h3> Are there any additional fees when renting a furnished apartment?</h3>
 					<span class="transition group-open:rotate-180">
                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
 </svg>
