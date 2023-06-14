@@ -46,6 +46,7 @@ const Layout = (props) => {
             
             <Navigration data={props.children.props}/>
             <Head><title>{`${props.title? props.title:'Others'} - FurHouz `}</title></Head>
+            
                 {props.children}
         <Footer data ={props.children.props.logo}/>
         </div>

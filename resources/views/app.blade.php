@@ -9,7 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-site-verification" content="LgfuW_3Vbxqfq3ytn3FHLk6-lnU9W4-2CI37Gis0ocQ" />
         @inertiaHead
+        <link rel="icon" type="image/png" href="/furnished-icon/favicon.png"/>
+
         @viteReactRefresh
+       
+
 @vite('resources/js/app.jsx')
 {{-- @vite('resources/css/app.css') --}}
 
