@@ -30,6 +30,7 @@ const  Home = ({types, properties, locations, banners, totalCount}) =>{
   <meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
 
 </Head>
+
     {/* <HomeBanner banners={banners}/> */}
     <HomeHeroBanner locations={locations}/>
     <MyApartments/>

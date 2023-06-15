@@ -67,4 +67,89 @@
   width: 100%;
   margin-bottom: 10px;
 }
+
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px)
+    and (max-device-width: 1024px) {
+      .myfirst .swiper-slide img {
+        height: 600px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .myterm .swiper-slide img {
+        height: 180px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+}
+
+@media screen and (min-device-width: 641px)
+    and (max-device-width: 767px) {
+      .myfirst .swiper-slide img {
+        height: 500px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .myterm .swiper-slide img {
+        height: 120px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+}
+ 
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px)
+    and (orientation: portrait) {
+    .myfirst .swiper-slide img {
+      height: 400px;
+      background-size: cover;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .myterm .swiper-slide img {
+      height: 100px;
+      background-size: cover;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+}
+ 
+/* For Mobile Landscape View */
+@media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+      .myfirst .swiper-slide img {
+        height: 400px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .myterm .swiper-slide img {
+        height: 100px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+}
+ 
+/* For Mobile Phones Portrait or Landscape View */
+@media screen
+    and (max-device-width: 640px) {
+      .myfirst .swiper-slide img {
+        height: 400px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .myterm .swiper-slide img {
+        height: 100px;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+}
   

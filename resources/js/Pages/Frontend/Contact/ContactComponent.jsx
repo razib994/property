@@ -37,9 +37,8 @@ const ContactComponent = () => {
             <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Curious about FurHouz? Have a question about your lease? Call or e-mail us.</p>
            
             <div className='border-t-2 my-4'>
-            <p className='mt-4 mb-2'> +55 11 4632 3312</p>
-            <p className='my-2'>  +55 11 5039 8601</p>
-            <p className='my-2'>  proprietario@furhouz.com</p>
+            <p className='mt-4 mb-2'> +88 01616 171 171 </p>
+            <p className='my-2'>nasrullah@rentsincorporation.com</p>
             </div>
             <a href="/contact-owner" class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
@@ -64,9 +63,8 @@ const ContactComponent = () => {
 </p>
            
             <div className='border-t-2 my-4'>
-            <p className='mt-4 mb-2'> +55 11 4632 3312</p>
-            <p className='my-2'>  +55 11 5039 8601</p>
-            <p className='my-2'>  proprietario@furhouz.com</p>
+            <p className='mt-4 mb-2'> +88 01616 171 171 </p>
+            <p className='my-2'>  nasrullah@rentsincorporation.com</p>
             </div>
             <a href="/contact-corporate" class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
@@ -90,9 +88,8 @@ const ContactComponent = () => {
 </p>
            
             <div className='border-t-2 my-4'>
-            <p className='mt-4 mb-2'> +55 11 4632 3312</p>
-            <p className='my-2'>  +55 11 5039 8601</p>
-            <p className='my-2'>  proprietario@furhouz.com</p>
+            <p className='mt-4 mb-2'> +88 01616 171 171</p>
+            <p className='my-2'> nasrullah@rentsincorporation.com</p>
             </div>
             <a href="/contact-tenlent" class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
@@ -114,9 +111,8 @@ const ContactComponent = () => {
             </a>
             <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Contact us with any questions about how to rent an apartment with us, deadlines, payments, contracts and much more.</p>
             <div className='border-t-2 my-4'>
-            <p className='mt-4 mb-2'> +55 11 4632 3312</p>
-            <p className='my-2'>  +55 11 5039 8601</p>
-            <p className='my-2'>  proprietario@furhouz.com</p>
+            <p className='mt-4 mb-2'> +88 01616 171 171</p>
+            <p className='my-2'>  nasrullah@rentsincorporation.com</p>
             </div>
             <a href="/contact-want-know" class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
