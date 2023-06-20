@@ -50,6 +50,8 @@ class PropertyController extends Controller
             'price' => 'required',
             'image' => 'required',
             'location_id' => 'required',
+            'type_id' => 'required',
+            'date' => 'required',
             'publisher_status' => 'required',
             'image_gallery' => 'required',
 
@@ -67,21 +69,21 @@ class PropertyController extends Controller
             'location_id'       =>$request->location_id,
             'price'             =>$request->price,
             'type_id'           =>$request->type_id,
-            'bed'               =>$request->bed,
-            'bath'              =>$request->bath,
-            'grage'             =>$request->grage,
-            'city'             =>$request->city,
-            'zip_code'             =>$request->zip_code,
-            'country'             =>$request->country,
+            'bed'               =>$request->bed ? $request->bed : "",
+            'bath'              =>$request->bath ? $request->bath : "",
+            'grage'             =>$request->grage ? $request->grage : "",
+            'city'              =>$request->city,
+            'zip_code'          =>$request->zip_code,
+            'country'           =>$request->country,
             // 'user_id'             =>$request->user_id,
-            'sqf'               =>$request->sqf,
-            'balcony'               =>$request->balcony,
-            'floor'               =>$request->floor,
-            'unit_no'               =>$request->unit_no,
-            'unit_per_floor'               =>$request->unit_per_floor,
-            'maid_room'               =>$request->maid_room,
-            'service_charge'               =>$request->service_charge,
-            'phone'             =>$request->phone,
+            'sqf'               =>$request->sqf ? $request->sqf : "",
+            'balcony'           =>$request->balcony,
+            'floor'             =>$request->floor,
+            'unit_no'           =>$request->unit_no,
+            'unit_per_floor'    =>$request->unit_per_floor,
+            'maid_room'         =>$request->maid_room,
+            'service_charge'    =>$request->service_charge,
+            'phone'             =>$request->phone ? $request->phone : "",
             'date'              =>$request->date,
             // 'description'       =>$request->description,
             'address'           =>$request->address,
@@ -109,14 +111,16 @@ class PropertyController extends Controller
             $property = Property::find($property->id);
             $property->property_id = 'FH100251'.$property->id;
             $property->update();
-
-            foreach ($request->feature_id as $feature) {
-                $featureData = new FeatureProperty();
-                $featureData->property_id   = $property->id;
-                $featureData->feature_id    = $feature;
-                $featureData->save();
+            if(is_array($request->feature_id)) {
+                foreach ($request->feature_id as $feature) {
+                    $featureData = new FeatureProperty();
+                    $featureData->property_id   = $property->id;
+                    $featureData->feature_id    = $feature;
+                    $featureData->save();
+                }
             }
         }
+
         foreach ($request->image_gallery as $gallery) {
             $photo = (isset($gallery) && $gallery!= "") ? $gallery : "";
             if ($photo!="") {
@@ -131,15 +135,19 @@ class PropertyController extends Controller
             $galleriesData->save();
         }
 
+
         return redirect('/propety-list');
     }
 
     public function editProperty(Request $request, $id)
     {
-        $property = Property::find($id);
+        $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
+
         $locations = Location::where('status', 1)->get();
         $types = Type::where('status', 1)->get();
         $features = Feature::where('status', 1)->get();
+
+        return $property;
         return Inertia::render("Dashboard/Property/Edit", [
             'properties' =>$property,
             'locations'=>$locations,
@@ -154,6 +162,7 @@ class PropertyController extends Controller
     {
 
         $property = Property::find($request->id);
+
         // $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
         // if ($photo!="") {
         //     $ext                    = $photo->getClientOriginalExtension();
@@ -203,6 +212,14 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
+        if(is_array($request->feature_id)) {
+            foreach ($request->feature_id as $feature) {
+                $featureData = new FeatureProperty();
+                $featureData->property_id   = $property->id;
+                $featureData->feature_id    = $feature;
+                $featureData->save();
+            }
+        }
         return redirect('/propety-list');
     }
 
