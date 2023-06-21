@@ -25,10 +25,16 @@ const  Home = ({types, properties, locations, banners, totalCount}) =>{
   return (
     <>
     <Head>
-  <title>200+ Furnished Apartment for Rent in Dhaka with Fourhouz </title>
-  <meta head-key="description" name="description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Fourhouz is the best Furnished Apartmen Rental Expert in Dhaka" />
-  <meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
+  <title>Furnished Apartment for Rent in Dhaka | Furhouz </title>
+  <meta property="og:title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
+<meta property="og:description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
+<meta property="og:image" content="https://furhouz.com/logo/logo.png"/>
+<meta property="og:url" content="https://furhouz.com/"/>
 
+<meta name="twitter:title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
+<meta name="twitter:description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
+<meta name="twitter:url" content="https://furhouz.com/log/o/logo.png"/>
+<meta name="twitter:card" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
 </Head>
 
     {/* <HomeBanner banners={banners}/> */}

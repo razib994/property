@@ -187,7 +187,7 @@ const NotFound = () => {
 				</div>
 				<p className="text-sm md:text-base text-yellow-300 p-2 mb-4">The stuff you were looking for doesn't exist
 				</p>
-				<a href="/"
+				<a href="https://furhouz.com/"
 					className="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
 					Retry</a>
 			</div>
@@ -197,5 +197,4 @@ const NotFound = () => {
         </>
     );
 }
-NotFound.layout = (page) => <Layout title="Error 404" children={page}/>
 export default NotFound;

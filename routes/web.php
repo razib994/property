@@ -51,6 +51,7 @@ Route::get("/contact-owner", [FrontendController::class, 'contactOwner'])->name(
 Route::get("/contact-corporate", [FrontendController::class, 'contactCorporate'])->name('contact.corporate');
 Route::get("/contact-tenlent", [FrontendController::class, 'contactTenlent'])->name('contact.tenlent');
 Route::get("/contact-want-know", [FrontendController::class, 'contactWantKnow'])->name('contact.wantknow');
+Route::get("/error", [FrontendController::class, 'error'])->name('error.data');
 
 
 

@@ -362,4 +362,10 @@ class FrontendController extends Controller
          }
          return redirect()->back()->with('success', 'Your Request Send Successfully');
      }
+
+     public function error()
+     {
+         return Inertia::render('404');
+
+     }
 }
