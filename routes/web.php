@@ -9,6 +9,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +109,9 @@ Route::middleware('user_admin')->group(function () {
 Route::middleware('is_admin')->group(function () {
     // Route::get("/logout", [LoginController::class,'logout'])->name('logout');
     Route::get('user/home', [DashbaordController::class, 'adminHome'])->name('user.home');
+});
+
+Route::fallback(function () {
+    return view('404');
+
 });

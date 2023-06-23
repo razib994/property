@@ -25,58 +25,7 @@ Getting excited to know more about Furnished Apartment Rent In Baridhara Diploma
 
 				</div>
 			</div>
-        {/* <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper  md:hidden"
-      >
-        <SwiperSlide><div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Furniture</a>
-        <p class="text-sm text-black text-justify">This is the most obvious feature of a furnished apartment. From the living room to the bedroom, you'll find everything you need to live comfortably. This includes sofas, chairs, tables, beds, dressers, and more. Are you thinking about the quality of that furniture? Well, those types of furniture are usually high-quality, functional, and stylish.</p>
        
-      </div></SwiperSlide>
-        <SwiperSlide>
-        <div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Appliances</a>
-        <p class="text-sm text-black text-justify">Fully Furnished apartments come with a wide range of home appliances. It includes a refrigerator, stove, microwave, dishwasher, washer, and dryer. Having these appliances in your newly rented house will save you a decent amount of money. There is no hassle to buy them yourself.</p>
-       
-      </div>
-        </SwiperSlide>
-        <SwiperSlide><div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Utilities</a>
-        <p class="text-sm text-black text-justify">In a furnished apartment, most of the utility bills are included with the rent. Therefore, you don’t have to worry about paying separate bills for electricity, water, gas, or internet. However, you should check the lease to see which bills are included along with the rental cost. </p>
-       
-      </div></SwiperSlide>
-        <SwiperSlide><div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Maid Service</a>
-        <p class="text-sm text-black text-justify">Some furnished apartments offer maid services. It offers tenants regular cleaning of the apartment, changing linens, and restocking supplies. It will be a great way to keep your living space tidy. Point to be noted that you may not get this facility as all furnished apartments</p>
-       
-      </div></SwiperSlide>
-        <SwiperSlide><div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Security</a>
-        <p class="text-sm text-black text-justify">While looking for a new apartment, most tenants are conscious of security. Furnished apartments always offer proper security features to keep you safe. You are going to get secure entrances, surveillance cameras, and alarms. Moreover, many furnished apartment buildings have security staff on-site to monitor the property.</p>
-       
-      </div></SwiperSlide>
-        <SwiperSlide><div class="p-14">
-        
-        <a class="text-md font-bold sm:text-md md:text-md">Parking</a>
-        <p class="text-sm text-black text-justify">Do you have a car? Well, you are going to get car parking facilities. In a furnished apartment, you will get an assigned parking spot in a garage. This facility will give you peace of mind. Also, it will save you from the hassle of searching for parking on the street.</p>
-       
-      </div></SwiperSlide>
-       
-        
-      </Swiper> */}
       <div class="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-4">
       <div class="flex flex-col items-start col-span-12 space-y-1 sm:col-span-6 xl:col-span-4 ">
         

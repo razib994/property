@@ -8,7 +8,7 @@ const HomeHeroBanner = ({locations}) => {
         <div className=" m-auto px-2 pt-40 md:pt-52 md:px-12 lg:pt-[4.8rem] lg:px-7 bg-gray-800 bg-opacity-10 h-screen ">
             <div className="flex flex-col md:flex-row  items-center  text-center px-6 md:px-0 w-[100%] md:w-[75%] m-auto">
                 <div className="relative  lg:w-full  lg:py-48 xl:py-72 pt-10">
-                    <h1 className="font-bold text-3xl text-white  md:text-4xl ">Your furnished apartment ready to move</h1>
+                    <h2 className="font-bold text-3xl text-white  md:text-4xl ">Your furnished apartment ready to move</h2>
                     <p className="mt-4 text-md text-white dark:text-white-200 text-lg">Beautifully designed, fully furnished apartments in Gulshan, Banani, Baridhara and Bashundhara to make you feel at home</p>
                     <form action="" className=" md:w-[100%] lg:w-[60%] m-auto mt-4 md:mt-12 lg:mt-12 xl-mt-12 ">
                         <div className="relative flex p-1 rounded-full bg-white dark:bg-gray-800 dark:border-gray-600 border border-yellow-200 shadow-md md:p-2 ">
@@ -55,7 +55,7 @@ const HomeHeroBanner = ({locations}) => {
         <div className=" m-auto px-2 pt-40 md:pt-52 md:px-12 lg:pt-[4.8rem] lg:px-7 bg-gray-800 bg-opacity-10 h-screen ">
             <div className="flex flex-col md:flex-row  items-center  text-center px-6 md:px-0 w-[100%] md:w-[75%] m-auto">
                 <div className="relative  lg:w-full  lg:py-48 xl:py-72 pt-10">
-                    <h1 className="font-bold text-3xl text-white  md:text-4xl ">Your furnished apartment ready to move</h1>
+                    <h2 className="font-bold text-3xl text-white  md:text-4xl ">Your furnished apartment ready to move</h2>
                     <p className="mt-4 text-md text-white dark:text-white-200 text-lg">Beautifully designed, fully furnished apartments in Gulshan, Banani, Baridhara and Bashundhara to make you feel at home</p>
                     <form action="" className=" md:w-[100%] lg:w-[60%] m-auto mt-4 md:mt-12 lg:mt-12 xl-mt-12 ">
                         <div className="relative flex p-1 rounded-full bg-white dark:bg-gray-800 dark:border-gray-600 border border-yellow-200 shadow-md md:p-2 ">

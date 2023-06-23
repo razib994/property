@@ -28,6 +28,7 @@ const  Home = ({types, properties, locations, banners, totalCount}) =>{
   <title>Furnished Apartment for Rent in Dhaka | Furhouz </title>
   <meta property="og:title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
 <meta property="og:description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
+<meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furhouz, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
 <meta property="og:image" content="https://furhouz.com/logo/logo.png"/>
 <meta property="og:url" content="https://furhouz.com/"/>
 
@@ -158,7 +159,7 @@ const  Home = ({types, properties, locations, banners, totalCount}) =>{
       </div>
     </div>
     <div class=" w-full py-6 px-2 md:px-2 text-center md:text-left lg:text-left xl:text-left mt-2">
-					<h1 class="text-md md:text-md font-bold mb-6 text-gray text-left md:text-center ">Gym & Fitness</h1>
+					<h2 class="text-md md:text-md font-bold mb-6 text-gray text-left md:text-center ">Gym & Fitness</h2>
           <p class="text-sm text-black text-justify">Are you a health-conscious person? Renting a furnished apartment in Dhaka will inspire you to stay fit. Are you wondering how is that possible? Alright, mostly furnished apartments offer fitness facilities. You can expect to have a gym or and swimming pool. These amenities can make it easy to maintain a healthy lifestyle. <br></br><br></br>
 
 Is there still any doubt left in your mind about why you should rent a furnished apartment in Dhaka? If you have any rental queries, feel free to contact us. Our support team will assist you to make the best decision. However, you might be thinking about the location. Let me inform you of 3 prime locations that you can choose according to your convenience. </p>
@@ -207,108 +208,10 @@ Is there still any doubt left in your mind about why you should rent a furnished
            </p>
 				</div>
 
-{/* 
-    <div class="w-full">
-	<div class="flex flex-col items-center">
-		<h2 class="font-bold text-3xl mt-10 tracking-tight text-[#064d83]">
-			FAQ
-		</h2>
-		<p class="text-neutral-500 text-xl mt-3">
-			Frequenty asked questions
-		</p>
-	</div>
-	<div class="grid divide-y divide-neutral-200 mx-auto mt-8">
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> What are the benefits of renting a furnished apartment?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-        Initial cost savings, convenient lifestyle, and the ability to move in without having to transport appliances are primary benefits of renting a furnished apartment.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> What is the average rent for a furnished apartment in Dhaka?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-        On average, a furnished apartment in Dhaka can cost between BDT 70,000-200,000 per month.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Is the rent for a furnished apartment negotiable in Dhaka city?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-        Yes, the rent can be negotiable. If you are willing to sign a long-term lease, you can negotiate with the property owner.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How do I find a furnished apartment in Dhaka?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-        “FurHouz'' can assist you in finding a fully furnished apartment for rent in Dhaka. It’s a dedicated rental portal to assist tenants.
-				</p>
-			</details>
-		</div>
-	
-	</div>
-          </div> */}
 
 	</div> 
     </section>
-    {/* <Property properties = {properties}/> */}
-    {/* <FeaturePropertyType types={types}/>
-    <ExploreLocation locations={locations}/> */}
-{/* <ImageGallery/> */}
- {/* <ListingCount totalCount={totalCount}/> */}
- {/* <div class="min-w-screen h-screen animated fadeIn faster fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"  id="modal-id">
- <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-      <div class="">
-        <div class="text-center p-5 flex-auto justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 -m-1 flex items-center text-red-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 flex items-center text-red-500 mx-auto" viewBox="0 0 20 20" fill="currentColor">
-  <path  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"  />
-</svg>
-                        <h2 class="text-xl font-bold py-4 ">Are you sure?</h2>
-                        <p class="text-sm text-gray-500 px-8">Do you really want to delete your account?
-                This process cannot be undone</p>    
-        </div>
-       
-        <div class="p-3  mt-2 text-center space-x-4 md:block">
-            <button class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
-                Cancel
-            </button>
-            <button class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Delete</button>
-        </div>
-      </div>
-    </div> 
-    </div> */}
+  
   </>
   )
 }

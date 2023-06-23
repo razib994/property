@@ -25,7 +25,7 @@ const OurLocations = ({locations}) => {
 							</h4> */}
 							<div class="flex justify-between items-center ">
 								<div class="flex flex-col">
-									<h2 class=" flex items-center text-white font-bold text-md md:text-xl">
+									<h3 class=" flex items-center text-white font-bold text-md md:text-xl">
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
 											viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -35,7 +35,7 @@ const OurLocations = ({locations}) => {
 												d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
 										</svg>
 										{item.location_name}
-									</h2>
+									</h3>
 								</div>
 							</div>
 							<div class="flex pt-4  text-sm text-gray-300">

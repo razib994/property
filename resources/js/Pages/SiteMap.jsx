@@ -20,7 +20,7 @@ const SiteMap = () => {
 
                         <div class="md:flex md:items-start md:-mx-4">
                             <div class="mt-4 md:mx-4 md:mt-0">
-                                <h1 class="text-3xl font-semibold text-gray-700 capitalize dark:text-white">General LInk</h1>
+                                <p class="text-3xl font-semibold text-gray-700 capitalize dark:text-white">General Link</p>
 <hr className='my-4'/>
 <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/" >Home</a></p>
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/about" >About Us</a></p>
