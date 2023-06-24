@@ -28,8 +28,8 @@ const Footer =({data})=> {
       <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
      
       <div className=" md:w-1/2 w-full px-4">
-          <h2 className="title-font font-bold text-[#064d83] tracking-widest text-md mb-3 text-2xl">General Link
-</h2>
+          <p className="title-font font-bold text-[#064d83] tracking-widest text-md mb-3 text-2xl">General Link
+</p>
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/" >Home</a></p>
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/about" >About Us</a></p>
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/contact" >Contact Us</a></p>
@@ -41,8 +41,8 @@ const Footer =({data})=> {
              
         </div>
         <div className=" md:w-1/2 w-full px-4 mt-10 md:mt-0 lg:mt-0 xl:mt-0">
-          <h2 className="title-font font-bold text-[#064d83] tracking-widest text-md mb-3 text-2xl">Contact Us
-</h2>
+          <p className="title-font font-bold text-[#064d83] tracking-widest text-md mb-3 text-2xl">Contact Us
+</p>
               <p className=" mt-1 text-[#064d83] text-lg"><i className="uil uil-map-marker"></i> Plot: 19 & 20, Road: 113/A, Gulshan, Dhaka 1212</p>
               <p className=" mt-1 text-[#064d83]  text-lg"><i className="uil uil-envelope-alt"></i>  nasrullah@rentsincorporation.com</p>
               {/* <p className=" mt-1 text-[#064d83]"><i className="uil uil-envelope-alt"></i> support@domain.com</p> */}

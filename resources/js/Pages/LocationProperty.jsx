@@ -8,6 +8,86 @@ import Baridhara from './Frontend/location/Baridhara';
 import { Head } from '@inertiajs/inertia-react';
 import Bashundhara from './Frontend/location/Bashundhara';
 
+let gulshan = 
+{
+  "@context": "https://schema.org/", 
+  "@type": "Product", 
+  "name": "Furnished Apartment for Rent in Gulshan Dhaka | Furhouz",
+  "image": "https://furhouz.com/location/gulshan.png",
+  "description": "Find your ideal furnished apartment for rent in Gulshan. Browse 100+ listings for high-quality, fully equipped apartments with modern amenities in Gulshan area.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Furhouz"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://furhouz.com/area/furnished-apartment-for-rent-in-gulshan",
+    "priceCurrency": "USD",
+    "price": "1500",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "579"
+  }
+}
+  let banani = 
+  {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "Furnished Apartment for Rent in Banani Dhaka | Furhouz",
+    "image": "https://furhouz.com/location/banani.png",
+    "description": "Explore furnished apartments for rent in Banani. Discover comfortable living spaces in the desirable Banani area. Start your search for a furnished apartment today!",
+    "brand": {
+      "@type": "Brand",
+      "name": "Furhouz"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://furhouz.com/area/furnished-apartment-for-rent-in-banani",
+      "priceCurrency": "USD",
+      "price": "1500",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "618"
+    }
+  }
+
+  let baridhara = 
+  {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone",
+    "image": "https://furhouz.com/location/baridhara.png",
+    "description": "Find luxurious furnished apartments for rent in Baridhara and Baridhara Diplomatic Zone. Explore our exclusive listings and discover elegant living spaces with modern facilities",
+    "brand": {
+      "@type": "Brand",
+      "name": "Furhouz"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://furhouz.com/area/furnished-apartment-for-rent-in-baridhara-diplomatic-zone",
+      "priceCurrency": "USD",
+      "price": "1800",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "439"
+    }
+  }
+
 const LocationProperty = ({properties, locations, types, location_name=""}) => {
     
     return (
@@ -24,6 +104,7 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <meta name="twitter:description" content="Find your ideal furnished apartment for rent in Gulshan. Browse 100+ listings for high-quality, fully equipped apartments with modern amenities in Gulshan area."/>
 <meta name="twitter:url" content="https://furhouz.com/location/gulshan.png"/>
 <meta name="twitter:card" content="Find your ideal furnished apartment for rent in Gulshan. Browse 100+ listings for high-quality, fully equipped apartments with modern amenities in Gulshan area."/>
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gulshan) }}></script>
 </Head>): location_name == 'Banani' ? ( <Head>
   <title>Furnished Apartment for Rent in Banani Dhaka | Furhouz </title>
   <meta property="og:title" content="Furnished Apartment for Rent in Banani Dhaka | Furhouz"/>
@@ -36,6 +117,7 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <meta name="twitter:description" content="Explore furnished apartments for rent in Banani. Discover comfortable living spaces in the desirable Banani area. Start your search for a furnished apartment today!"/>
 <meta name="twitter:url" content="https://furhouz.com/location/banani.png"/>
 <meta name="twitter:card" content="Explore furnished apartments for rent in Banani. Discover comfortable living spaces in the desirable Banani area. Start your search for a furnished apartment today!"/>
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(banani) }}></script>
 </Head>) : location_name == 'Baridhara' ? ( <Head>
   <title>Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone</title>
   <meta property="og:title" content="Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone"/>
@@ -48,6 +130,7 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <meta name="twitter:description" content="Find luxurious furnished apartments for rent in Baridhara and Baridhara Diplomatic Zone. Explore our exclusive listings and discover elegant living spaces with modern facilities"/>
 <meta name="twitter:url" content="https://furhouz.com/location/baridhara.png"/>
 <meta name="twitter:card" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(baridhara) }}></script>
 </Head>) :( <Head>
   <title>Furnished Apartment for Rent in Bashundhara </title>
   <meta head-key="description" name="description" content="Discover your dream furnished apartment for rent in Bashundhara. Explore our listings and find the perfect living space in this vibrant community. " />
