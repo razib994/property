@@ -44,7 +44,7 @@ visitor_count:properties.visitor_count ||"",
 status:properties.status ||"",
 publisher_status:properties.publisher_status || "",
 recived_count: properties.recived_count || "",
-image:"",
+image: "",
 video_link:properties.video_link || "",
 'meta_title':"",
 'meta_description':"",
@@ -52,7 +52,7 @@ video_link:properties.video_link || "",
 'meta_keyward':"",
 });
 
-console.log(data);
+//console.log(properties);
 // Add/Remove checked item from list
 const handleCheck = (e) => {
     let id = e.target.value;
@@ -475,7 +475,7 @@ e.preventDefault();
   {features && features.map((feature, i) => 
   <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0" key={i}>
 
-  <input type="checkbox" className="form-checkbox h-4 w-5 text-gray-600 mb-4"  name='feature_id' value={feature.id}  errors={errors.feature_id}
+  <input type="checkbox" className="form-checkbox h-4 w-5 text-gray-600 mb-4"   name='feature_id'  value={feature.id}  errors={errors.feature_id}
        
         onChange={handleCheck} /><span className="ml-2 text-gray-700 text-2xl">{feature.feature_name}</span>
    </div>
@@ -536,6 +536,7 @@ e.preventDefault();
         {progress.percentage}%
       </progress> )}
       {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
+     {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
     </div>
     {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
     <div className="w-full md:w-1/2 px-3">
@@ -547,6 +548,13 @@ e.preventDefault();
        // value={data.email}
        onChange={(e) => setData("image_gallery", [...e.target.files])}
        />
+        <div className='flex flex-wrap'>
+       {properties.image_galleries && properties.image_galleries.map((i, index) => 
+      
+       <img src={i.images} key={index}  style={{ width:"50px", marginLeft:"10px", marginBottom:"10px"}}/>
+      
+       )  }
+        </div>
     </div>
     {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null}
   </div>

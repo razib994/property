@@ -147,7 +147,7 @@ class PropertyController extends Controller
         $types = Type::where('status', 1)->get();
         $features = Feature::where('status', 1)->get();
 
-        return $property;
+        // return $property;
         return Inertia::render("Dashboard/Property/Edit", [
             'properties' =>$property,
             'locations'=>$locations,
@@ -161,15 +161,32 @@ class PropertyController extends Controller
     public function updateProperty(Request $request)
     {
 
-        $property = Property::find($request->id);
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required',
 
-        // $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
-        // if ($photo!="") {
-        //     $ext                    = $photo->getClientOriginalExtension();
-        //     $photoFullName          = time().$photo->getClientOriginalName();
-        //     $uploadPath             = 'images/';
-        //     $success                = $photo->move($uploadPath, $photoFullName);
-        // }
+            'location_id' => 'required',
+            'type_id' => 'required',
+            'date' => 'required',
+            'publisher_status' => 'required',
+
+
+        ]);
+
+        $property = Property::find($request->id);
+        if($request['image'] != null || $request['image'] != '') {
+
+            $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
+            if ($photo!="") {
+                $ext                    = $photo->getClientOriginalExtension();
+                $photoFullName          = time().$photo->getClientOriginalName();
+                $uploadPath             = 'images/';
+                $success                = $photo->move($uploadPath, $photoFullName);
+            }
+            $property->image = '/'.$uploadPath.$photoFullName;
+            $property->update();
+        }
+
         $property->update([
             'title'             =>$request->title,
             'slug'              =>Str::slug($request->title) ,
@@ -218,6 +235,25 @@ class PropertyController extends Controller
                 $featureData->property_id   = $property->id;
                 $featureData->feature_id    = $feature;
                 $featureData->save();
+            }
+        }
+        if(is_array($request->image_gallery)) {
+            $galleriDelete = PropertyImageGallery::where('property_id', $request->id)->delete();
+
+
+            foreach ($request->image_gallery as $gallery) {
+                $photo = (isset($gallery) && $gallery!= "") ? $gallery : "";
+                if ($photo!="") {
+                    $ext                    = $photo->getClientOriginalExtension();
+                    $gallerFullName          = time().$photo->getClientOriginalName();
+                    $uploadPath             = 'images/';
+                    $success                = $photo->move($uploadPath, $gallerFullName);
+                }
+
+                $galleriesData = new PropertyImageGallery();
+                $galleriesData->property_id =$property->id;
+                $galleriesData->images = '/'.$uploadPath.$gallerFullName;
+                $galleriesData->save();
             }
         }
         return redirect('/propety-list');

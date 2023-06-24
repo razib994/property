@@ -94,9 +94,12 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
         <>
         {location_name == 'Gulshan' ? ( <Head>
   <title>Furnished Apartment for Rent in Gulshan Dhaka | Furhouz</title>
+  <meta name="title" content="Furnished Apartment for Rent in Gulshan Dhaka | Furhouz"/>
+  <meta name="description" content="Find your ideal furnished apartment for rent in Gulshan. Browse 100+ listings for high-quality, fully equipped apartments with modern amenities in Gulshan area."/>
+  <meta name="keywords" content="Furnished Apartment for Rent in gulshan , Furnished Apartment for Rent in gulshan, Furnished Apartment for Rent in gulshan dhaka, Furnished Apartment Rent in gulshan dhaka, Furnished Apartment in gulshan dhaka"/>
+  
   <meta property="og:title" content="Furnished Apartment for Rent in Gulshan Dhaka | Furhouz"/>
 <meta property="og:description" content="Find your ideal furnished apartment for rent in Gulshan. Browse 100+ listings for high-quality, fully equipped apartments with modern amenities in Gulshan area."/>
-<meta name="keywords" content="Furnished Apartment for Rent in gulshan , Furnished Apartment for Rent in gulshan, Furnished Apartment for Rent in gulshan dhaka, Furnished Apartment Rent in gulshan dhaka, Furnished Apartment in gulshan dhaka"/>
 <meta property="og:image" content="https://furhouz.com/location/gulshan.png"/>
 <meta property="og:url" content="https://furhouz.com/area/furnished-apartment-for-rent-in-gulshan/"/>
 
@@ -107,9 +110,12 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gulshan) }}></script>
 </Head>): location_name == 'Banani' ? ( <Head>
   <title>Furnished Apartment for Rent in Banani Dhaka | Furhouz </title>
+  <meta name="title" content="Furnished Apartment for Rent in Banani Dhaka | Furhouz"/>
+  <meta name="description" content="Explore furnished apartments for rent in Banani. Discover comfortable living spaces in the desirable Banani area. Start your search for a furnished apartment today!"/>
+  <meta name="keywords" content="Furnished Apartment for Rent in banani , Furnished Apartment for Rent in banani, Furnished Apartment for Rent in banani dhaka, Furnished Apartment Rent in banani dhaka, Furnished Apartment in banani dhaka"/>
+     
   <meta property="og:title" content="Furnished Apartment for Rent in Banani Dhaka | Furhouz"/>
 <meta property="og:description" content="Explore furnished apartments for rent in Banani. Discover comfortable living spaces in the desirable Banani area. Start your search for a furnished apartment today!"/>
-<meta name="keywords" content="Furnished Apartment for Rent in banani , Furnished Apartment for Rent in banani, Furnished Apartment for Rent in banani dhaka, Furnished Apartment Rent in banani dhaka, Furnished Apartment in banani dhaka"/>
 <meta property="og:image" content="https://furhouz.com/location/banani.png"/>
 <meta property="og:url" content="https://furhouz.com/area/furnished-apartment-for-rent-in-banani"/>
 
@@ -120,9 +126,12 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(banani) }}></script>
 </Head>) : location_name == 'Baridhara' ? ( <Head>
   <title>Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone</title>
+  <meta name="title" content="Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone"/>
+  <meta name="description" content="Find luxurious furnished apartments for rent in Baridhara and Baridhara Diplomatic Zone. Explore our exclusive listings and discover elegant living spaces with modern facilities"/>
+  <meta name="keywords" content="Furnished Apartment for Rent in Baridhara diplomatic zone  , Furnished Apartment for Rent in Baridhara diplomatic zone , Furnished Apartment for Rent in Baridhara diplomatic zone  dhaka, Furnished Apartment Rent in Baridhara diplomatic zone  dhaka, Furnished Apartment in Baridhara diplomatic zone  dhaka"/>
+     
   <meta property="og:title" content="Furnished Apartment for Rent in Baridhara and Baridhara Diplomatic Zone"/>
 <meta property="og:description" content="Find luxurious furnished apartments for rent in Baridhara and Baridhara Diplomatic Zone. Explore our exclusive listings and discover elegant living spaces with modern facilities"/>
-<meta name="keywords" content="Furnished Apartment for Rent in Baridhara diplomatic zone  , Furnished Apartment for Rent in Baridhara diplomatic zone , Furnished Apartment for Rent in Baridhara diplomatic zone  dhaka, Furnished Apartment Rent in Baridhara diplomatic zone  dhaka, Furnished Apartment in Baridhara diplomatic zone  dhaka"/>
 <meta property="og:image" content="https://furhouz.com/location/baridhara.png"/>
 <meta property="og:url" content="https://furhouz.com/area/furnished-apartment-for-rent-in-baridhara-diplomatic-zone"/>
 

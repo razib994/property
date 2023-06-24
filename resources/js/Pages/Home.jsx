@@ -93,21 +93,20 @@ const  Home = ({types, properties, locations, banners, totalCount}) =>{
     <>
     <Head>
   <title>Furnished Apartment for Rent in Dhaka | Furhouz </title>
+  <meta name="title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
+  <meta name="description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
+  <meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furhouz, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
+  
   <meta property="og:title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
 <meta property="og:description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
-<meta name="keywords" content="Furnished Apartment for Rent in Dhaka, Furhouz, Furnished Apartment Rent in Dhaka, Furnished Apartment for Rent in BD, Furnished Apartment for Rent in Bangladesh, Furnished Apartment in dhaka"/>
 <meta property="og:image" content="https://furhouz.com/logo/logo.png"/>
 <meta property="og:url" content="https://furhouz.com/"/>
-
 <meta name="twitter:title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
 <meta name="twitter:description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
 <meta name="twitter:url" content="https://furhouz.com/log/o/logo.png"/>
 <meta name="twitter:card" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
-<script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-  /> 
-       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}></script>
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}></script>
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}></script>
 
 </Head>
 
