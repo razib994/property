@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from './master/Layout';
 import PropertyCard from './Frontend/PropertyCard';
 import Advanced from './Frontend/Advanced';
-
+const imagePerRow = 4;
 const Property = ({properties, locations, types}) => {
-
+    const [next, setNext] = useState(imagePerRow);
+    const handleMoreImage = () => {
+        setNext(next + imagePerRow);
+      };
     return (
         <>  
         <section className='bg-[#064d83] py-0.5'>
@@ -20,12 +23,16 @@ const Property = ({properties, locations, types}) => {
 Find the perfect home for you. Search all available properties and find the one that suits your needs.</p>
             </div>
             <div className="grid w-[90%] mx-auto grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {properties.length > 0 ?(properties && properties.map((item, i) => 
+            {properties.length > 0 ?(properties && properties.slice(0, next).map((item, i) => 
           <PropertyCard key={i} item={item}/>
           )):(<div>No Found Result</div>) }
 </div>
 <div className="text-center items-center w-[92%] mx-auto pt-5">
-<button className="p-2 border rounded-md bg-gray-800 text-white">Load More</button>
+{next < properties?.length && (
+    <button className="p-2 border rounded-md bg-gray-800 text-white"  onClick={handleMoreImage}>Load More</button>
+          
+        )}
+
                 
             </div>
 </section>

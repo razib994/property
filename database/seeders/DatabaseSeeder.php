@@ -19,18 +19,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       
+
 
         DB::table('users')->insert([
-            0 => 
-            array (
+            0 =>
+            array(
                 'id'=>1,
             'name' => 'Nasullah Nash',
             'email' => 'nash@gmail.com',
-            'is_admin'=>NULL,
-            'password' => Hash::make('00000000')),
-            1 => 
-            array (
+            'is_admin'=>null,
+            'password' => Hash::make('nash@%2023')),
+            1 =>
+            array(
                 'id'=>2,
             'name' => 'Razibur Rahman',
             'email' => 'razibur@gmail.com',
@@ -50,6 +50,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertyImageGallerySeeder::class);
         $this->call(FeatureSeeder::class);
         $this->call(BannerInfoSeeder::class);
-       
+
     }
 }

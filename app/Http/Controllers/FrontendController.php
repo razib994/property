@@ -77,7 +77,7 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         $type = Type::orderBy('id', 'desc')->get();
-        $property = Property::with('type', 'user', 'location', 'image_galleries')->orderBy('id', 'desc')->take(12)->get();
+        $property = Property::with('type', 'user', 'location', 'image_galleries')->latest()->get();
         return Inertia::render('Property', [
             'logo' =>$logo,
             'properties'=>$property,
@@ -263,109 +263,109 @@ class FrontendController extends Controller
         return redirect()->back()->with('success', 'Your Request Send Successfully');
     }
 
-     public function search(Request $request)
-     {
-         $pricePrivious = $request->price-49999;
-         $locations = Location::all();
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         $type = Type::orderBy('id', 'desc')->get();
-         $property = Property::with('type', 'user', 'location', 'image_galleries')->orderBy('id', 'desc');
-         if ($request->location!=null) {
-             $property->where('location_id', 'like', $request->location);
-         }
-         if ($request->property_id!=null) {
-             $property->where('property_id', 'like', $request->property_id);
-         }
-         if ($request->price!=null) {
-             $property->where('price', '>=', $pricePrivious)
-             ->where('price', '<', $request->price);
-         }
+    public function search(Request $request)
+    {
+        $pricePrivious = $request->price-49999;
+        $locations = Location::all();
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        $type = Type::orderBy('id', 'desc')->get();
+        $property = Property::with('type', 'user', 'location', 'image_galleries')->orderBy('id', 'desc');
+        if ($request->location!=null) {
+            $property->where('location_id', 'like', $request->location);
+        }
+        if ($request->property_id!=null) {
+            $property->where('property_id', 'like', $request->property_id);
+        }
+        if ($request->price!=null) {
+            $property->where('price', '>=', $pricePrivious)
+            ->where('price', '<', $request->price);
+        }
 
-         $data = $property->get();
-         ;
-         return Inertia::render('PropertySearch', [
-             'logo' =>$logo,
-             'properties'=>$data,
-             'locations' => $locations,
-             'types' => $type
-         ]);
-     }
+        $data = $property->get();
+        ;
+        return Inertia::render('PropertySearch', [
+            'logo' =>$logo,
+            'properties'=>$data,
+            'locations' => $locations,
+            'types' => $type
+        ]);
+    }
 
-     public function clientRegistration()
-     {
+    public function clientRegistration()
+    {
 
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         return Inertia::render("ClientsRegistration", [
-             'logo' =>$logo,
-         ]);
-
-
-     }
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        return Inertia::render("ClientsRegistration", [
+            'logo' =>$logo,
+        ]);
 
 
+    }
 
 
 
-     public function contactOwner()
-     {
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         return Inertia::render("ContactOwnerForm", [
-             'logo' =>$logo,
-         ]);
-     }
-     public function contactCorporate()
-     {
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         return Inertia::render("ContactCorportate", [
-             'logo' =>$logo,
-         ]);
-     }
-     public function contactTenlent()
-     {
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         return Inertia::render("ContactTenant", [
-             'logo' =>$logo,
-         ]);
-     }
-     public function contactWantKnow()
-     {
-         $logo = TopHeader::orderBy('id', 'desc')->first();
-         return Inertia::render("ContactWantKnow", [
-             'logo' =>$logo,
-         ]);
-     }
-     public function postClientData(Request $request)
-     {
-         $request->validate([
-             'name' => 'required',
-             'phone' => 'required',
-         ]);
 
-         $user = User::create([
-                 'name' => $request->name,
-                 'email' => $request->email,
-                 'phone' => $request->phone,
-                 'password' => Hash::make($request->phone),
-                 'is_admin' => 1,
-         ]);
 
-         if ($user) {
-             $details = [
-                 'name' => $request->name,
-                 'email' => $request->email,
-                 'password' => $request->phone,
-                 'phone' => $request->phone,
+    public function contactOwner()
+    {
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        return Inertia::render("ContactOwnerForm", [
+            'logo' =>$logo,
+        ]);
+    }
+    public function contactCorporate()
+    {
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        return Inertia::render("ContactCorportate", [
+            'logo' =>$logo,
+        ]);
+    }
+    public function contactTenlent()
+    {
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        return Inertia::render("ContactTenant", [
+            'logo' =>$logo,
+        ]);
+    }
+    public function contactWantKnow()
+    {
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        return Inertia::render("ContactWantKnow", [
+            'logo' =>$logo,
+        ]);
+    }
+    public function postClientData(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
 
-             ];
+        $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->phone),
+                'is_admin' => 1,
+        ]);
 
-             Mail::to('razibeee2012@gmail.com')->send(new UserInformationMail($details));
-         }
-         return redirect()->back()->with('success', 'Your Request Send Successfully');
-     }
+        if ($user) {
+            $details = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $request->phone,
+                'phone' => $request->phone,
 
-     public function error()
-     {
-         return Inertia::render('404');
+            ];
 
-     }
+            Mail::to('razibeee2012@gmail.com')->send(new UserInformationMail($details));
+        }
+        return redirect()->back()->with('success', 'Your Request Send Successfully');
+    }
+
+    public function error()
+    {
+        return Inertia::render('404');
+
+    }
 }
