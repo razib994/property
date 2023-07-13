@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Layout from './master/Layout';
 import PropertyCard from './Frontend/PropertyCard';
 import Advanced from './Frontend/Advanced';
-const imagePerRow = 4;
+const imagePerRow = 12;
 const Property = ({properties, locations, types}) => {
     const [next, setNext] = useState(imagePerRow);
     const handleMoreImage = () => {
