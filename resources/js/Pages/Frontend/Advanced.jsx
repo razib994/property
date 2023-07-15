@@ -37,13 +37,6 @@ const Advanced = ({locations, types}) => {
         );
     });
 
-    const typedata = types.map(option => {
-        return (
-            <option key={option.id} value={option.id}>
-              {option.title}
-            </option>
-        );
-    });
     return (
         <>
             <div class="mt-5 ">

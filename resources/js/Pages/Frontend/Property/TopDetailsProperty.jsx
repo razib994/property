@@ -1,13 +1,10 @@
 import Address from './Address';
-import Description from './Description';
 import Details from './Details';
 import Feature from './Feature';
-import MapSection from './MapSection';
 import Overview from './Overview';
 import RequestFrom from './RequestFrom';
 import SimilerProperty from './SimilerProperty';
 import SliderImage from './SliderImage';
-import ContactInformation from './ContactInformation';
 import React, { useState, useEffect } from "react";
 
 // import VideoSection from './VideoSection';

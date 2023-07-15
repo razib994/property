@@ -3,7 +3,8 @@ import Layout from './master/Layout';
 import PropertyCard from './Frontend/PropertyCard';
 import Advanced from './Frontend/Advanced';
 const imagePerRow = 12;
-const Property = ({properties, locations, types}) => {
+const Property = ({properties, locations}) => {
+    console.log(locations);
     const [next, setNext] = useState(imagePerRow);
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
@@ -12,7 +13,7 @@ const Property = ({properties, locations, types}) => {
         <>  
         <section className='bg-[#064d83] py-0.5'>
             <div className='w-[85%] mx-auto'>
-         <Advanced locations={locations} types={types}/>
+         <Advanced locations={locations} />
          </div>
          </section> 
     <section className="bg-slate-100  py-16 property">

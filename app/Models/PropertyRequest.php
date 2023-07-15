@@ -18,4 +18,9 @@ class PropertyRequest extends Model
         'date',
         'status',
     ];
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
 }

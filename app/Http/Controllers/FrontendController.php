@@ -9,14 +9,11 @@ use App\Models\PropertyRequest;
 use App\Models\TopHeader;
 use App\Models\Type;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
-use PharIo\Manifest\Url;
 
 class FrontendController extends Controller
 {
@@ -74,15 +71,33 @@ class FrontendController extends Controller
     }
     public function property()
     {
-        $locations = Location::all();
+        $locations = Location::get()->transform(function ($item) {
+            return [
+                'id'               => $item->id,
+                'location_name'    => $item->location_name,
+                'slug'             => $item->slug,
+            ];
+        });
         $logo = TopHeader::orderBy('id', 'desc')->first();
-        $type = Type::orderBy('id', 'desc')->get();
-        $property = Property::with('type', 'user', 'location', 'image_galleries')->latest()->get();
+        $property = Property::with('location', 'image_galleries')->where('status', 1)->latest()->get()->transform(function ($item) {
+            return [
+                'id'        => $item->id,
+                'property_id' => $item->property_id,
+                'slug'      => $item->slug,
+                'title'     => $item->title,
+                'price'     => $item->price,
+                'bed'       => $item->bed,
+                'bath'      => $item->bath,
+                'address'   => $item->address,
+                'sqf'   => $item->sqf,
+                'location_name'   => $item->location->location_name,
+                'image_galleries'   => $item->image_galleries,
+            ];
+        });
         return Inertia::render('Property', [
             'logo' =>$logo,
             'properties'=>$property,
             'locations' => $locations,
-            'types' => $type
         ]);
     }
     public function propertyOwner()
@@ -99,10 +114,31 @@ class FrontendController extends Controller
     public function propertyDetails($itemId)
     {
         $id = Property::where('slug', $itemId)->first()->id;
-        $locations = Location::all();
-        $types = Type::all();
-        $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
-        $similarProperty = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->where('location_id', $property->location_id)->get()->take(4);
+        $locations = Location::get()->transform(function ($item) {
+            return [
+                'id'               => $item->id,
+                'location_name'    => $item->location_name,
+                'slug'             => $item->slug,
+            ];
+        });
+        $property = Property::with('features.ferature', 'image_galleries', 'location')->find($id);
+
+        $similarProperty = Property::with('image_galleries', 'location')->where('location_id', $property->location_id)->where('status', 1)->get()->take(4)->transform(function ($item) {
+            return [
+                'id'        => $item->id,
+                'property_id' => $item->property_id,
+                'slug'      => $item->slug,
+                'title'     => $item->title,
+                'price'     => $item->price,
+                'bed'       => $item->bed,
+                'bath'      => $item->bath,
+                'address'   => $item->address,
+                'sqf'   => $item->sqf,
+                'location_name'   => $item->location->location_name,
+                'image_galleries'   => $item->image_galleries,
+            ];
+        });
+
         $logo = TopHeader::orderBy('id', 'desc')->first();
 
         return Inertia::render("PropertyDetails", [
@@ -110,7 +146,6 @@ class FrontendController extends Controller
             'similarProperty'   => $similarProperty,
             'logo'              =>$logo,
             'locations'         => $locations,
-            'types'         => $types
         ]);
     }
 
@@ -215,19 +250,10 @@ class FrontendController extends Controller
 
     public function cookieData()
     {
-        // $current = url()->current();
-        // dd($current);
-        // Cookie::queue('test-cookie', 'Setting Cookie from ItSolutionStuff.com', 120);
 
-        // return response()->json(['Cookie set successfully.']);
 
         $value = Cookie::get('test-cookie');
-        dd($value);
 
-        // Cookie::forget('test-cookie');
-        // Cookie::forget('test-cookie-2');
-
-        // dd('Cookie removed successfully.');
     }
 
     public function propertyRequest(Request $request)
@@ -247,19 +273,19 @@ class FrontendController extends Controller
                 'date' => date('Y-m-d'),
         ]);
 
-        if ($requestProperty) {
-            $details = [
-                'name' => $request->name,
-                'property_title' => $request->title,
-                'property_url' => request()->getSchemeAndHttpHost().'/area/'.$request->location.'/'.$request->property_id,
-                'property_id' => $request->property_id,
-                'mobile' => $request->phone,
-                'message' => $request->message,
-                'email' => $request->email,
-            ];
+        // if ($requestProperty) {
+        //     $details = [
+        //         'name' => $request->name,
+        //         'property_title' => $request->title,
+        //         'property_url' => request()->getSchemeAndHttpHost().'/area/'.$request->location.'/'.$request->property_id,
+        //         'property_id' => $request->property_id,
+        //         'mobile' => $request->phone,
+        //         'message' => $request->message,
+        //         'email' => $request->email,
+        //     ];
 
-            Mail::to('razibeee2012@gmail.com')->send(new \App\Mail\MyTestMail($details));
-        }
+        //     Mail::to('razibeee2012@gmail.com')->send(new \App\Mail\MyTestMail($details));
+        // }
         return redirect()->back()->with('success', 'Your Request Send Successfully');
     }
 

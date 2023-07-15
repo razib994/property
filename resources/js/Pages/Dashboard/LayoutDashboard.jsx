@@ -2,6 +2,7 @@ import React from 'react';
 import { InertiaLink, usePage } from '@inertiajs/inertia-react';
 
 const LayoutDashboard = (props) => {
+   
     return (
         <div>
             <nav className="bg-white border-b border-gray-200 fixed z-30 w-full">
@@ -17,8 +18,7 @@ const LayoutDashboard = (props) => {
                   </svg>
                </button>
                <a href="#" className="text-xl font-bold flex items-center lg:ml-2.5">
-               <img src="https://demo.themesberg.com/windster/images/logo.svg" className="h-6 mr-2" alt="Windster Logo"/>
-               <span className="self-center whitespace-nowrap">Windster</span>
+               <span className="self-center whitespace-nowrap">Dashboard</span>
                </a>
                <form action="#" method="GET" className="hidden lg:block lg:pl-32">
                   <label  className="sr-only">Search</label>
@@ -41,7 +41,7 @@ const LayoutDashboard = (props) => {
                </button>
                <div className="hidden lg:flex items-center">
                   <div className="-mb-1">
-                     <a className="github-button" href="#" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themesberg/windster-tailwind-css-dashboard on GitHub">Star</a>
+                     <a className="github-button" href="#" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themesberg/windster-tailwind-css-dashboard on GitHub">{props.children.props.auth.user.user.name}</a>
                   </div>
                </div>
                <InertiaLink href="/logout" className="hidden sm:inline-flex ml-5 text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
@@ -173,25 +173,7 @@ const LayoutDashboard = (props) => {
                         </InertiaLink>
                      </li>
                      <li>
-					<button type="button" className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                  <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" ></path></svg>
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap" >E-commerce</span>
-                  <svg  className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" ></path></svg>
-            </button>
-					<ul id="dropdown-example" className="hidden py-2 space-y-2">
-						<li>
-							<a href="#"
-								className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Products</a>
-						</li>
-						<li>
-							<a href="#"
-								className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Billing</a>
-						</li>
-						<li>
-							<a href="#"
-								className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Invoice</a>
-						</li>
-					</ul>
+					
 				</li>
                   </ul>
                   <div className="space-y-2 pt-2">

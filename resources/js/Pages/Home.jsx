@@ -88,7 +88,7 @@ let data =
 
   
   
-const  Home = ({types, properties, locations, banners, totalCount}) =>{
+const  Home = ({ locations}) =>{
   return (
     <>
     <Head>
