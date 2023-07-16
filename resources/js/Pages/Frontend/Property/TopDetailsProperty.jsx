@@ -7,12 +7,7 @@ import SimilerProperty from './SimilerProperty';
 import SliderImage from './SliderImage';
 import React, { useState, useEffect } from "react";
 
-// import VideoSection from './VideoSection';
-
-// import slideImage from './../../../public/image/019.jpg';
-
 const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
-    // const {bed, bath, grage, date, sqf, type_id, id } = property
     const [showTopBtn, setShowTopBtn] = useState("");
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -40,7 +35,6 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
                     </div>
                 </div>
                 <div className="px-0 md:px-10 pt-2 text-right md:text-right">
-                    {/* <a className="rounded bg-gray-700 mx-1 p-2 text-xl text-white hover:bg-gray-500" href={`tel:${property.phone}`}><i className="uil uil-phone"></i></a> */}
                     <a className="rounded bg-blue-700 mx-1 p-2 text-xl text-white hover:bg-blue-500" href={`https://www.facebook.com/sharer.php?u=${property.share_link}`}><i className="uil uil-facebook-f"></i></a>
                     <a className="rounded bg-emerald-700 mx-1 p-2 text-xl text-white hover:bg-emerald-600" href={`https://www.facebook.com/sharer.php?u=${property.whatsapp_number}`}><i className="uil uil-whatsapp"></i></a>
                 </div>
@@ -88,7 +82,6 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
             </div>
         <div className='py-5 col-span-1'> 
         <div className="grid grid-cols-1 gap-2 ">
-                {/* <a href={`tel:8801616171171`} className="bg-slate-800 text-white text-center rounded-md py-2 hover:text-white hover:bg-emerald-700"><i className="uil uil-phone  text-xl"></i></a> */}
 <a  href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furnished.free-blood.com/area/${property.location.location_name}/${property.id}`}  className=" text-center  text-white "><i className="uil uil-whatsapp  text-4xl bg-emerald-600 rounded-full  hover:text-white py-2 px-2.5 hover:bg-emerald-700"></i> </a>
                 </div>
         </div>
