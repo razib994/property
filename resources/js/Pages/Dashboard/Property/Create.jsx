@@ -497,32 +497,10 @@ e.preventDefault();
     {errors && errors.video_link ? <div className="text-[red] py-2">{errors.video_link}</div> : null}
   </div>
 
-  {/* <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user_id">
-       Property Owner Name
-      </label>
-      <div className="relative">
-        <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="user_id" name='user_id' 
-        errors={errors.user_id}
-      // value={data.email}
-      onChange={(e) => setData("user_id", e.target.value)}>
-          <option value=""> Select Your Location </option>
-          {locations && locations.map((location, index) =>
-           <option value={location.id}> {location.location_name} </option>
-          )}
-         
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>     
-    </div>
-    {errors && errors.user_id ? <div className="text-[red] py-2">{errors.user_id}</div> : null}
-  </div> */}
+
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
         Image
       </label>
@@ -536,12 +514,12 @@ e.preventDefault();
         {progress.percentage}%
       </progress> )}
       {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
-    </div>
+    </div> */}
   
-    <div className="w-full md:w-1/2 px-3">
+    <div className="w-full md:w-2/2 px-3">
       
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
-        Multi Image
+        Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
        errors={errors.image_gallery}
@@ -575,21 +553,6 @@ e.preventDefault();
       {errors && errors.publisher_status ? <div className="text-[red] py-2">{errors.publisher_status}</div> : null}
     </div>
   
-    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
-        Status
-      </label>
-      <div className="relative">
-        <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 focus:border-gray-500" id="type" name='type'>
-          <option>New Mexico</option>
-          <option>Missouri</option>
-          <option>Texas</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-    </div> */}
   </div>
   <button className="p-3 bg-green-600 text-white px-10 rounded-lg hover:bg-green-500"  type='submit'> Save </button>
 </form>

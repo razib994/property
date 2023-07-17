@@ -1,11 +1,8 @@
 import React from 'react';
 import LayoutDashboard from '../LayoutDashboard';
-import { InertiaLink } from '@inertiajs/inertia-react';
-import SliderImage from '../../Frontend/Property/SliderImage';
 import Overview from '../../Frontend/Property/Overview';
 import Address from '../../Frontend/Property/Address';
 import Feature from '../../Frontend/Property/Feature';
-import RequestFrom from '../../Frontend/Property/RequestFrom';
 import Details from '../../Frontend/Property/Details';
 const PropertyListDetails = ({property}) => {
     return (
@@ -16,11 +13,11 @@ const PropertyListDetails = ({property}) => {
             <div class="w-full md:w-3/12 md:mx-2">
             
                 <div class="bg-white p-3 border-t-4 border-green-400">
-                    <div class="image overflow-hidden">
+                    {/* <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
                             src={property.image}
                             alt=""/>
-                    </div>
+                    </div> */}
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{property.title}  </h1>
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1"> {property.price} BDT </h1>
                     

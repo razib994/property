@@ -44,7 +44,7 @@ const Index = ({totalProperty, userCount, requestCount, property, latest_request
                            <h3 className="text-xl font-bold text-gray-900 mb-2">Latest Property</h3>
                         </div>
                         <div className="flex-shrink-0">
-                           <a href="/propety-list" className="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">View all</a>
+                           <a href="/property-list" className="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">View all</a>
                         </div>
                      </div>
                      <div className="flex flex-col mt-8">

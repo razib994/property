@@ -30,6 +30,9 @@ const Index = ({features}) => {
                           Description
                         </th>
            <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Image
+                        </th>
+                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           Status
                         </th>
           <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -48,11 +51,15 @@ const Index = ({features}) => {
             {item.description}
             </td>
             <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <img src={item.icon} width={100} height={100}/>
+            </td>
+
+            <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
             {item.status == 1 ? <span className='bg-emerald-600 text-white p-1 rounded-sm'> active </span>:""}
             </td>
             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-            <a href=''><i className="fas fa-edit text-emerald-500 bg-green-200 p-2 rounded mr-4"></i></a>
-              <a href=''><i className="fas fa-trash text-red-500 bg-red-200 p-2 rounded mr-4"></i></a>
+            <a href={route('feature.edit', item.id)}><i className="fas fa-edit text-emerald-500 bg-green-200 p-2 rounded mr-4"></i></a>
+              <a href={route('feature.delete', item.id)}><i className="fas fa-trash text-red-500 bg-red-200 p-2 rounded mr-4"></i></a>
               
             </td>
           </tr>

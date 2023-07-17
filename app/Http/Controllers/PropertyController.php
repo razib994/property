@@ -48,7 +48,7 @@ class PropertyController extends Controller
         $request->validate([
             'title' => 'required',
             'price' => 'required',
-            'image' => 'required',
+            // 'image' => 'required',
             'location_id' => 'required',
             'type_id' => 'required',
             'date' => 'required',
@@ -99,7 +99,8 @@ class PropertyController extends Controller
             'status'            =>1, //$request->status,
             'publisher_status'  =>$request->publisher_status,
             'recived_count'     =>0, //$request->recived_count,
-             'image'            => '/'.$uploadPath.$photoFullName,
+          //   'image'            => '/'.$uploadPath.$photoFullName,
+             'image'            => '',
             'video_link'        =>$request->video_link,
             'meta_title'        => '', //$request->meta_title,
             'meta_description'  =>'', //$request->meta_description,
@@ -136,7 +137,7 @@ class PropertyController extends Controller
         }
 
 
-        return redirect('/propety-list');
+        return redirect('/property-list');
     }
 
     public function editProperty(Request $request, $id)
@@ -162,30 +163,27 @@ class PropertyController extends Controller
     {
 
         $request->validate([
-            'title' => 'required',
-            'price' => 'required',
-
-            'location_id' => 'required',
-            'type_id' => 'required',
-            'date' => 'required',
-            'publisher_status' => 'required',
-
-
+            'title'             => 'required',
+            'price'             => 'required',
+            'location_id'       => 'required',
+            'type_id'           => 'required',
+            'date'              => 'required',
+            'publisher_status'  => 'required',
         ]);
 
         $property = Property::find($request->id);
-        if($request['image'] != null || $request['image'] != '') {
+        // if($request['image'] != null || $request['image'] != '') {
 
-            $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
-            if ($photo!="") {
-                $ext                    = $photo->getClientOriginalExtension();
-                $photoFullName          = time().$photo->getClientOriginalName();
-                $uploadPath             = 'images/';
-                $success                = $photo->move($uploadPath, $photoFullName);
-            }
-            $property->image = '/'.$uploadPath.$photoFullName;
-            $property->update();
-        }
+        //     $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
+        //     if ($photo!="") {
+        //         $ext                    = $photo->getClientOriginalExtension();
+        //         $photoFullName          = time().$photo->getClientOriginalName();
+        //         $uploadPath             = 'images/';
+        //         $success                = $photo->move($uploadPath, $photoFullName);
+        //     }
+        //     $property->image = '/'.$uploadPath.$photoFullName;
+        //     $property->update();
+        // }
 
         $property->update([
             'title'             =>$request->title,
@@ -256,11 +254,12 @@ class PropertyController extends Controller
                 $galleriesData->save();
             }
         }
-        return redirect('/propety-list');
+        return redirect('/property-list');
     }
 
     public function propertyListDetails($id)
     {
+
         $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
         return Inertia::render("Dashboard/Property/PropertyListDetails", [
             'property' =>$property,
@@ -269,8 +268,9 @@ class PropertyController extends Controller
 
     public function destroy($id)
     {
+        dd($id);
         $property = Property::find($id);
         $property->delete();
-        return redirect('/propety-list');
+        return redirect('/property-list');
     }
 }

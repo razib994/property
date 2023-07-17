@@ -69,34 +69,50 @@ Route::middleware('user_admin')->group(function () {
     Route::post("/propety-store", [PropertyController::class,'storeProperty'])->name('property.submit');
     Route::post("/propety-update", [PropertyController::class,'updateProperty'])->name('property.update');
     Route::get("/propety-edit/{id}", [PropertyController::class,'editProperty'])->name('property.edit');
-    Route::get("/delete/{id}", [PropertyController::class,'destroy'])->name('property.delete');
-    Route::get("/propety-list", [PropertyController::class,'propertyList'])->name('property.list');
-    Route::get("/propety-list/details/{id}", [PropertyController::class,'propertyListDetails'])->name('property.list.details');
+    Route::get("/propety-delete/{id}", [PropertyController::class,'destroy'])->name('property.delete');
+    Route::get("/property-list", [PropertyController::class,'propertyList'])->name('property.list');
+    Route::get("/property-list/details/{id}", [PropertyController::class,'propertyListDetails'])->name('property.list.details');
 
     // Location
     Route::get("/location-create", [LocationController::class,'locationCreate'])->name('location.create');
     Route::post("/location-store", [LocationController::class,'storeLocation'])->name('location.submit');
     Route::get("/location-list", [LocationController::class,'locationList'])->name('location.list');
+    Route::post("/location-update", [LocationController::class,'updateProperty'])->name('location.update');
+    Route::get("/location-edit/{id}", [LocationController::class,'editProperty'])->name('location.edit');
+    Route::get("/location/{id}", [LocationController::class,'destroy'])->name('location.delete');
 
     // Type
     Route::get("/type-create", [TypeController::class,'typeCreate'])->name('type.create');
     Route::post("/type-store", [TypeController::class,'storeType'])->name('type.submit');
     Route::get("/type-list", [TypeController::class,'typeList'])->name('type.list');
+    Route::post("/type-update", [TypeController::class,'updateProperty'])->name('type.update');
+    Route::get("/type-edit/{id}", [TypeController::class,'editProperty'])->name('type.edit');
+    Route::get("/type/{id}", [TypeController::class,'destroy'])->name('type.delete');
 
     // banner Info
     Route::get("/create-banner", [SettingController::class,'bannerCreate'])->name('banner.create');
     Route::post("/banner-store", [SettingController::class,'storeBanner'])->name('banner.submit');
     Route::get("/banner-list", [SettingController::class,'bannerList'])->name('banner.list');
+    Route::post("/banner-update", [SettingController::class,'updateProperty'])->name('banner.update');
+    Route::get("/banner-edit/{id}", [SettingController::class,'editProperty'])->name('banner.edit');
+    Route::get("/banner/{id}", [SettingController::class,'destroy'])->name('banner.delete');
 
     // Top Header
     Route::get("/create-top-header", [SettingController::class,'topHeaderCreate'])->name('topHeader.create');
     Route::post("/top-header-store", [SettingController::class,'storeTopHeader'])->name('topHeader.submit');
     Route::get("/top-header-list", [SettingController::class,'topHeaderList'])->name('topHeader.list');
+    Route::post("/top-header-update", [SettingController::class,'updateProperty'])->name('topheader.update');
+    Route::get("/top-header-edit/{id}", [SettingController::class,'editProperty'])->name('topheader.edit');
+    Route::get("/delete/{id}", [SettingController::class,'destroy'])->name('topheader.delete');
 
     // Feature
     Route::get("/create-feature", [SettingController::class,'featureCreate'])->name('feature.create');
     Route::post("/store", [SettingController::class,'storeFeature'])->name('feature.submit');
     Route::get("/feature-list", [SettingController::class,'featureList'])->name('feature.list');
+    Route::post("/feature-update", [SettingController::class,'updateFeature'])->name('feature.update');
+    Route::get("/feature-edit/{id}", [SettingController::class,'editFeature'])->name('feature.edit');
+    Route::get("/feature-delete/{id}", [SettingController::class,'featureDestroy'])->name('feature.delete');
+
 
 
     Route::get("/upload-image", [SettingController::class,'imageCreate'])->name('image.create');
@@ -112,6 +128,6 @@ Route::middleware('is_admin')->group(function () {
 });
 
 Route::fallback(function () {
-    return view('404');
+    return redirect('/');
 
 });

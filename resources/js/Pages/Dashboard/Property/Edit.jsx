@@ -522,7 +522,7 @@ e.preventDefault();
   </div> */}
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
         Image
       </label>
@@ -536,10 +536,10 @@ e.preventDefault();
         {progress.percentage}%
       </progress> )}
       {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
-     {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
+     {/* {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
     </div>
-    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
-    <div className="w-full md:w-1/2 px-3">
+    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}  */}
+    <div className="w-full md:w-2/2 px-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Multi Image
       </label>
