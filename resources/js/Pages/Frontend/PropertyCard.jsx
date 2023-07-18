@@ -110,7 +110,7 @@ const PropertyCard = ({item}) => {
           </div> */}
 
           <div className="">
-            <a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furnished.free-blood.com/area/${item.location_name}/${item.id}`}><i className="fab fa-whatsapp mx-1 rounded-md bg-green-600 py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i></a>
+            <a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${item.location_name}/${item.slug}`}><i className="fab fa-whatsapp mx-1 rounded-md bg-green-600 py-2 px-2 text-lg md:text-xl text-white"> Whatsapp</i></a>
             {/* <button><i className="fa fa-phone rounded-md bg-[#064d83] py-2 px-2 text-lg md:text-xl text-white"> Call</i> </button> */}
             <a href="/get-request"><i className="fas fa-envelope rounded-md bg-[#064d83] py-2  mx-1 px-1 text-lg md:text-xl text-white"> Email</i>  </a>
             

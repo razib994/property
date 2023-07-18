@@ -82,7 +82,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
             </div>
         <div className='py-5 col-span-1'> 
         <div className="grid grid-cols-1 gap-2 ">
-<a  href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furnished.free-blood.com/area/${property.location.location_name}/${property.id}`}  className=" text-center  text-white "><i className="uil uil-whatsapp  text-4xl bg-emerald-600 rounded-full  hover:text-white py-2 px-2.5 hover:bg-emerald-700"></i> </a>
+<a  href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${property.location.location_name}/${property.id}`}  className=" text-center  text-white "><i className="uil uil-whatsapp  text-4xl bg-emerald-600 rounded-full  hover:text-white py-2 px-2.5 hover:bg-emerald-700"></i> </a>
                 </div>
         </div>
       </div>

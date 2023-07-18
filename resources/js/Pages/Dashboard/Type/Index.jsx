@@ -1,9 +1,7 @@
 import { InertiaLink } from '@inertiajs/inertia-react';
 import React from 'react';
 import LayoutDashboard from '../LayoutDashboard';
-
 const Index = ({types}) => {
-    
     return (
         <>
           <section className="py-1 bg-blueGray-50">
@@ -19,7 +17,6 @@ const Index = ({types}) => {
         </div>
       </div>
     </div>
-
     <div className="block w-full overflow-x-auto">
       <table className="items-center bg-transparent w-full border-collapse ">
         <thead>
@@ -38,7 +35,6 @@ const Index = ({types}) => {
                         </th>
           </tr>
         </thead>
-
         <tbody>
             {types && types.map((item, i) => 
                 <tr key={i}>
@@ -52,14 +48,11 @@ const Index = ({types}) => {
             {item.status == 1 ? <span className='bg-emerald-600 text-white p-1 rounded-sm'> active </span>:""}
             </td>
             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-            <a href=''><i className="fas fa-edit text-emerald-500 bg-green-200 p-2 rounded mr-4"></i></a>
-              <a href=''><i className="fas fa-trash text-red-500 bg-red-200 p-2 rounded mr-4"></i></a>
-              
+            <a href={route('type.edit', item.id)}><i className="fas fa-edit text-emerald-500 bg-green-200 p-2 rounded mr-4"></i></a>
+              <a href={route('type.delete', item.id)}><i className="fas fa-trash text-red-500 bg-red-200 p-2 rounded mr-4"></i></a>
             </td>
           </tr>
             )}
-          
-         
         </tbody>
 
       </table>

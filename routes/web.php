@@ -85,24 +85,24 @@ Route::middleware('user_admin')->group(function () {
     Route::get("/type-create", [TypeController::class,'typeCreate'])->name('type.create');
     Route::post("/type-store", [TypeController::class,'storeType'])->name('type.submit');
     Route::get("/type-list", [TypeController::class,'typeList'])->name('type.list');
-    Route::post("/type-update", [TypeController::class,'updateProperty'])->name('type.update');
-    Route::get("/type-edit/{id}", [TypeController::class,'editProperty'])->name('type.edit');
-    Route::get("/type/{id}", [TypeController::class,'destroy'])->name('type.delete');
+    Route::post("/type-update", [TypeController::class,'updateType'])->name('type.update');
+    Route::get("/type-edit/{id}", [TypeController::class,'editType'])->name('type.edit');
+    Route::get("/type/{id}", [TypeController::class,'destroyType'])->name('type.delete');
 
     // banner Info
-    Route::get("/create-banner", [SettingController::class,'bannerCreate'])->name('banner.create');
+    Route::get("/create-banner", [SettingController::class,'bannerupdateTypeCreate'])->name('banner.create');
     Route::post("/banner-store", [SettingController::class,'storeBanner'])->name('banner.submit');
     Route::get("/banner-list", [SettingController::class,'bannerList'])->name('banner.list');
-    Route::post("/banner-update", [SettingController::class,'updateProperty'])->name('banner.update');
-    Route::get("/banner-edit/{id}", [SettingController::class,'editProperty'])->name('banner.edit');
-    Route::get("/banner/{id}", [SettingController::class,'destroy'])->name('banner.delete');
+    Route::post("/banner-update", [SettingController::class,'updateBanner'])->name('banner.update');
+    Route::get("/banner-edit/{id}", [SettingController::class,'editBanner'])->name('banner.edit');
+    Route::get("/banner/{id}", [SettingController::class,'destroyBanner'])->name('banner.delete');
 
     // Top Header
     Route::get("/create-top-header", [SettingController::class,'topHeaderCreate'])->name('topHeader.create');
     Route::post("/top-header-store", [SettingController::class,'storeTopHeader'])->name('topHeader.submit');
     Route::get("/top-header-list", [SettingController::class,'topHeaderList'])->name('topHeader.list');
-    Route::post("/top-header-update", [SettingController::class,'updateProperty'])->name('topheader.update');
-    Route::get("/top-header-edit/{id}", [SettingController::class,'editProperty'])->name('topheader.edit');
+    Route::post("/top-header-update", [SettingController::class,'updateTopheader'])->name('topheader.update');
+    Route::get("/top-header-edit/{id}", [SettingController::class,'editTopHeader'])->name('topheader.edit');
     Route::get("/delete/{id}", [SettingController::class,'destroy'])->name('topheader.delete');
 
     // Feature
