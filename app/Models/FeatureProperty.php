@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class FeatureProperty extends Model
 {
     use HasFactory;
-    public function ferature() {
+
+    protected $fillable = [
+        'property_id', 'feature_id'
+    ];
+
+    public function ferature()
+    {
         return $this->belongsTo(Feature::class, 'feature_id', 'id');
     }
 }

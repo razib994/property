@@ -35,6 +35,7 @@ class PropertyController extends Controller
             ]
         );
     }
+
     public function propertyList()
     {
         $properties = Property::orderby('id', 'desc')->get();
@@ -227,9 +228,11 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
+
         if(is_array($request->feature_id)) {
+            FeatureProperty::where('property_id', $property->id)->delete();
             foreach ($request->feature_id as $feature) {
-                $featureData = new FeatureProperty();
+                $featureData                = new FeatureProperty();
                 $featureData->property_id   = $property->id;
                 $featureData->feature_id    = $feature;
                 $featureData->save();
@@ -237,15 +240,13 @@ class PropertyController extends Controller
         }
         if(is_array($request->image_gallery)) {
             $galleriDelete = PropertyImageGallery::where('property_id', $request->id)->delete();
-
-
             foreach ($request->image_gallery as $gallery) {
                 $photo = (isset($gallery) && $gallery!= "") ? $gallery : "";
                 if ($photo!="") {
-                    $ext                    = $photo->getClientOriginalExtension();
-                    $gallerFullName          = time().$photo->getClientOriginalName();
-                    $uploadPath             = 'images/';
-                    $success                = $photo->move($uploadPath, $gallerFullName);
+                    $ext                        = $photo->getClientOriginalExtension();
+                    $gallerFullName             = time().$photo->getClientOriginalName();
+                    $uploadPath                 = 'images/';
+                    $success                    = $photo->move($uploadPath, $gallerFullName);
                 }
 
                 $galleriesData = new PropertyImageGallery();
@@ -268,7 +269,6 @@ class PropertyController extends Controller
 
     public function destroy($id)
     {
-        dd($id);
         $property = Property::find($id);
         $property->delete();
         return redirect('/property-list');

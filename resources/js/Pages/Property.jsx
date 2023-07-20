@@ -4,7 +4,6 @@ import PropertyCard from './Frontend/PropertyCard';
 import Advanced from './Frontend/Advanced';
 const imagePerRow = 12;
 const Property = ({properties, locations}) => {
-    console.log(locations);
     const [next, setNext] = useState(imagePerRow);
     const handleMoreImage = () => {
         setNext(next + imagePerRow);

@@ -39,7 +39,7 @@ created_by:properties.created_by || "",
 rating:properties.rating || "",
 share_count:properties.share_count || "",
 call_count:properties.call_count ||"",
-feature_id:[],
+feature_id: [],
 visitor_count:properties.visitor_count ||"",
 status:properties.status ||"",
 publisher_status:properties.publisher_status || "",
@@ -52,9 +52,8 @@ video_link:properties.video_link || "",
 'meta_keyward':"",
 });
 
-//console.log(properties);
 // Add/Remove checked item from list
-const handleCheck = (e) => {
+      const handleCheck = (e) => {
     let id = e.target.value;
         if (e.target.checked) {
             setData("feature_id", [...data.feature_id, id]);
@@ -472,12 +471,11 @@ e.preventDefault();
   </div>
 
   <div className="flex flex-wrap -mx-3 mb-6">
-  {features && features.map((feature, i) => 
-  <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0" key={i}>
+  {features && features.map((i, k) => 
+  <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0" key={k}>
 
-  <input type="checkbox" className="form-checkbox h-4 w-5 text-gray-600 mb-4"   name='feature_id'  value={feature.id}  errors={errors.feature_id}
-       
-        onChange={handleCheck} /><span className="ml-2 text-gray-700 text-2xl">{feature.feature_name}</span>
+  <input type="checkbox" className="form-checkbox h-4 w-5 text-gray-600 mb-4"   name='feature_id'  value={i.id}  
+        onChange={ handleCheck} /><span className="ml-2 text-gray-700 text-2xl">{i.feature_name}</span>
    </div>
   )}
   </div>
