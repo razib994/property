@@ -7,6 +7,7 @@ import Banani from './Frontend/location/Banani';
 import Baridhara from './Frontend/location/Baridhara';
 import { Head } from '@inertiajs/inertia-react';
 import Bashundhara from './Frontend/location/Bashundhara';
+import Pagination from './Frontend/pagination/Pagination';
 
 let gulshan = 
 {
@@ -89,6 +90,7 @@ let gulshan =
   }
 
 const LocationProperty = ({properties, locations, types, location_name=""}) => {
+  // console.log(properties);
     
     return (
         <>
@@ -161,18 +163,21 @@ Find the perfect home for you. Search all available properties and find the one 
             <div className="grid w-[90%] mx-auto grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
             
-            {properties.length > 0 ?(properties && properties.map((item, i) => 
+            {properties.data.length > 0 ?(properties.data && properties.data.map((item, i) => 
+            
           <PropertyCard key={i} item={item}/>
           )):(<div>No Found Result</div>) }
+        
        
            
 
 
 </div>
-<div className="text-center items-center w-[92%] mx-auto pt-5">
+<div className='mx-auto w-[90%] items-end justify-center'><Pagination links={properties.links} /></div>
+{/* <div className="text-center items-center w-[92%] mx-auto pt-5">
 <button className="p-2 border rounded-md bg-gray-800 text-white">Load More</button>
                 
-            </div>
+            </div> */}
 
             {location_name == 'Gulshan' ? (
           <Gulshan/> ):location_name == 'Banani' ? (

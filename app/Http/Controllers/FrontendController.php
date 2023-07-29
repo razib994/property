@@ -235,10 +235,10 @@ class FrontendController extends Controller
         $locationID = Location::where('slug', $location)->first()->id;
         $location_name = Location::where('slug', $location)->first()->location_name;
         $types = Type::all();
-        $property = Property::with('type', 'user', 'location', 'image_galleries')->where('location_id', $locationID)->orderBy('id', 'desc')->get();
+        $property = Property::with('type', 'user', 'location', 'image_galleries')->where('location_id', $locationID)->orderBy('id', 'desc')->paginate(2);
         $logo = TopHeader::orderBy('id', 'desc')->first();
-        // dump($property);
-        // die();
+        // return ($property);
+        // // die();
         return Inertia::render("LocationProperty", [
             'properties' => $property,
             'logo' =>$logo,

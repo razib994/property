@@ -610,6 +610,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"classnames@^2.3.2":
+  "integrity" "sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw=="
+  "resolved" "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
+  "version" "2.3.2"
+
 "color-convert@^1.9.0", "color-convert@^1.9.3":
   "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
   "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
@@ -1562,10 +1567,10 @@
     "picocolors" "^1.0.0"
     "picomatch" "^2.3.1"
 
-"vite@^2 || ^3 || ^4", "vite@^3.0.0 || ^4.0.0", "vite@^4.0.0", "vite@^4.1.0-beta.0", "vite@^4.4.6":
-  "integrity" "sha512-EY6Mm8vJ++S3D4tNAckaZfw3JwG3wa794Vt70M6cNJ6NxT87yhq7EC8Rcap3ahyHdo8AhCmV9PTk+vG1HiYn1A=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-4.4.6.tgz"
-  "version" "4.4.6"
+"vite@^2 || ^3 || ^4", "vite@^3.0.0 || ^4.0.0", "vite@^4.0.0", "vite@^4.1.0-beta.0", "vite@^4.4.7":
+  "integrity" "sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-4.4.7.tgz"
+  "version" "4.4.7"
   dependencies:
     "esbuild" "^0.18.10"
     "postcss" "^8.4.26"
