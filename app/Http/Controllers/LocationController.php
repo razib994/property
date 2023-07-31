@@ -13,28 +13,29 @@ class LocationController extends Controller
     {
         $locations = Location::all();
         return Inertia::render('Dashboard/Location/Index', [
-			'locations'              => $locations,
-			
-		]);
-       
+            'locations'              => $locations,
+
+        ]);
+
     }
     public function locationCreate()
     {
         return Inertia::render('Dashboard/Location/Create');
     }
 
-  
 
-    public function storeLocation(Request $request) {
-      
+
+    public function storeLocation(Request $request)
+    {
+
         $location = Location::create([
             'location_name'=> $request->location_name,
-            'slug'=> '',
+            'slug'=> Str::slug($request->location_name),
             'description'=> $request->description,
             'image'=> '',
             'status' => '1',
         ]);
         //return $feature;
         return redirect('/location-list');
-        }
+    }
 }

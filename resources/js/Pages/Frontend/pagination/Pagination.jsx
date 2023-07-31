@@ -9,7 +9,8 @@ const PageLink = ({ active, label, url }) => {
 	});
 	return (
 		<a className={className} href={url}>
-			{label}
+			<span dangerouslySetInnerHTML={{__html: label}}></span>
+			{/* {label} */}
 		</a>
 	);
 };
@@ -21,10 +22,11 @@ const PageInactive = ({ label }) => {
 	const className = classNames("mr-1 mb-1 px-4 py-3 text-sm border rounded text-gray", {
 		"ml-auto": label === "Next",
 	});
-	return <div className={className}>{label}</div>;
+	return <div className={className}><span dangerouslySetInnerHTML={{__html: label}}></span></div>;
 };
 
 export default ({ links = [] }) => {
+	console.log(links.label)
 	// dont render, if there's only 1 page (previous, 1, next)
 	if (links.length === 3) return null;
 	return (

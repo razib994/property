@@ -9,8 +9,8 @@ class Location extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'location_name
-        status',
+        'location_name',
+
         'slug',
         'description',
         'image',

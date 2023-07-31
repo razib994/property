@@ -90,7 +90,7 @@ let gulshan =
   }
 
 const LocationProperty = ({properties, locations, types, location_name=""}) => {
-  // console.log(properties);
+  
     
     return (
         <>
