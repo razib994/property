@@ -10,8 +10,9 @@ const OurLocations = ({locations}) => {
             </div>
 			<div class="grid mx-auto grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4  justify-center items-center  w-[80%] gap-4 md:gap-6">
 				{locations && locations.map((item, key) => 
+				key < 4 && (
 				<a href={route("frontend.area", {
-					location: item.slug =='gulshan' ? 'furnished-apartment-for-rent-in-gulshan':item.slug =='banani' ? 'furnished-apartment-for-rent-in-banani':item.slug =='baridhara' ? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':'furnished-apartment-for-rent-in-bashundhara',
+					location: item.slug =='gulshan' ? 'furnished-apartment-for-rent-in-gulshan':item.slug =='banani' ? 'furnished-apartment-for-rent-in-banani':item.slug =='baridhara' ? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara'?'furnished-apartment-for-rent-in-bashundhara':'luxury-partments',
 				})}>
 				<div class="relative flex flex-col justify-between   bg-white shadow-md rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md h-64 " key={key}
 					style={{backgroundImage:`url('${item.image}')`}}>
@@ -57,7 +58,7 @@ const OurLocations = ({locations}) => {
 					</div>
 				</div>
 				</a>
-				)}
+				))}
 				{/* <div class="relative flex flex-col justify-between   bg-white shadow-md  rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md h-64 mb-2"
 					style={{backgroundImage:`url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80')`}}>
 					<div class="absolute bg-gradient-to-t from-blue-500 to-yellow-400  opacity-50 inset-0 z-0"></div>

@@ -241,8 +241,8 @@ e.preventDefault();
         errors={errors.country}
         // value={data.email}
         onChange={(e) => setData("country", e.target.value)}>
-          <option value='bangladesh' selected>Bangladesh</option>
-          <option value='others'>Others</option>
+          <option value='Bangladesh' selected>Bangladesh</option>
+          <option value='Others'>Others</option>
         
         </select>
      

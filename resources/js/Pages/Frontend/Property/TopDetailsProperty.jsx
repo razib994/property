@@ -11,9 +11,9 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
     const [showTopBtn, setShowTopBtn] = useState("");
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 200 ) {
+            if (window.scrollY > 200 && window.scrollY < 2200) {
                 setShowTopBtn("fixed w-[30%] top-[150px]");
-            } else {
+            }  else {
               setShowTopBtn("");
             }
         });
@@ -52,6 +52,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 w-[90%] mx-auto ">
                 <div className="col-span-2">
                     <SliderImage image_galleries = {property.image_galleries} />
+                    
                     <Overview property = {property}/>
                     {/* <Description description = {property.description}/> */}
                     <Address property = {property}/>

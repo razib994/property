@@ -24,9 +24,9 @@ const HomeHeroBanner = ({locations}) => {
                                 <div id="categorieLst" className="absolute transition-all duration-500 ease-in-out translate-y-10 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-1 top-full left-0 w-full bg-white border border-yellow-200 shadow-md rounded-lg py-2">
                                     <ul className="flex flex-col w-full">
                                         {locations && locations.map((item, i) =>
-                                       <InertiaLink href={route("frontend.area", {
-                                        location: item.slug == 'gulshan' ? 'furnished-apartment-for-rent-in-gulshan' : item.slug == 'banani' ? 'furnished-apartment-for-rent-in-banani':item.slug == 'baridhara'? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'',
-                                    })}> <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2 text-lg"> {item.location_name} </li></InertiaLink>
+                                       <a href={route("frontend.area", {
+                                        location: item.slug == 'gulshan' ? 'furnished-apartment-for-rent-in-gulshan' : item.slug == 'banani' ? 'furnished-apartment-for-rent-in-banani':item.slug == 'baridhara'? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'luxury-apartments',
+                                    })}> <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2 text-lg"> {item.location_name} </li></a>
                                         )}
                                         
                                     </ul>
@@ -71,9 +71,9 @@ const HomeHeroBanner = ({locations}) => {
                                 <div id="categorieLst" className="absolute transition-all duration-500 ease-in-out translate-y-10 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-1 top-full left-0 w-full bg-white border border-yellow-200 shadow-md rounded-lg py-2">
                                     <ul className="flex flex-col w-full">
                                         {locations && locations.map((item, i) =>
-                                       <InertiaLink href={route("frontend.area", {
-                                        location: item.slug == 'gulshan' ? 'furnished-apartment-for-rent-in-gulshan' : item.slug == 'banani' ? 'furnished-apartment-for-rent-in-banani':item.slug == 'baridhara'? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'',
-                                    })}> <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2 text-lg"> {item.location_name} </li></InertiaLink>
+                                       <a href={route("frontend.area", {
+                                        location: item.slug == 'gulshan' ? 'furnished-apartment-for-rent-in-gulshan' : item.slug == 'banani' ? 'furnished-apartment-for-rent-in-banani':item.slug == 'baridhara'? 'furnished-apartment-for-rent-in-baridhara-diplomatic-zone':item.slug =='bashundhara' ? 'furnished-apartment-for-rent-in-bashundhara':'luxury-apartments',
+                                    })}> <li key={i} className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2 text-lg"> {item.location_name} </li></a>
                                         )}
                                         
                                     </ul>

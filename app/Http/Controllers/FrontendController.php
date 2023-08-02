@@ -206,6 +206,8 @@ class FrontendController extends Controller
     }
     public function areaLocation($location)
     {
+
+
         if($location == 'gulshan') {
             return redirect('/area/furnished-apartment-for-rent-in-gulshan');
         }
@@ -219,6 +221,7 @@ class FrontendController extends Controller
             return redirect('/area/furnished-apartment-for-rent-in-bashundhara');
         }
 
+
         if($location == 'furnished-apartment-for-rent-in-gulshan') {
             $location = 'gulshan';
         }
@@ -231,6 +234,11 @@ class FrontendController extends Controller
         if($location == 'furnished-apartment-for-rent-in-bashundhara') {
             $location = 'bashundhara';
         }
+        if($location == 'luxury-apartments') {
+
+            $location = 'luxury-apartments';
+        }
+
         $locations = Location::all();
         $locationID = Location::where('slug', $location)->first()->id;
         $location_name = Location::where('slug', $location)->first()->location_name;

@@ -46,6 +46,7 @@ class PropertyController extends Controller
 
     public function storeProperty(Request $request)
     {
+
         $request->validate([
             'title' => 'required',
             'price' => 'required',
@@ -75,7 +76,7 @@ class PropertyController extends Controller
             'grage'             =>$request->grage ? $request->grage : "",
             'city'              =>$request->city,
             'zip_code'          =>$request->zip_code,
-            'country'           =>$request->country,
+            'country'           =>"Bangladesh",
             // 'user_id'             =>$request->user_id,
             'sqf'               =>$request->sqf ? $request->sqf : "",
             'balcony'           =>$request->balcony,
@@ -197,7 +198,7 @@ class PropertyController extends Controller
             'grage'             =>$request->grage,
             'city'             =>$request->city,
             'zip_code'             =>$request->zip_code,
-            'country'             =>$request->country,
+            'country'             =>"Bangladesh",
             // 'user_id'             =>$request->user_id,
             'sqf'               =>$request->sqf,
             'balcony'               =>$request->balcony,
