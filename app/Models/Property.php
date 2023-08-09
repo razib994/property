@@ -82,4 +82,10 @@ class Property extends Model
         return $this->hasMany(FeatureProperty::class);
     }
 
+    public function propertyLocations()
+    {
+        return $this->hasMany(PropertyLocation::class);
+    }
+
+
 }

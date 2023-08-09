@@ -142,12 +142,19 @@ const LocationProperty = ({properties, locations, types, location_name=""}) => {
 <meta name="twitter:url" content="https://furhouz.com/location/baridhara.png"/>
 <meta name="twitter:card" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(baridhara) }}></script>
-</Head>) :( <Head>
+</Head>) : location_name == 'Bashundhara' ? ( <Head>
   <title>Furnished Apartment for Rent in Bashundhara </title>
   <meta head-key="description" name="description" content="Discover your dream furnished apartment for rent in Bashundhara. Explore our listings and find the perfect living space in this vibrant community. " />
   <meta name="keywords" content="Furnished Apartment for Rent in Bashundhara , Furnished Apartment for Rent in Bashundhara , Furnished Apartment for Rent in Bashundhara dhaka, Furnished Apartment Rent in Bashundhara dhaka, Furnished Apartment in Bashundhara dhaka"/>
 
-</Head>)}
+</Head>):(
+  <Head>
+  <title>Luxury Apartment Rent In Dhaka</title>
+  <meta head-key="description" name="description" content="Discover your dream Luxury Apartment Rent In Dhaka. Explore our listings and find the perfect living space in this vibrant community. " />
+  <meta name="keywords" content="Luxury Apartment Rent In Dhaka , Luxury Apartment Rent In Dhaka, Luxury Apartment Rent In Dhaka dhaka, Luxury Apartment Rent In Dhaka"/>
+
+</Head>
+)}
         
         <section className='bg-[#064d83] py-0.5'>
             <div className='w-[85%] mx-auto'>

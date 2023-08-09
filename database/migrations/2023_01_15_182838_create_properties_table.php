@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->foreignId('location_id');
+            $table->foreignId('location_id')->nullable();
             $table->decimal('price', 12, 2);
             $table->foreignId('type_id');
             $table->string('bed');

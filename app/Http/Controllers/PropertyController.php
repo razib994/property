@@ -7,6 +7,7 @@ use App\Models\FeatureProperty;
 use App\Models\Location;
 use App\Models\Property;
 use App\Models\PropertyImageGallery;
+use App\Models\PropertyLocation;
 use App\Models\Type;
 use Database\Seeders\PropertyImageGallerySeeder;
 use Illuminate\Auth\Events\Validated;
@@ -23,7 +24,7 @@ class PropertyController extends Controller
     //
     public function propertyCreate()
     {
-        $locations = Location::where('status', 1)->get();
+        $locations = Location::select('location_name AS label', 'id AS value')->where('status', 1)->get();
         $types = Type::where('status', 1)->get();
         $features = Feature::where('status', 1)->get();
         return Inertia::render(
@@ -46,12 +47,13 @@ class PropertyController extends Controller
 
     public function storeProperty(Request $request)
     {
+        // dd($request->location_id);
 
         $request->validate([
             'title' => 'required',
             'price' => 'required',
             // 'image' => 'required',
-            'location_id' => 'required',
+            // 'location_id' => 'required',
             'type_id' => 'required',
             'date' => 'required',
             'publisher_status' => 'required',
@@ -68,7 +70,7 @@ class PropertyController extends Controller
         $property = Property::create([
             'title'             =>$request->title,
             'slug'              =>Str::slug($request->title) ,
-            'location_id'       =>$request->location_id,
+            'location_id'       =>1,
             'price'             =>$request->price,
             'type_id'           =>$request->type_id,
             'bed'               =>$request->bed ? $request->bed : "",
@@ -109,7 +111,14 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
-
+        if ($property->id) {
+            foreach ($request->location_id as $location) {
+                $locations = new PropertyLocation();
+                $locations->property_id   = $property->id;
+                $locations->location_id    = $location['value'];
+                $locations->save();
+            }
+        }
         if ($property->id) {
             $property = Property::find($property->id);
             $property->property_id = 'FH100251'.$property->id;
@@ -273,5 +282,10 @@ class PropertyController extends Controller
         $property = Property::find($id);
         $property->delete();
         return redirect('/property-list');
+    }
+
+    public function propertyLocation()
+    {
+        dd("dd");
     }
 }

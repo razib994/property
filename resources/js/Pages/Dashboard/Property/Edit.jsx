@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useForm, usePage } from '@inertiajs/inertia-react';
 import { toFormData } from "./../../../utils";
 import LayoutDashboard from '../LayoutDashboard';
+import Select from "react-select";
+
 
 const Create = ({locations, types, features, properties}) => {
   
   const [checked, setChecked] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState();
 
   const { data, setData, post, processing, errors, progress } = useForm({
     id:properties.id || "",
@@ -51,7 +54,9 @@ video_link:properties.video_link || "",
 'meta_tag':"",
 'meta_keyward':"",
 });
-
+function handleSelect(data) {
+  setSelectedOptions((e) => setData("location_id", [...data]));
+}
 // Add/Remove checked item from list
       const handleCheck = (e) => {
     let id = e.target.value;
@@ -123,7 +128,18 @@ e.preventDefault();
         Location
       </label>
       <div className="relative">
-        <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="location_id" name='location_id' 
+      <Select
+      className="block"
+       id="location_id" 
+       name='location_id' 
+          options={locations}
+          placeholder="Select Locations"
+          value={selectedOptions}
+          onChange={handleSelect}
+          isSearchable={true}
+          isMulti
+        />
+        {/* <select className="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none  focus:border-gray-500" id="location_id" name='location_id' 
         errors={errors.location_id}
       // value={data.email}
       onChange={(e) => setData("location_id", e.target.value)}>
@@ -132,10 +148,11 @@ e.preventDefault();
            <option key={index} value={location.id}  selected={properties.location_id == location.id ? 'selected':""}> {location.location_name} </option>
           )}
          
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        </select> */}
+
+        {/* <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
           <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
+        </div> */}
       </div>  
       {errors && errors.location_id ? <div className="text-[red] py-2">{errors.location_id}</div> : null}   
     </div>

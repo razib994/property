@@ -3,6 +3,7 @@ import Layout from './master/Layout';
 import TopDetailsProperty from './Frontend/Property/TopDetailsProperty'
 import { usePage } from '@inertiajs/inertia-react';
 import Advanced from './Frontend/Advanced';
+import Tabs from './Frontend/Tabs';
 var title = "";
 const PropertyDetails = ({property, similarProperty, locations}) => {
     
@@ -16,6 +17,7 @@ const PropertyDetails = ({property, similarProperty, locations}) => {
             </div>
             </section>
             <section >
+               
            <TopDetailsProperty property={property} similarProperty={similarProperty} message={flash} errors={errors}/> 
            </section>
         

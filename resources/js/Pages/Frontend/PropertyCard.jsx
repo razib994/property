@@ -47,7 +47,7 @@ const PropertyCard = ({item}) => {
         className="mySwiper"
       >
         {item.image_galleries && item.image_galleries.map((i, l) =>
-                <SwiperSlide><img src={i.images} alt={item.title} /></SwiperSlide>
+                <SwiperSlide key={l}><img src={i.images} alt={item.title} /></SwiperSlide>
 
         )}
        

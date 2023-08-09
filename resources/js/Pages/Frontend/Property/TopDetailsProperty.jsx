@@ -1,3 +1,4 @@
+import Tabs from '../Tabs';
 import Address from './Address';
 import Details from './Details';
 import Feature from './Feature';
@@ -52,12 +53,12 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 w-[90%] mx-auto ">
                 <div className="col-span-2">
                     <SliderImage image_galleries = {property.image_galleries} />
-                    
-                    <Overview property = {property}/>
+                    <Tabs property={property}/>
+                    {/* <Overview property = {property}/> */}
                     {/* <Description description = {property.description}/> */}
-                    <Address property = {property}/>
+                    {/* <Address property = {property}/>
                     <Details property = {property}/>
-                    <Feature featurese = {property.features} />
+                    <Feature featurese = {property.features} /> */}
                     {/* <MapSection map_link = {property.map_link}/> */}
                     <RequestFrom id={property.id} errors={errors} location={property.location} title={property.title}/>
                    

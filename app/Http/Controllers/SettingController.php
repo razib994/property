@@ -165,6 +165,6 @@ class SettingController extends Controller
     }
     public function storeImageUpload(Request $request)
     {
-        dd($request->all());
+       // dd($request->all());
     }
 }

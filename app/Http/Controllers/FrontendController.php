@@ -234,7 +234,7 @@ class FrontendController extends Controller
         if($location == 'furnished-apartment-for-rent-in-bashundhara') {
             $location = 'bashundhara';
         }
-        if($location == 'luxury-apartments') {
+        if($location == 'luxury-apartment-rent-in-dhaka') {
 
             $location = 'luxury-apartments';
         }
@@ -243,7 +243,11 @@ class FrontendController extends Controller
         $locationID = Location::where('slug', $location)->first()->id;
         $location_name = Location::where('slug', $location)->first()->location_name;
         $types = Type::all();
-        $property = Property::with('type', 'user', 'location', 'image_galleries')->where('location_id', $locationID)->orderBy('id', 'desc')->paginate(2);
+        //  $property = Property::with('type', 'user', 'location', 'image_galleries')->where('location_id', $locationID)->orderBy('id', 'desc')->paginate(8);
+        $property = Property::with('type', 'user', 'location', 'image_galleries')->whereHas('propertyLocations', function ($q) use ($locationID) {
+            $q->where('location_id', $locationID);
+        })
+       ->orderBy('id', 'desc')->paginate(8);
         $logo = TopHeader::orderBy('id', 'desc')->first();
         // return ($property);
         // // die();
@@ -305,7 +309,11 @@ class FrontendController extends Controller
         $type = Type::orderBy('id', 'desc')->get();
         $property = Property::with('type', 'user', 'location', 'image_galleries')->orderBy('id', 'desc');
         if ($request->location!=null) {
-            $property->where('location_id', 'like', $request->location);
+            $id = $request->location;
+            $property->whereHas('propertyLocations', function ($q) use ($id) {
+                $q->where('location_id', 'like', $id);
+            });
+            // where('location_id', 'like', $request->location);
         }
         if ($request->property_id!=null) {
             $property->where('property_id', 'like', $request->property_id);
