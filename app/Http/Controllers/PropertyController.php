@@ -286,6 +286,14 @@ class PropertyController extends Controller
 
     public function propertyLocation()
     {
-        dd("dd");
+        $properties = Property::all();
+        foreach($properties as $property) {
+            $propertyLocation = PropertyLocation::create([
+                    'property_id' => $property->id,
+                    'location_id' => $property->location_id,
+            ]);
+        }
+
+        return redirect('/property-list');
     }
 }

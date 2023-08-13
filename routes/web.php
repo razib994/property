@@ -119,7 +119,7 @@ Route::middleware('user_admin')->group(function () {
     Route::post("/image-store", [SettingController::class,'storeImageUpload'])->name('image.submit');
 
 
-    Route::post("/property-location-store", [PropertyController::class,'propertyLocation'])->name('property-location.submit');
+    Route::get("/property-location-store", [PropertyController::class,'propertyLocation'])->name('property-location.submit');
 
     // Request Property Data
     Route::get("/request-property-list", [DashbaordController::class, 'requestPropertyList'])->name('request.property.list');
