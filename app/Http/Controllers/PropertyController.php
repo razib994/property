@@ -111,6 +111,13 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
+        if($property->id) {
+            $galleriesData = new PropertyImageGallery();
+            $galleriesData->property_id =$property->id;
+            $galleriesData->images = '/'.$uploadPath.$photoFullName;
+            $galleriesData->save();
+
+        }
         if ($property->id) {
             foreach ($request->location_id as $location) {
                 $locations = new PropertyLocation();
@@ -183,18 +190,7 @@ class PropertyController extends Controller
         ]);
 
         $property = Property::find($request->id);
-        // if($request['image'] != null || $request['image'] != '') {
 
-        //     $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
-        //     if ($photo!="") {
-        //         $ext                    = $photo->getClientOriginalExtension();
-        //         $photoFullName          = time().$photo->getClientOriginalName();
-        //         $uploadPath             = 'images/';
-        //         $success                = $photo->move($uploadPath, $photoFullName);
-        //     }
-        //     $property->image = '/'.$uploadPath.$photoFullName;
-        //     $property->update();
-        // }
 
         $property->update([
             'title'             =>$request->title,
@@ -208,7 +204,8 @@ class PropertyController extends Controller
             'city'             =>$request->city,
             'zip_code'             =>$request->zip_code,
             'country'             =>"Bangladesh",
-            // 'user_id'             =>$request->user_id,
+            // 'user_id'            use Illuminate\Support\Facades\Validator;
+ =>$request->user_id,
             'sqf'               =>$request->sqf,
             'balcony'               =>$request->balcony,
             'floor'               =>$request->floor,
@@ -238,7 +235,20 @@ class PropertyController extends Controller
             'meta_tag'          =>'', //$request->meta_tag,
             'meta_keyward'      =>'', //$request->meta_keyward
         ]);
+        if($request['image'] != null || $request['image'] != '') {
 
+            $photo = (isset($request['image']) && $request['image']!= "") ? $request['image'] : "";
+            if ($photo!="") {
+                $ext                    = $photo->getClientOriginalExtension();
+                $photoFullName          = time().$photo->getClientOriginalName();
+                $uploadPath             = 'images/';
+                $success                = $photo->move($uploadPath, $photoFullName);
+            }
+            $galleriesData = new PropertyImageGallery();
+            $galleriesData->property_id =$request->id;
+            $property->image = '/'.$uploadPath.$photoFullName;
+            $property->save();
+        }
         if(is_array($request->feature_id)) {
             FeatureProperty::where('property_id', $property->id)->delete();
             foreach ($request->feature_id as $feature) {

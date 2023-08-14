@@ -517,7 +517,7 @@ e.preventDefault();
 
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
         Image
       </label>
@@ -531,9 +531,9 @@ e.preventDefault();
         {progress.percentage}%
       </progress> )}
       {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
-    </div> */}
+    </div>
   
-    <div className="w-full md:w-2/2 px-3">
+    <div className="w-full md:w-1/2 px-3">
       
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
