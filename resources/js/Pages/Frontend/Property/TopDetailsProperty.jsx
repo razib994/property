@@ -60,7 +60,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
                     <Details property = {property}/>
                     <Feature featurese = {property.features} /> */}
                     {/* <MapSection map_link = {property.map_link}/> */}
-                    <RequestFrom id={property.id} errors={errors} location={property.location} title={property.title}/>
+                    <RequestFrom id={property.id} property_id={property.property_id} errors={errors} location={property.location} title={property.title}/>
                    
                    
                     {/* <VideoSection video_link={property.video_link}/> */}
@@ -69,7 +69,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
                 </div>
                 <div className="px-2 md:px-10 hidden mb:block lg:block xl:block">
                     <div className={`text-gray-900 ${showTopBtn ? showTopBtn :""}`}>
-                <RequestFrom id={property.id} errors={errors} location={property.location} title={property.title}/>
+                <RequestFrom slug={property.slug} property_id={property.property_id} errors={errors} location={property.location} title={property.title}/>
                 {message.success && <span className='bg-green-700 text-white p-4 rounded-lg font-bold ml-4'> {message.success}</span>}
                 
                 </div>
@@ -84,7 +84,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
             </div>
         <div className='py-5 col-span-1'> 
         <div className="grid grid-cols-1 gap-2 ">
-<a  href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${property.location.location_name}/${property.id}`}  className=" text-center  text-white "><i className="uil uil-whatsapp  text-4xl bg-emerald-600 rounded-full  hover:text-white py-2 px-2.5 hover:bg-emerald-700"></i> </a>
+<a  href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${location.location_name}/property/${property.property_id}`}  className=" text-center  text-white "><i className="uil uil-whatsapp  text-4xl bg-emerald-600 rounded-full  hover:text-white py-2 px-2.5 hover:bg-emerald-700"></i> </a>
                 </div>
         </div>
       </div>

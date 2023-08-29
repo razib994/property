@@ -41,6 +41,7 @@ Route::get("/sitemap_page", [FrontendController::class, 'siteMap'])->name('front
 Route::get("/blog-details", [FrontendController::class, 'blogDetails'])->name('frontend.blogDetails');
 Route::get("/corporates", [FrontendController::class, 'corporateIndex'])->name('frontend.corporate');
 Route::get("/area/{location}", [FrontendController::class, 'areaLocation'])->name('frontend.area');
+Route::get("/area/{location}/property/{property_id}", [FrontendController::class, 'areaLocationPropertyId'])->name('frontend.area.property');
 Route::get("/cookie", [FrontendController::class, 'cookieData'])->name('frontend.cookie');
 Route::post("/property-request", [FrontendController::class, 'propertyRequest'])->name('requestFrom.submit');
 Route::post("/property-search", [FrontendController::class, 'search'])->name('search.submit');
@@ -53,6 +54,10 @@ Route::get("/contact-corporate", [FrontendController::class, 'contactCorporate']
 Route::get("/contact-tenlent", [FrontendController::class, 'contactTenlent'])->name('contact.tenlent');
 Route::get("/contact-want-know", [FrontendController::class, 'contactWantKnow'])->name('contact.wantknow');
 Route::get("/error", [FrontendController::class, 'error'])->name('error.data');
+
+
+Route::get("/area-guide", [FrontendController::class, 'areaGuide'])->name('area.guide');
+Route::get("/area-guide/{slug}", [FrontendController::class, 'areaGuideDetails'])->name('area.guide.location');
 
 
 
@@ -70,6 +75,8 @@ Route::middleware('user_admin')->group(function () {
     Route::post("/propety-update", [PropertyController::class,'updateProperty'])->name('property.update');
     Route::get("/propety-edit/{id}", [PropertyController::class,'editProperty'])->name('property.edit');
     Route::get("/propety-delete/{id}", [PropertyController::class,'destroy'])->name('property.delete');
+    Route::get("/property-image-delete/{id}", [PropertyController::class,'propertyGallerydestroy'])->name('propertyGallery.property.delete');
+    Route::post("/property-image-update/{id}", [PropertyController::class,'propertyGalleryUpdate'])->name('propertyGallery.property.update');
     Route::get("/property-list", [PropertyController::class,'propertyList'])->name('property.list');
     Route::get("/property-list/details/{id}", [PropertyController::class,'propertyListDetails'])->name('property.list.details');
 

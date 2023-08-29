@@ -22,13 +22,13 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         $totalCount = [
-            'totalProperty'=> Property::where('status', 1)->count(),
-            'rentCount'=>'1000',
+            'totalProperty' => Property::where('status', 1)->count(),
+            'rentCount' => '1000',
             'totalResponse' => '2500',//Property::where()->count(),
-            'total_user'=>User::count(),
+            'total_user' => User::count(),
         ];
         return Inertia::render('About', [
-            'logo' =>$logo,
+            'logo' => $logo,
             'totalCount' => $totalCount,
             'locations' => $locations
         ]);
@@ -38,7 +38,7 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render('Contact', [
-            'logo' =>$logo,
+            'logo' => $logo,
             'locations' => $locations
         ]);
     }
@@ -48,7 +48,7 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render('Faq', [
-            'logo' =>$logo,
+            'logo' => $logo,
             'locations' => $locations
         ]);
     }
@@ -58,13 +58,13 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         $totalCount = [
-            'totalProperty'=> Property::where('status', 1)->count(),
-            'rentCount'=>'1000',
+            'totalProperty' => Property::where('status', 1)->count(),
+            'rentCount' => '1000',
             'totalResponse' => '2500',//Property::where()->count(),
-            'total_user'=>User::count(),
+            'total_user' => User::count(),
         ];
         return Inertia::render('Blog', [
-            'logo' =>$logo,
+            'logo' => $logo,
             'totalCount' => $totalCount,
             'locations' => $locations
         ]);
@@ -79,7 +79,11 @@ class FrontendController extends Controller
             ];
         });
         $logo = TopHeader::orderBy('id', 'desc')->first();
-        $property = Property::with('location', 'image_galleries')->where('status', 1)->latest()->get()->transform(function ($item) {
+        $property = Property::with('location')->with('image_galleries', function ($query) {
+            $query->orderBy('featured', 'asc');
+
+
+        })->where('status', 1)->latest()->get()->transform(function ($item) {
             return [
                 'id'        => $item->id,
                 'property_id' => $item->property_id,
@@ -94,9 +98,10 @@ class FrontendController extends Controller
                 'image_galleries'   => $item->image_galleries,
             ];
         });
+        //return $property;
         return Inertia::render('Property', [
-            'logo' =>$logo,
-            'properties'=>$property,
+            'logo' => $logo,
+            'properties' => $property,
             'locations' => $locations,
         ]);
     }
@@ -105,7 +110,7 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render('PropertyOwner', [
-            'logo' =>$logo,
+            'logo' => $logo,
             'locations' => $locations
         ]);
     }
@@ -113,6 +118,7 @@ class FrontendController extends Controller
 
     public function propertyDetails($itemId)
     {
+
         $id = Property::where('slug', $itemId)->first()->id;
         $locations = Location::get()->transform(function ($item) {
             return [
@@ -121,9 +127,17 @@ class FrontendController extends Controller
                 'slug'             => $item->slug,
             ];
         });
-        $property = Property::with('features.ferature', 'image_galleries', 'location')->find($id);
+        $property = Property::with('features.ferature', 'location')->with('image_galleries', function ($query) {
+            $query->orderBy('featured', 'asc');
 
-        $similarProperty = Property::with('image_galleries', 'location')->where('location_id', $property->location_id)->where('status', 1)->get()->take(4)->transform(function ($item) {
+
+        })->find($id);
+
+        $similarProperty = Property::with('location')->with('image_galleries', function ($query) {
+            $query->orderBy('featured', 'asc');
+
+
+        })->where('location_id', $property->location_id)->where('status', 1)->get()->take(4)->transform(function ($item) {
             return [
                 'id'        => $item->id,
                 'property_id' => $item->property_id,
@@ -144,7 +158,7 @@ class FrontendController extends Controller
         return Inertia::render("PropertyDetails", [
             'property'          => $property,
             'similarProperty'   => $similarProperty,
-            'logo'              =>$logo,
+            'logo'              => $logo,
             'locations'         => $locations,
         ]);
     }
@@ -153,7 +167,7 @@ class FrontendController extends Controller
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("TermsCondition", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
 
@@ -161,14 +175,14 @@ class FrontendController extends Controller
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("PrivacyPolicy", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function blogDetails()
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("BlogDetails", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function corporateIndex()
@@ -176,7 +190,7 @@ class FrontendController extends Controller
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("Corporate", [
-            'logo' =>$logo,
+            'logo' => $logo,
             'locations' => $locations
         ]);
     }
@@ -185,7 +199,7 @@ class FrontendController extends Controller
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("Cookies", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
 
@@ -193,7 +207,7 @@ class FrontendController extends Controller
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("SiteMap", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
 
@@ -201,7 +215,7 @@ class FrontendController extends Controller
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("Request", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function areaLocation($location)
@@ -253,10 +267,10 @@ class FrontendController extends Controller
         // // die();
         return Inertia::render("LocationProperty", [
             'properties' => $property,
-            'logo' =>$logo,
+            'logo' => $logo,
             'locations' => $locations,
             'location_name' => $location_name,
-            'types'=> $types,
+            'types' => $types,
         ]);
     }
 
@@ -303,22 +317,22 @@ class FrontendController extends Controller
 
     public function search(Request $request)
     {
-        $pricePrivious = $request->price-49999;
+        $pricePrivious = $request->price - 49999;
         $locations = Location::all();
         $logo = TopHeader::orderBy('id', 'desc')->first();
         $type = Type::orderBy('id', 'desc')->get();
         $property = Property::with('type', 'user', 'location', 'image_galleries')->orderBy('id', 'desc');
-        if ($request->location!=null) {
+        if ($request->location != null) {
             $id = $request->location;
             $property->whereHas('propertyLocations', function ($q) use ($id) {
                 $q->where('location_id', 'like', $id);
             });
             // where('location_id', 'like', $request->location);
         }
-        if ($request->property_id!=null) {
+        if ($request->property_id != null) {
             $property->where('property_id', 'like', $request->property_id);
         }
-        if ($request->price!=null) {
+        if ($request->price != null) {
             $property->where('price', '>=', $pricePrivious)
             ->where('price', '<', $request->price);
         }
@@ -326,8 +340,8 @@ class FrontendController extends Controller
         $data = $property->get();
         ;
         return Inertia::render('PropertySearch', [
-            'logo' =>$logo,
-            'properties'=>$data,
+            'logo' => $logo,
+            'properties' => $data,
             'locations' => $locations,
             'types' => $type
         ]);
@@ -338,42 +352,38 @@ class FrontendController extends Controller
 
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("ClientsRegistration", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
 
 
     }
 
-
-
-
-
     public function contactOwner()
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("ContactOwnerForm", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function contactCorporate()
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("ContactCorportate", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function contactTenlent()
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("ContactTenant", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function contactWantKnow()
     {
         $logo = TopHeader::orderBy('id', 'desc')->first();
         return Inertia::render("ContactWantKnow", [
-            'logo' =>$logo,
+            'logo' => $logo,
         ]);
     }
     public function postClientData(Request $request)
@@ -382,29 +392,95 @@ class FrontendController extends Controller
             'name' => 'required',
             'phone' => 'required',
         ]);
-
         $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'password' => Hash::make($request->phone),
-                'is_admin' => 1,
+                'name'      => $request->name,
+                'email'     => $request->email,
+                'phone'     => $request->phone,
+                'password'  => Hash::make($request->phone),
+                'is_admin'  => 1,
         ]);
-
         if ($user) {
             $details = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => $request->phone,
-                'phone' => $request->phone,
+                'name'      => $request->name,
+                'email'     => $request->email,
+                'password'  => $request->phone,
+                'phone'     => $request->phone,
 
             ];
-
             Mail::to('razibeee2012@gmail.com')->send(new UserInformationMail($details));
         }
         return redirect()->back()->with('success', 'Your Request Send Successfully');
     }
+    public function areaLocationPropertyId($location, $property_id)
+    {
+        $id = Property::where('property_id', $property_id)->first()->id;
+        $locations = Location::get()->transform(function ($item) {
+            return [
+                'id'               => $item->id,
+                'location_name'    => $item->location_name,
+                'slug'             => $item->slug,
+            ];
+        });
+        $property = Property::with('features.ferature', 'image_galleries', 'location')->find($id);
 
+        $similarProperty = Property::with('image_galleries', 'location')->where('location_id', $property->location_id)->where('status', 1)->get()->take(4)->transform(function ($item) {
+            return [
+                'id'                => $item->id,
+                'property_id'       => $item->property_id,
+                'slug'              => $item->slug,
+                'title'             => $item->title,
+                'price'             => $item->price,
+                'bed'               => $item->bed,
+                'bath'              => $item->bath,
+                'address'           => $item->address,
+                'sqf'               => $item->sqf,
+                'location_name'     => $item->location->location_name,
+                'image_galleries'   => $item->image_galleries,
+            ];
+        });
+
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+
+        return Inertia::render("PropertyDetails", [
+            'property'          => $property,
+            'similarProperty'   => $similarProperty,
+            'logo'              => $logo,
+            'locations'         => $locations,
+        ]);
+    }
+
+    public function areaGuide()
+    {
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        $locations = Location::all();
+        //   $url = url()->current();
+
+        return Inertia::render(
+            'AreaGuide',
+            [
+            'logo' => $logo,
+            'locations' => $locations,
+            ]
+        );
+
+    }
+
+    public function areaGuideDetails($slug)
+    {
+
+        $logo = TopHeader::orderBy('id', 'desc')->first();
+        $locations = Location::all();
+
+        return Inertia::render(
+            'GuideDetails',
+            [
+            'logo' => $logo,
+            'slug' => $slug,
+            'locations' => $locations,
+            ]
+        );
+
+    }
     public function error()
     {
         return Inertia::render('404');

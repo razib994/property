@@ -36,6 +36,7 @@ const Footer =({data})=> {
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/faq">FAQ</a></p>
               {/* <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/privacy-policy" >Privacy Policy</a></p> */}
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/terms-conditions" >Terms and Conditions</a></p>
+              <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/area-guide" >Property Area Guide</a></p>
               {/* <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/cookies" >Cookies Policy</a></p>
               <p className=" mt-1 text-[#064d83]"> <a className='text-md' href="/sitemap_page" >Site Map</a></p> */}
              

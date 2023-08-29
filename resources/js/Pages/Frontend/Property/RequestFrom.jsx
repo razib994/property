@@ -2,14 +2,14 @@ import React from "react";
 import { useForm, usePage } from '@inertiajs/inertia-react';
 import { toFormData } from "./../../../utils";
 //http://localhost:8000/area/Gulshan/3
-const RequestFrom = ({id, location="", title}) => {
+const RequestFrom = ({property_id="", slug="", location="", title=""}) => {
   
   const {url} =  usePage();
   const { data, setData, post, processing, errors } = useForm({
     name: "",
     email: "",
     phone: "",
-    property_id: id||"",
+    property_slug: slug||"",
     message: `Hello, I am interested in [${title}]`,
     date: "",
     status: "",
@@ -78,7 +78,7 @@ e.preventDefault();
                 Send Message
               </button>
   {/* <a href='tel:8801616171171' className="bg-slate-800 text-white rounded-md py-2 hover:text-white hover:bg-emerald-700"><i className="uil uil-phone mx-4 text-2xl"></i>Call</a> */}
-              {title ? (<a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${location.location_name}/${id}`} className="bg-emerald-600 mt-3 text-sm md:text-md lg:text-lg xl:text-lg font-semibold 
+              {title ? (<a href={`https://api.whatsapp.com/send?phone=+8801616171171&text=https://furhouz.com/area/${location.location_name}/property/${property_id}`} className="bg-emerald-600 mt-3 text-sm md:text-md lg:text-lg xl:text-lg font-semibold 
                 text-white rounded-lg 
                 px-6 py-3 block shadow-xl hover:text-white  hover:bg-emerald-700"> Whatsapp</a>) : null }
 

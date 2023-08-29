@@ -43,6 +43,8 @@ rating:properties.rating || "",
 share_count:properties.share_count || "",
 call_count:properties.call_count ||"",
 feature_id: [],
+image_gallery: [],
+
 visitor_count:properties.visitor_count ||"",
 status:properties.status ||"",
 publisher_status:properties.publisher_status || "",
@@ -53,6 +55,7 @@ video_link:properties.video_link || "",
 'meta_description':"",
 'meta_tag':"",
 'meta_keyward':"",
+'featured' : []
 });
 function handleSelect(data) {
   setSelectedOptions((e) => setData("location_id", [...data]));
@@ -88,6 +91,12 @@ e.preventDefault();
         },
     });
 }
+
+function submit(id) {
+  
+    router.post(route('propertyGallery.property.update', { id: id }));
+  
+}
     return (
         <>
             <div className="pt-6 px-4 ">
@@ -97,6 +106,7 @@ e.preventDefault();
         <div className='flex items-center px-2 py-3'>
             <form className="w-full " onSubmit={handleSubmit} >
             <div className="flex flex-wrap -mx-3 mb-6">
+              
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
         Title
@@ -537,7 +547,7 @@ e.preventDefault();
   </div> */}
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
         Image
       </label>
@@ -552,8 +562,8 @@ e.preventDefault();
       </progress> )}
      {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
     </div>
-    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null} 
-    <div className="w-full md:w-1/2 px-3">
+    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}  */}
+    <div className="w-full md:w-2/2 px-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Multi Image
       </label>
@@ -564,8 +574,17 @@ e.preventDefault();
        />
         <div className='flex flex-wrap'>
        {properties.image_galleries && properties.image_galleries.map((i, index) => 
-      
+      <div className='flex p-2'>
        <img src={i.images} key={index}  style={{ width:"50px", marginLeft:"10px", marginBottom:"10px"}}/>
+
+       <input className="m-2 appearance-none flex bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="featured" type="text" placeholder="index Serial" name='featured'
+       
+       value={i.featured}
+       onChange={(e) => setData("featured", e.target.value)}
+       />
+        <a className='py-5' href={route('propertyGallery.property.delete', i.id)}> delete </a>
+      
+        </div>
       
        )  }
         </div>

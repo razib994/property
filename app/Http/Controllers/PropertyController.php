@@ -115,6 +115,7 @@ class PropertyController extends Controller
             $galleriesData = new PropertyImageGallery();
             $galleriesData->property_id = $property->id;
             $galleriesData->images = '/'.$uploadPath.$photoFullName;
+            $galleriesData->featured = 0;
             $galleriesData->save();
 
         }
@@ -140,7 +141,8 @@ class PropertyController extends Controller
             }
         }
 
-        foreach ($request->image_gallery as $gallery) {
+        foreach ($request->image_gallery as $key => $gallery) {
+
             $photo = (isset($gallery) && $gallery != "") ? $gallery : "";
             if ($photo != "") {
                 $ext                    = $photo->getClientOriginalExtension();
@@ -151,6 +153,7 @@ class PropertyController extends Controller
             $galleriesData = new PropertyImageGallery();
             $galleriesData->property_id = $property->id;
             $galleriesData->images = '/'.$uploadPath.$gallerFullName;
+            $galleriesData->featured = $key + 1;
             $galleriesData->save();
         }
 
@@ -179,6 +182,7 @@ class PropertyController extends Controller
 
     public function updateProperty(Request $request)
     {
+
 
         $request->validate([
             'title'             => 'required',
@@ -258,7 +262,7 @@ class PropertyController extends Controller
             }
         }
         if(is_array($request->image_gallery)) {
-            $galleriDelete = PropertyImageGallery::where('property_id', $request->id)->delete();
+
             foreach ($request->image_gallery as $gallery) {
                 $photo = (isset($gallery) && $gallery != "") ? $gallery : "";
                 if ($photo != "") {
@@ -267,10 +271,10 @@ class PropertyController extends Controller
                     $uploadPath                 = 'images/';
                     $success                    = $photo->move($uploadPath, $gallerFullName);
                 }
-
                 $galleriesData = new PropertyImageGallery();
                 $galleriesData->property_id = $property->id;
                 $galleriesData->images = '/'.$uploadPath.$gallerFullName;
+                // $galleriesData->featured = 0;
                 $galleriesData->save();
             }
         }
@@ -305,4 +309,24 @@ class PropertyController extends Controller
 
         return redirect('/property-list');
     }
+    public function propertyGallerydestroy($id)
+    {
+        $gallery = PropertyImageGallery::find($id);
+        $gallery->delete();
+        return redirect('/property-list');
+    }
+
+    public function propertyGalleryUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'featured' => 'numeric',
+        ]);
+        $propertyImage = PropertyImageGallery::find($id);
+        $propertyImage->featured = $request->featured;
+        $propertyImage->update();
+
+        return redirect()->route('property.edit');
+
+    }
+
 }

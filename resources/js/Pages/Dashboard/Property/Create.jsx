@@ -3,7 +3,12 @@ import { useForm, usePage } from '@inertiajs/inertia-react';
 import { toFormData } from "./../../../utils";
 import LayoutDashboard from '../LayoutDashboard';
 import Select from "react-select";
-
+// import ProductImages from './ProductImages';
+const PORODUCTIMAGE_PACKAGE = () => {
+	return {
+		image_path: "",
+	};
+};
 
 const Create = ({locations, types, features}) => {
   const [checked, setChecked] = useState([]);
@@ -534,7 +539,15 @@ e.preventDefault();
     </div>
   
     <div className="w-full md:w-1/2 px-3">
-      
+    {/* <ProductImages
+											handleChange={handleChange}
+											errors={errors}
+											values={values}
+											setValues={setValues}
+											extraData={extraData}
+											template={PORODUCTIMAGE_PACKAGE()}
+										/> */}
+
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
       </label>
@@ -571,6 +584,41 @@ e.preventDefault();
     </div>
   
   </div>
+  <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
+       Meta Title
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="meta_title" type="text" name="meta_title" placeholder="Enter Meta Title" 
+                          errors={errors.meta_title}
+												// value={data.email}
+												onChange={(e) => setData("meta_title", e.target.value)}/>
+      {errors && errors.meta_title ? <div className="text-[red] py-2">{errors.meta_title}</div> : null}
+    </div>
+  
+    <div className="w-full md:w-1/3 px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
+        Meta Keywords
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="meta_keyword" type="text" placeholder="Enter Meta Keyword" name='meta_keyword'
+      errors={errors.meta_keyword}
+      // value={data.email}
+      onChange={(e) => setData("meta_keyword", e.target.value)}/>
+       {errors && errors.meta_keyword ? <div className="text-[red] py-2">{errors.meta_keyword}</div> : null}
+    </div>
+    <div className="w-full md:w-1/3 px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
+        Meta Description
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="meta_description" type="text" placeholder="Enter Meta Description" name='meta_description'
+      errors={errors.meta_description}
+      // value={data.email}
+      onChange={(e) => setData("meta_description", e.target.value)}/>
+       {errors && errors.meta_description ? <div className="text-[red] py-2">{errors.meta_description}</div> : null}
+    </div>
+   
+  </div>
+
   <button className="p-3 bg-green-600 text-white px-10 rounded-lg hover:bg-green-500"  type='submit'> Save </button>
 </form>
         </div>
