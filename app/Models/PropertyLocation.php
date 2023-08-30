@@ -12,4 +12,9 @@ class PropertyLocation extends Model
         'property_id',
         'location_id',
     ];
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }

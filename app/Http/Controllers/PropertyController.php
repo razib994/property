@@ -106,10 +106,10 @@ class PropertyController extends Controller
           //   'image'            => '/'.$uploadPath.$photoFullName,
              'image'            => '',
             'video_link'        => $request->video_link,
-            'meta_title'        => '', //$request->meta_title,
-            'meta_description'  => '', //$request->meta_description,
+            'meta_title'        => $request->meta_title,
+            'meta_description'  => $request->meta_description,
             'meta_tag'          => '', //$request->meta_tag,
-            'meta_keyward'      => '', //$request->meta_keyward
+            'meta_keyward'      => $request->meta_keyword
         ]);
         if($property->id) {
             $galleriesData = new PropertyImageGallery();
@@ -164,17 +164,27 @@ class PropertyController extends Controller
     public function editProperty(Request $request, $id)
     {
         $property = Property::with('type', 'features.ferature', 'user', 'image_galleries', 'location')->find($id);
-
-        $locations = Location::where('status', 1)->get();
         $types = Type::where('status', 1)->get();
         $features = Feature::where('status', 1)->get();
 
-        // return $property;
+        //return $property;
         return Inertia::render("Dashboard/Property/Edit", [
             'properties' => $property,
-            'locations' => $locations,
+            'locations' => Location::where('status', 1)->get()->transform(function ($location) {
+                return [
+                    'label' => $location->location_name,
+                    'value' => $location->id
+                ];
+            }),
                 'types' => $types,
                 'features' => $features,
+                'extraData'        => [
+                    'locations' => PropertyLocation::where('property_id', $id)->get()->transform(function ($location) {
+                        return [
+                            'label' => $location->location->location_name,
+                            'value' => $location->location_id
+                        ];
+                    })],
         ]);
 
 
@@ -233,10 +243,10 @@ class PropertyController extends Controller
             'publisher_status'  => $request->publisher_status,
             'recived_count'     => 0, //$request->recived_count,
             'video_link'        => $request->video_link,
-            'meta_title'        => '', //$request->meta_title,
-            'meta_description'  => '', //$request->meta_description,
+            'meta_title'        => $request->meta_title,
+            'meta_description'  => $request->meta_description,
             'meta_tag'          => '', //$request->meta_tag,
-            'meta_keyward'      => '', //$request->meta_keyward
+            'meta_keyward'      => $request->meta_keyword
         ]);
         if($request['image'] != null || $request['image'] != '') {
 
@@ -262,7 +272,7 @@ class PropertyController extends Controller
             }
         }
         if(is_array($request->image_gallery)) {
-
+            PropertyImageGallery::where('property_id', $property->id)->delete();
             foreach ($request->image_gallery as $gallery) {
                 $photo = (isset($gallery) && $gallery != "") ? $gallery : "";
                 if ($photo != "") {

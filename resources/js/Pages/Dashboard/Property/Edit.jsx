@@ -5,7 +5,7 @@ import LayoutDashboard from '../LayoutDashboard';
 import Select from "react-select";
 
 
-const Create = ({locations, types, features, properties}) => {
+const Create = ({locations, types, features, properties, extraData}) => {
   
   const [checked, setChecked] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState();
@@ -43,7 +43,7 @@ rating:properties.rating || "",
 share_count:properties.share_count || "",
 call_count:properties.call_count ||"",
 feature_id: [],
-image_gallery: [],
+image_gallery:properties.image_galleries || [],
 
 visitor_count:properties.visitor_count ||"",
 status:properties.status ||"",
@@ -51,12 +51,12 @@ publisher_status:properties.publisher_status || "",
 recived_count: properties.recived_count || "",
 image: "",
 video_link:properties.video_link || "",
-'meta_title':"",
-'meta_description':"",
+meta_title:properties.meta_title || "",
+meta_description:properties.meta_description || "",
 'meta_tag':"",
-'meta_keyward':"",
-'featured' : []
+meta_keyword:properties.meta_keyward || "",
 });
+
 function handleSelect(data) {
   setSelectedOptions((e) => setData("location_id", [...data]));
 }
@@ -114,8 +114,8 @@ function submit(id) {
       <input type='text' className='hidden' name='id' value={properties.id || ""} onChange={(e) => setData("id", e.target.value)}/>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="title" type="text" name="title" placeholder="Property Title" 
                           errors={errors.title}
-												 value={properties.title}
-												onChange={(e) => setData("price", e.target.value)}/>
+												 value={data.title}
+												onChange={(e) => setData("title", e.target.value)}/>
     {errors && errors.title ? <div className="text-[red] py-2">{errors.title}</div> : null}
     </div>
   
@@ -125,7 +125,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="price" type="text" placeholder="Enter Price" name='price'
       errors={errors.price}
-      value={properties.price}
+      value={data.price}
       onChange={(e) => setData("price", e.target.value)}/>
       {errors && errors.price ? <div className="text-[red] py-2">{errors.price}</div> : null}
     </div>
@@ -144,7 +144,7 @@ function submit(id) {
        name='location_id' 
           options={locations}
           placeholder="Select Locations"
-          value={selectedOptions}
+          value={extraData.locations}
           onChange={handleSelect}
           isSearchable={true}
           isMulti
@@ -244,7 +244,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="city" type="text" placeholder="City" name='city'
        errors={errors.city}
-       value={properties.city}
+       value={data.city}
        onChange={(e) => setData("city", e.target.value)}
        />
     </div>
@@ -255,7 +255,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="zip_code" type="text" placeholder="Zip Code" name='zip_code'
        errors={errors.zip_code}
-       value={properties.zip_code}
+       value={data.zip_code}
        onChange={(e) => setData("zip_code", e.target.value)}
        />
     </div>
@@ -343,7 +343,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="unit_no" type="text" placeholder="unit_no" name='unit_no'
        errors={errors.unit_no}
-       value={properties.unit_no}
+       value={data.unit_no}
        onChange={(e) => setData("unit_no", e.target.value)}
        />
     </div>
@@ -395,7 +395,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" name='service_charge' id="service_charge" type="text" placeholder="Service Charge"
        errors={errors.service_charge}
-        value={properties.service_charge}
+        value={data.service_charge}
        onChange={(e) => setData("service_charge", e.target.value)}
        />
     </div>
@@ -413,7 +413,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="grage" type="text" placeholder="Grage" name='grage'
        errors={errors.grage}
-       value={properties.grage}
+       value={data.grage}
        onChange={(e) => setData("grage", e.target.value)}
        />
     </div>
@@ -424,7 +424,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="sqf" type="text" placeholder="Area of Size" name='sqf'
        errors={errors.sqf}
-       value={properties.sqf}
+       value={data.sqf}
        onChange={(e) => setData("sqf", e.target.value)}
        />
     </div>
@@ -438,7 +438,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="phone" type="text" placeholder="Mobile Number" name='phone'
        errors={errors.phone}
-       value={properties.phone}
+       value={data.phone}
        onChange={(e) => setData("phone", e.target.value)}
        />
     </div>
@@ -449,7 +449,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none f focus:border-gray-500" id="date" type="date" placeholder="Date" name='date'
        errors={errors.date}
-       value={properties.date}
+       value={data.date}
        onChange={(e) => setData("date", e.target.value)}
        />
     </div>
@@ -462,7 +462,7 @@ function submit(id) {
 
 <label for="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Address</label>
     <textarea id="address" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" name='address' errors={errors.address}
-         value={properties.address}
+         value={data.address}
        onChange={(e) => setData("address", e.target.value)}></textarea>
     </div>
     {errors && errors.address ? <div className="text-[red] py-2">{errors.address}</div> : null}
@@ -476,7 +476,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="map_link" type="text" placeholder="Map Link" name='map_link'
        errors={errors.map_link}
-       value={properties.map_link}
+       value={data.map_link}
        onChange={(e) => setData("map_link", e.target.value)}
        />
     </div>
@@ -487,7 +487,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="whatsapp_number" type="text" placeholder="Whatsapp Number" name='whatsapp_number'
        errors={errors.whatsapp_number}
-       value={properties.whatsapp_number}
+       value={data.whatsapp_number}
        onChange={(e) => setData("whatsapp_number", e.target.value)}
        />
     </div>
@@ -516,7 +516,7 @@ function submit(id) {
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="video_link" type="text" placeholder="Video Link" name='video_link'  
       errors={errors.video_link}
-      value={properties.video_link}
+      value={data.video_link}
         onChange={(e) => setData("video_link", e.target.value)}/>
     </div>
     {errors && errors.video_link ? <div className="text-[red] py-2">{errors.video_link}</div> : null}
@@ -573,16 +573,16 @@ function submit(id) {
        onChange={(e) => setData("image_gallery", [...e.target.files])}
        />
         <div className='flex flex-wrap'>
-       {properties.image_galleries && properties.image_galleries.map((i, index) => 
+       {data.image_gallery && data.image_gallery.map((i, index) => 
       <div className='flex p-2'>
        <img src={i.images} key={index}  style={{ width:"50px", marginLeft:"10px", marginBottom:"10px"}}/>
 
-       <input className="m-2 appearance-none flex bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="featured" type="text" placeholder="index Serial" name='featured'
+       {/* <input className="m-2 appearance-none flex bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="featured" type="text" placeholder="index Serial" name='featured'
        
        value={i.featured}
        onChange={(e) => setData("featured", e.target.value)}
-       />
-        <a className='py-5' href={route('propertyGallery.property.delete', i.id)}> delete </a>
+       /> */}
+        {/* <a className='py-5' href={route('propertyGallery.property.delete', i.id)}> delete </a> */}
       
         </div>
       
@@ -613,6 +613,40 @@ function submit(id) {
       </div>
     </div>
     {errors && errors.publisher_status ? <div className="text-[red] py-2">{errors.publisher_status}</div> : null}
+    <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
+       Meta Title
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="meta_title" type="text" name="meta_title" placeholder="Enter Meta Title" 
+                          errors={errors.meta_title}
+												 value={data.meta_title}
+												onChange={(e) => setData("meta_title", e.target.value)}/>
+      {errors && errors.meta_title ? <div className="text-[red] py-2">{errors.meta_title}</div> : null}
+    </div>
+  
+    <div className="w-full md:w-1/3 px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
+        Meta Keywords
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="meta_keyword" type="text" placeholder="Enter Meta Keyword" name='meta_keyword'
+      errors={errors.meta_keyword}
+       value={data.meta_keyword}
+      onChange={(e) => setData("meta_keyword", e.target.value)}/>
+       {errors && errors.meta_keyword ? <div className="text-[red] py-2">{errors.meta_keyword}</div> : null}
+    </div>
+    <div className="w-full md:w-1/3 px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
+        Meta Description
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="meta_description" type="text" placeholder="Enter Meta Description" name='meta_description'
+      errors={errors.meta_description}
+     value={data.meta_description}
+      onChange={(e) => setData("meta_description", e.target.value)}/>
+       {errors && errors.meta_description ? <div className="text-[red] py-2">{errors.meta_description}</div> : null}
+    </div>
+   
+  </div>
     {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
         Status

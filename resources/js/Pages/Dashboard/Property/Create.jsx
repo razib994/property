@@ -57,7 +57,7 @@ const Create = ({locations, types, features}) => {
     'meta_title':"",
     'meta_description':"",
     'meta_tag':"",
-    'meta_keyward':"",
+    'meta_keyword':"",
     });
 
     function handleSelect(data) {
