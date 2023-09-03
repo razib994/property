@@ -94,6 +94,29 @@ e.preventDefault();
         },
     });
 }
+
+const [selectedImages, setSelectedImages] = useState([]);
+
+const onSelectFile = (event) => {
+  const selectedFiles = event.target.files;
+  const selectedFilesArray = Array.from(selectedFiles);
+  const imagesArray = selectedFilesArray.map((file) => {
+    return URL.createObjectURL(file);
+  });
+  setData("image_gallery", [... selectedFiles]);
+  setSelectedImages((previousImages) => previousImages.concat(imagesArray));
+
+  // FOR BUG IN CHROME
+  event.target.value = "";
+ 
+  
+};
+
+function deleteHandler(image) {
+  setSelectedImages(selectedImages.filter((e) => e !== image));
+  URL.revokeObjectURL(image);
+}
+
     return (
         <>
             <div className="pt-6 px-4 ">
@@ -519,10 +542,67 @@ e.preventDefault();
     {errors && errors.video_link ? <div className="text-[red] py-2">{errors.video_link}</div> : null}
   </div>
 
+  <section className='central'>
+      <label>
+        + Add Images
+        <br />
+        <span>up to 20 images</span>
+        <input
+          type="file"
+          name="image_gallery"
+          onChange={onSelectFile}
+          multiple
+          accept="image/png , image/jpeg, image/webp"
+        />
+      </label>
+      <br />
 
+      <input type="file" multiple />
+
+      {selectedImages.length > 0 &&
+        (selectedImages.length > 20 ? (
+          <p className="error">
+            You can't upload more than 10 images! <br />
+            <span>
+              please delete <b> {selectedImages.length - 20} </b> of them{" "}
+            </span>
+          </p>
+        ) :null
+        //  (
+        //   <button
+        //     className="upload-btn"
+        //     onClick={() => {
+        //       console.log(selectedImages);
+        //     }}
+        //   >
+        //     UPLOAD {selectedImages.length} IMAGE
+        //     {selectedImages.length === 1 ? "" : "S"}
+        //   </button>
+        // )
+        )}
+
+      <div className="images grid grid-cols-4">
+        {selectedImages &&
+          selectedImages.map((image, index) => {
+            return (
+              <div key={image} className="image ">
+                <img src={image} height="200" alt="upload" />
+                <button onClick={() => deleteHandler(image)}>
+                  delete image
+                </button>
+                <p>  <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="featured" type="text" name="featured" placeholder="Featured" 
+												 value={index + 1}
+												onChange={(e) => setData("featured", e.target.value)}/>
+                        
+        </p>
+              </div>
+            );
+          })}
+      </div>
+    </section>
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
         Image
       </label>
@@ -536,9 +616,9 @@ e.preventDefault();
         {progress.percentage}%
       </progress> )}
       {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
-    </div>
+    </div> */}
   
-    <div className="w-full md:w-1/2 px-3">
+    {/* <div className="w-full md:w-1/2 px-3"> */}
     {/* <ProductImages
 											handleChange={handleChange}
 											errors={errors}
@@ -548,16 +628,16 @@ e.preventDefault();
 											template={PORODUCTIMAGE_PACKAGE()}
 										/> */}
 
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
+      {/* <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
-      </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
+      </label> */}
+      {/* <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
        errors={errors.image_gallery}
-       // value={data.email}
+        value={data.email}
        onChange={(e) => setData("image_gallery", [...e.target.files])}
        />
-         {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null}
-    </div>
+         {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null} */}
+    {/* </div> */}
   
   </div>
 

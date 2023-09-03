@@ -43,7 +43,7 @@ rating:properties.rating || "",
 share_count:properties.share_count || "",
 call_count:properties.call_count ||"",
 feature_id: [],
-image_gallery:properties.image_galleries || [],
+image_gallery: [],
 
 visitor_count:properties.visitor_count ||"",
 status:properties.status ||"",
@@ -92,11 +92,35 @@ e.preventDefault();
     });
 }
 
-function submit(id) {
+const [selectedImages, setSelectedImages] = useState([]);
+
+const onSelectFile = (event) => {
+  const selectedFiles = event.target.files;
+  const selectedFilesArray = Array.from(selectedFiles);
+  const imagesArray = selectedFilesArray.map((file) => {
+    return URL.createObjectURL(file);
+  });
+  setData("image_gallery", [... selectedFiles]);
+  setSelectedImages((previousImages) => previousImages.concat(imagesArray));
+
+  // FOR BUG IN CHROME
+  event.target.value = "";
+ 
   
-    router.post(route('propertyGallery.property.update', { id: id }));
-  
+};
+
+function deleteHandler(image) {
+  setSelectedImages(selectedImages.filter((e) => e !== image));
+  URL.revokeObjectURL(image);
 }
+
+function destroy(id) {
+  
+  if (confirm("Are you sure you want to delete this item?")) {
+    route(`gallery.image.delete`, { item: id });
+  }
+}
+
     return (
         <>
             <div className="pt-6 px-4 ">
@@ -563,37 +587,88 @@ function submit(id) {
      {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
     </div>
     {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}  */}
+     <section className='central px-4'>
+      <label>
+        + Add Images
+        <br />
+        <span>up to 20 images</span>
+        <input
+          type="file"
+          name="image_gallery"
+          onChange={onSelectFile}
+          multiple
+          accept="image/png , image/jpeg, image/webp"
+        />
+      </label>
+      <br />
+
+      <input type="file" multiple />
+
+      {selectedImages.length > 0 &&
+        (selectedImages.length > 20 ? (
+          <p className="error">
+            You can't upload more than 10 images! <br />
+            <span>
+              please delete <b> {selectedImages.length - 20} </b> of them{" "}
+            </span>
+          </p>
+        ) :null
+        //  (
+        //   <button
+        //     className="upload-btn"
+        //     onClick={() => {
+        //       console.log(selectedImages);
+        //     }}
+        //   >
+        //     UPLOAD {selectedImages.length} IMAGE
+        //     {selectedImages.length === 1 ? "" : "S"}
+        //   </button>
+        // )
+        )}
+
+      <div className="images grid grid-cols-4">
+        {selectedImages &&
+          selectedImages.map((image, index) => {
+            return (
+              <div key={image} className="image ">
+                <img src={image} height="200" alt="upload" />
+                <button onClick={() => deleteHandler(image)}>
+                  delete image
+                </button>
+                <p>  <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="featured" type="text" name="featured" placeholder="Featured" 
+												 value={index + 1}
+												onChange={(e) => setData("featured", e.target.value)}/>
+                        
+        </p>
+              </div>
+            );
+          })}
+      </div>
+    </section>
     <div className="w-full md:w-2/2 px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
+      {/* <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
         Multi Image
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
        errors={errors.image_gallery}
        // value={data.email}
        onChange={(e) => setData("image_gallery", [...e.target.files])}
-       />
+       /> */}
         <div className='flex flex-wrap'>
-       {data.image_gallery && data.image_gallery.map((i, index) => 
+       {properties.image_galleries && properties.image_galleries.map((i, index) => 
       <div className='flex p-2'>
        <img src={i.images} key={index}  style={{ width:"50px", marginLeft:"10px", marginBottom:"10px"}}/>
-
-       {/* <input className="m-2 appearance-none flex bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="featured" type="text" placeholder="index Serial" name='featured'
-       
-       value={i.featured}
-       onChange={(e) => setData("featured", e.target.value)}
-       /> */}
-        {/* <a className='py-5' href={route('propertyGallery.property.delete', i.id)}> delete </a> */}
+<a href={route('gallery.image.delete', i.id)}>delete</a>
       
         </div>
       
        )  }
         </div>
     </div>
-    {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null}
   </div>
 
   <div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+  <div className="w-full md:w-1/2 px-3 py-4 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
         Publisher
       </label>
@@ -613,7 +688,7 @@ function submit(id) {
       </div>
     </div>
     {errors && errors.publisher_status ? <div className="text-[red] py-2">{errors.publisher_status}</div> : null}
-    <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="flex flex-wrap mx-1 py-2 mb-6">
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
        Meta Title

@@ -47,7 +47,7 @@ class PropertyController extends Controller
 
     public function storeProperty(Request $request)
     {
-        // dd($request->location_id);
+        // dd($request->all());
 
         $request->validate([
             'title' => 'required',
@@ -111,14 +111,14 @@ class PropertyController extends Controller
             'meta_tag'          => '', //$request->meta_tag,
             'meta_keyward'      => $request->meta_keyword
         ]);
-        if($property->id) {
-            $galleriesData = new PropertyImageGallery();
-            $galleriesData->property_id = $property->id;
-            $galleriesData->images = '/'.$uploadPath.$photoFullName;
-            $galleriesData->featured = 0;
-            $galleriesData->save();
+        // if($property->id) {
+        //     $galleriesData = new PropertyImageGallery();
+        //     $galleriesData->property_id = $property->id;
+        //     $galleriesData->images = '/'.$uploadPath.$photoFullName;
+        //     $galleriesData->featured = 0;
+        //     $galleriesData->save();
 
-        }
+        // }
         if ($property->id) {
             foreach ($request->location_id as $location) {
                 $locations = new PropertyLocation();
@@ -192,7 +192,7 @@ class PropertyController extends Controller
 
     public function updateProperty(Request $request)
     {
-
+        // dd($request->all());
 
         $request->validate([
             'title'             => 'required',
@@ -248,33 +248,35 @@ class PropertyController extends Controller
             'meta_tag'          => '', //$request->meta_tag,
             'meta_keyward'      => $request->meta_keyword
         ]);
-        if($request['image'] != null || $request['image'] != '') {
+        // if($request['image'] != null || $request['image'] != '') {
 
-            $photo = (isset($request['image']) && $request['image'] != "") ? $request['image'] : "";
-            if ($photo != "") {
-                $ext                    = $photo->getClientOriginalExtension();
-                $photoFullName          = time().$photo->getClientOriginalName();
-                $uploadPath             = 'images/';
-                $success                = $photo->move($uploadPath, $photoFullName);
-            }
-            $galleriesData = new PropertyImageGallery();
-            $galleriesData->property_id = $request->id;
-            $property->image = '/'.$uploadPath.$photoFullName;
-            $property->save();
-        }
-        if(is_array($request->feature_id)) {
-            FeatureProperty::where('property_id', $property->id)->delete();
-            foreach ($request->feature_id as $feature) {
-                $featureData                = new FeatureProperty();
-                $featureData->property_id   = $property->id;
-                $featureData->feature_id    = $feature;
-                $featureData->save();
-            }
-        }
+        //     $photo = (isset($request['image']) && $request['image'] != "") ? $request['image'] : "";
+        //     if ($photo != "") {
+        //         $ext                    = $photo->getClientOriginalExtension();
+        //         $photoFullName          = time().$photo->getClientOriginalName();
+        //         $uploadPath             = 'images/';
+        //         $success                = $photo->move($uploadPath, $photoFullName);
+        //     }
+        //     $galleriesData = new PropertyImageGallery();
+        //     $galleriesData->property_id = $request->id;
+        //     $property->image = '/'.$uploadPath.$photoFullName;
+        //     $property->save();
+        // }
+        // if(is_array($request->feature_id)) {
+        //     //   FeatureProperty::where('property_id', $property->id)->delete();
+        //     foreach ($request->feature_id as $feature) {
+        //         $featureData                = new FeatureProperty();
+        //         $featureData->property_id   = $property->id;
+        //         $featureData->feature_id    = $feature;
+        //         $featureData->save();
+        //     }
+        // }
         if(is_array($request->image_gallery)) {
-            PropertyImageGallery::where('property_id', $property->id)->delete();
+            $max = PropertyImageGallery::where('property_id', $property->id)->max('featured');
+
             foreach ($request->image_gallery as $gallery) {
                 $photo = (isset($gallery) && $gallery != "") ? $gallery : "";
+
                 if ($photo != "") {
                     $ext                        = $photo->getClientOriginalExtension();
                     $gallerFullName             = time().$photo->getClientOriginalName();
@@ -284,7 +286,7 @@ class PropertyController extends Controller
                 $galleriesData = new PropertyImageGallery();
                 $galleriesData->property_id = $property->id;
                 $galleriesData->images = '/'.$uploadPath.$gallerFullName;
-                // $galleriesData->featured = 0;
+                $galleriesData->featured = ++$max ;
                 $galleriesData->save();
             }
         }
@@ -320,6 +322,12 @@ class PropertyController extends Controller
         return redirect('/property-list');
     }
     public function propertyGallerydestroy($id)
+    {
+        $gallery = PropertyImageGallery::find($id);
+        $gallery->delete();
+        return redirect('/property-list');
+    }
+    public function imageDestroy($id)
     {
         $gallery = PropertyImageGallery::find($id);
         $gallery->delete();

@@ -10,10 +10,11 @@ const RequestFrom = ({property_id="", slug="", location="", title=""}) => {
     email: "",
     phone: "",
     property_slug: slug||"",
-    message: `Hello, I am interested in [${title}]`,
+    message: `Hello, I am interested in [${property_id}]`,
     date: "",
     status: "",
     title: title,
+    property_id: property_id,
     location: location.location_name,
 });
 
@@ -64,7 +65,7 @@ e.preventDefault();
             {errors.phone && <span className='text-red-700'>{errors.phone}</span>}
               </div>
               <div className="py-2">
-                <textarea placeholder="Message" type="text" name='message' value={title ? `Hello, I am interested in [${title}]`:''}  onChange={(e) => setData("message", e.target.value)}
+                <textarea placeholder="Message" type="text" name='message' value={property_id ? `Hello, I am interested in [${property_id}]`:''}  onChange={(e) => setData("message", e.target.value)}
                   className="text-md block px-3 py-20  rounded-lg w-full 
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"/>
              {errors.message && <span className='text-red-700'>{errors.message}</span>}
