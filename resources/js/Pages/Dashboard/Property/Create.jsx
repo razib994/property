@@ -541,8 +541,43 @@ function deleteHandler(image) {
     </div>
     {errors && errors.video_link ? <div className="text-[red] py-2">{errors.video_link}</div> : null}
   </div>
+  <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
+       Main Image
+      </label>
+      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="image" type="file" name="image" placeholder="image"  
+      errors={errors.image}
+         //value={data.image}
+        onChange={(e) => setData("image",  e.target.files[0])}
+        />
+    {progress && (
+      <progress value={progress.percentage} max="100">
+        {progress.percentage}%
+      </progress> )}
+      {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
+    </div>
+  
+    <div className="w-full md:w-1/2 px-3">
+    {/* <ProductImages
+											handleChange={handleChange}
+											errors={errors}
+											values={values}
+											setValues={setValues}
+											extraData={extraData}
+											template={PORODUCTIMAGE_PACKAGE()}
+										/> */}
 
-  <section className='central'>
+      {/* <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
+        Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
+      </label> */}
+      {/* <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
+       errors={errors.image_gallery}
+        value={data.email}
+       onChange={(e) => setData("image_gallery", [...e.target.files])}
+       />
+         {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null} */}
+    <section className='central'>
       <label>
         + Add Images
         <br />
@@ -600,46 +635,12 @@ function deleteHandler(image) {
           })}
       </div>
     </section>
-
-  <div className="flex flex-wrap -mx-3 mb-6">
-    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
-        Image
-      </label>
-      <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="image" type="file" name="image" placeholder="image"  
-      errors={errors.image}
-         //value={data.image}
-        onChange={(e) => setData("image",  e.target.files[0])}
-        />
-    {progress && (
-      <progress value={progress.percentage} max="100">
-        {progress.percentage}%
-      </progress> )}
-      {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}
-    </div> */}
-  
-    {/* <div className="w-full md:w-1/2 px-3"> */}
-    {/* <ProductImages
-											handleChange={handleChange}
-											errors={errors}
-											values={values}
-											setValues={setValues}
-											extraData={extraData}
-											template={PORODUCTIMAGE_PACKAGE()}
-										/> */}
-
-      {/* <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image_gallery">
-        Property Images (<small style={{ color : "red"}}> Main Image absolute one number  </small>)
-      </label> */}
-      {/* <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500" id="image_gallery" multiple type="file" placeholder="Image Gallery" name='image_gallery'
-       errors={errors.image_gallery}
-        value={data.email}
-       onChange={(e) => setData("image_gallery", [...e.target.files])}
-       />
-         {errors && errors.image_gallery ? <div className="text-[red] py-2">{errors.image_gallery}</div> : null} */}
-    {/* </div> */}
+    </div>
   
   </div>
+  
+
+  
 
   <div className="flex flex-wrap -mx-3 mb-6">
   <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

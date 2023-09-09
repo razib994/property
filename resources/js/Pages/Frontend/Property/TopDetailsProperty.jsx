@@ -1,8 +1,4 @@
 import Tabs from '../Tabs';
-import Address from './Address';
-import Details from './Details';
-import Feature from './Feature';
-import Overview from './Overview';
 import RequestFrom from './RequestFrom';
 import SimilerProperty from './SimilerProperty';
 import SliderImage from './SliderImage';
@@ -13,7 +9,7 @@ const TopDetailsProperty = ({property, similarProperty, message, errors}) => {
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 200 && window.scrollY < 2200) {
-                setShowTopBtn("fixed w-[30%] top-[150px]");
+                setShowTopBtn("fixed w-[25%] px-1 top-[150px]");
             }  else {
               setShowTopBtn("");
             }

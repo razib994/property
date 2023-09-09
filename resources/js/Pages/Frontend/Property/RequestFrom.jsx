@@ -41,7 +41,7 @@ e.preventDefault();
   <div className="font-sans" > 
   <div className="">
     <div className="relative z-1 flex flex-wrap">
-      <div className="w-full relative mx-auto bg-gray-50">
+      <div className="w-[92%] relative mx-auto bg-gray-50">
         <img className='p-4' src="/logo/logo.png"  width={250} height={1000}/>
         <p className="px-5">Enquery About this Property.</p>
         <div className="mt-6">

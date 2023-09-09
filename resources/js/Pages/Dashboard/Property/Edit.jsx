@@ -571,9 +571,9 @@ function destroy(id) {
   </div> */}
 
   <div className="flex flex-wrap -mx-3 mb-6">
-    {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
-        Image
+        Main Image
       </label>
       <input className="appearance-none block w-full bg-gray-50 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="image" type="file" name="image" placeholder="image"  
       errors={errors.image}
@@ -584,9 +584,8 @@ function destroy(id) {
       <progress value={progress.percentage} max="100">
         {progress.percentage}%
       </progress> )}
-     {properties.image ? (<img src={properties.image} style={{ width:"25%"}}/>):null} 
     </div>
-    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null}  */}
+    {errors && errors.image ? <div className="text-[red] py-2">{errors.image}</div> : null} 
      <section className='central px-4'>
       <label>
         + Add Images

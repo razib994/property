@@ -16,7 +16,7 @@ const PropertyDetails = ({property, similarProperty, locations}) => {
             <Advanced locations={locations} />
             </div>
             </section>
-            <section >
+            <section className='w-[90%] mx-auto'>
                
            <TopDetailsProperty property={property} similarProperty={similarProperty} message={flash} errors={errors}/> 
            </section>

@@ -56,7 +56,7 @@
   100% { transform: translateY(-15px); }
 }
 .myfirst .swiper-slide img {
-  height: 600px;
+  height: 580px;
   background-size: cover;
   width: 100%;
   margin-bottom: 10px;
@@ -123,13 +123,13 @@
 @media screen and (max-device-width: 640px)
     and (orientation: landscape) {
       .myfirst .swiper-slide img {
-        height: 200px;
+        height: 250px;
         background-size: cover;
         width: 100%;
         margin-bottom: 10px;
       }
       .myterm .swiper-slide img {
-        height: 80px;
+        height: 90px;
         background-size: cover;
         width: 100%;
         margin-bottom: 10px;
@@ -140,13 +140,13 @@
 @media screen
     and (max-device-width: 640px) {
       .myfirst .swiper-slide img {
-        height: 200px;
+        height: 250px;
         background-size: cover;
         width: 100%;
         margin-bottom: 10px;
       }
       .myterm .swiper-slide img {
-        height:80px;
+        height:70px;
         background-size: cover;
         width: 100%;
         margin-bottom: 10px;
