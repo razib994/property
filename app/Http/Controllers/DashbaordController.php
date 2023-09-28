@@ -30,7 +30,7 @@ class DashbaordController extends Controller
                 'id'        => $item->id,
                 'name'     => $item->name,
                 'phone'       => $item->phone,
-                'property_title'     => $item->property->title,
+                'property_title'     => $item->property ? $item->property->title : "",
                 'date'      => $item->date,
             ];
         });
@@ -54,7 +54,7 @@ class DashbaordController extends Controller
     {
         $property_request = PropertyRequest::where('status', 1)->orderBy('id', 'desc')->get();
         return Inertia::render('Dashboard/RequestProperty/RequestProperty', [
-            'property_request'=> $property_request,
+            'property_request' => $property_request,
         ]);
     }
 

@@ -86,12 +86,20 @@ let data =
   ] 
 }
 
-  
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-VC9DVMV1CJ');
   
 const  Home = ({ locations}) =>{
+  
   return (
     <>
     <Head>
+     {/* Google tag (gtag.js) */}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VC9DVMV1CJ"></script>
+
   <title>Furnished Apartment for Rent in Dhaka | Furhouz </title>
   <meta name="title" content="Furnished Apartment for Rent in Dhaka | Furhouz"/>
   <meta name="description" content="Looking for a furnished apartment for rent in Dhaka? 200+ verified listings available on here. Furhouz is the best Furnished Apartmen Rental Expert in Dhaka"/>

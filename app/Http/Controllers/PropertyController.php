@@ -9,13 +9,12 @@ use App\Models\Property;
 use App\Models\PropertyImageGallery;
 use App\Models\PropertyLocation;
 use App\Models\Type;
-use Database\Seeders\PropertyImageGallerySeeder;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Image;
 
 use function Termwind\render;
 
@@ -62,10 +61,24 @@ class PropertyController extends Controller
         ]);
         $photo = (isset($request['image']) && $request['image'] != "") ? $request['image'] : "";
         if ($photo != "") {
-            $ext                    = $photo->getClientOriginalExtension();
-            $photoFullName          = time().$photo->getClientOriginalName();
+            // $ext                    = $photo->getClientOriginalExtension();
+            $photoFullName          = time() . $photo->getClientOriginalName();
             $uploadPath             = 'images/';
-            $success                = $photo->move($uploadPath, $photoFullName);
+
+            $input['file'] = time() . '.' . $photo->getClientOriginalExtension();
+            $imgFile = Image::make($photo->getRealPath());
+            $imgFile->text('FURHOUZ', 800, 200, function ($font) {
+                $font->size(50);
+
+                $font->color('#D62E09');
+                $font->align('center');
+                $font->valign('bottom');
+
+                $font->angle(90);
+            })->save(public_path('/images') . '/' . $input['file']);
+            // $success                = $photo->move($uploadPath, $photoFullName);
+
+
         }
         $property = Property::create([
             'title'             => $request->title,
@@ -114,7 +127,8 @@ class PropertyController extends Controller
         if($property->id) {
             $galleriesData = new PropertyImageGallery();
             $galleriesData->property_id = $property->id;
-            $galleriesData->images = '/'.$uploadPath.$photoFullName;
+
+            $galleriesData->images = '/' . $uploadPath . $input['file'];
             $galleriesData->featured = 0;
             $galleriesData->save();
 
@@ -129,7 +143,7 @@ class PropertyController extends Controller
         }
         if ($property->id) {
             $property = Property::find($property->id);
-            $property->property_id = 'FH100251'.$property->id;
+            $property->property_id = 'FH100251' . $property->id;
             $property->update();
             if(is_array($request->feature_id)) {
                 foreach ($request->feature_id as $feature) {
@@ -146,13 +160,13 @@ class PropertyController extends Controller
             $photo = (isset($gallery) && $gallery != "") ? $gallery : "";
             if ($photo != "") {
                 $ext                    = $photo->getClientOriginalExtension();
-                $gallerFullName          = time().$photo->getClientOriginalName();
+                $gallerFullName          = time() . $photo->getClientOriginalName();
                 $uploadPath             = 'images/';
                 $success                = $photo->move($uploadPath, $gallerFullName);
             }
             $galleriesData = new PropertyImageGallery();
             $galleriesData->property_id = $property->id;
-            $galleriesData->images = '/'.$uploadPath.$gallerFullName;
+            $galleriesData->images = '/' . $uploadPath . $gallerFullName;
             $galleriesData->featured = $key + 1;
             $galleriesData->save();
         }
@@ -209,7 +223,7 @@ class PropertyController extends Controller
         $property->update([
             'title'             => $request->title,
             'slug'              => Str::slug($request->title) ,
-            'location_id'       => $request->location_id,
+
             'price'             => $request->price,
             'type_id'           => $request->type_id,
             'bed'               => $request->bed,
@@ -248,20 +262,53 @@ class PropertyController extends Controller
             'meta_tag'          => '', //$request->meta_tag,
             'meta_keyward'      => $request->meta_keyword
         ]);
+
+        if(is_array($request->location_id)) {
+            if ($property->id) {
+                PropertyLocation::where('property_id', $property->id)->delete();
+                foreach ($request->location_id as $location) {
+
+                    $locations = new PropertyLocation();
+                    $locations->property_id   = $property->id;
+                    $locations->location_id    = $location['value'];
+                    $locations->save();
+                }
+            }
+        }
+
+
         if($request['image'] != null || $request['image'] != '') {
 
             $photo = (isset($request['image']) && $request['image'] != "") ? $request['image'] : "";
             if ($photo != "") {
                 $ext                    = $photo->getClientOriginalExtension();
-                $photoFullName          = time().$photo->getClientOriginalName();
+                $photoFullName          = time() . $photo->getClientOriginalName();
                 $uploadPath             = 'images/';
                 $success                = $photo->move($uploadPath, $photoFullName);
             }
             $galleriesData = PropertyImageGallery::where('property_id', $request->id)->where('featured', 0)->first(); // new PropertyImageGallery();
+            if(is_null($galleriesData)) {
+                PropertyImageGallery::create([
+                    'property_id' => $request->id,
+                    'images' => '/' . $uploadPath . $photoFullName,
+                    'featured' => '0'
 
-            $galleriesData->property_id = $request->id;
-            $galleriesData->images = '/'.$uploadPath.$photoFullName;
-            $galleriesData->update();
+                ]);
+                $images = PropertyImageGallery::where('property_id', $request->id)->whereNull('featured')->get();
+                //  dd($images);
+                foreach($images as $key => $image) {
+
+                    $image->featured = $key + 1;
+                    $image->update();
+
+                }
+
+            } else {
+                $galleriesData->property_id = $request->id;
+                $galleriesData->images = '/' . $uploadPath . $photoFullName;
+                $galleriesData->update();
+            }
+
 
         }
         // if(is_array($request->feature_id)) {
@@ -281,13 +328,13 @@ class PropertyController extends Controller
 
                 if ($photo != "") {
                     $ext                        = $photo->getClientOriginalExtension();
-                    $gallerFullName             = time().$photo->getClientOriginalName();
+                    $gallerFullName             = time() . $photo->getClientOriginalName();
                     $uploadPath                 = 'images/';
                     $success                    = $photo->move($uploadPath, $gallerFullName);
                 }
                 $galleriesData = new PropertyImageGallery();
                 $galleriesData->property_id = $property->id;
-                $galleriesData->images = '/'.$uploadPath.$gallerFullName;
+                $galleriesData->images = '/' . $uploadPath . $gallerFullName;
                 $galleriesData->featured = ++$max ;
                 $galleriesData->save();
             }

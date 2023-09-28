@@ -56,7 +56,7 @@ meta_description:properties.meta_description || "",
 'meta_tag':"",
 meta_keyword:properties.meta_keyward || "",
 });
-
+console.log(data)
 function handleSelect(data) {
   setSelectedOptions((e) => setData("location_id", [...data]));
 }
@@ -168,7 +168,7 @@ function destroy(id) {
        name='location_id' 
           options={locations}
           placeholder="Select Locations"
-          value={extraData.locations}
+          value={selectedOptions}
           onChange={handleSelect}
           isSearchable={true}
           isMulti

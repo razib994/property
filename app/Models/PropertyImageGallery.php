@@ -11,6 +11,7 @@ class PropertyImageGallery extends Model
     protected $fillable = [
         'property_id',
         'images',
+        'featured',
         'status'
     ];
 }

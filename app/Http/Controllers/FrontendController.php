@@ -263,7 +263,7 @@ class FrontendController extends Controller
         })
        ->orderBy('id', 'desc')->paginate(8);
         $logo = TopHeader::orderBy('id', 'desc')->first();
-        // return ($property);
+        //return $location_name;
         // // die();
         return Inertia::render("LocationProperty", [
             'properties' => $property,
@@ -284,6 +284,7 @@ class FrontendController extends Controller
 
     public function propertyRequest(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'name' => 'required',
             'phone' => 'required',

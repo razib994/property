@@ -12,7 +12,10 @@ function classNames(...classes) {
 export default function Tabs({property}) {
   let [categories] = useState({
     Overview: [
-     <Overview property={property}/>
+     <Overview property={property}/>,
+     <Address property={property}/>,
+     <Details property={property}/>,
+     <Feature featurese={property.features}/>
     ],
     Address: [
      <Address property={property}/>

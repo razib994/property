@@ -8,6 +8,7 @@ import Baridhara from './Frontend/location/Baridhara';
 import { Head } from '@inertiajs/inertia-react';
 import Bashundhara from './Frontend/location/Bashundhara';
 import Pagination from './Frontend/pagination/Pagination';
+import LuxuryApartment from './Frontend/location/LuxuryApartment';
 
 let gulshan = 
 {
@@ -180,6 +181,7 @@ Find the perfect home for you. Search all available properties and find the one 
 
 
 </div>
+{console.log(location_name)}
 <div className='mx-auto w-[90%] items-end justify-center'><Pagination links={properties.links} /></div>
 {/* <div className="text-center items-center w-[92%] mx-auto pt-5">
 <button className="p-2 border rounded-md bg-gray-800 text-white">Load More</button>
@@ -188,7 +190,7 @@ Find the perfect home for you. Search all available properties and find the one 
 
             {location_name == 'Gulshan' ? (
           <Gulshan/> ):location_name == 'Banani' ? (
-          <Banani/>) : location_name == 'Baridhara' ? (<Baridhara/>):location_name == 'bashundhara' ? (<Bashundhara/>): null }
+          <Banani/>) : location_name == 'Baridhara' ? (<Baridhara/>):location_name == 'bashundhara' ? (<Bashundhara/>):location_name == 'Luxury Apartments' ?(<LuxuryApartment/>): null }
 </section>
         </>
     );
